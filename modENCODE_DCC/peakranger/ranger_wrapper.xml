@@ -1,0 +1,254 @@
+<tool id="modencode_peakcalling_ranger" name="PeakRanger" version="1.16">
+  <description>multi-purpose, ultrafast ChIP Seq peak caller</description>
+  <command interpreter="python">ranger_wrapper.py $options_file $outputs_file</command>
+  <requirements>
+    <requirement type="package">peakranger</requirement>
+  </requirements>
+  <inputs>
+    <param name="experiment_name" type="text" value="PeakRanger in Galaxy" size="50" label="Experiment Name"/>    
+
+    <conditional name="major_command">
+      <param name="major_command_selector" type="select" label="Select action to be performed">
+        <option value="nr">Estimate data quality (nr)</option>
+        <option value="lc">Calculate library complexity (lc)</option>
+        <option value="wig">Generate coverage wiggle file (wig)</option>
+        <option value="wigpe">Generate coverage wiggle file using block models (wigpe)</option>
+        <option value="ranger">Peak calling for sharp peaks (ranger)</option>
+        <option value="ccat">Peak calling for broad peaks (ccat)</option>
+      </param>
+      <when value="nr">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+        <param name="input_control_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Control File" />
+
+        <param name="extension" type="integer" value="200" label="Read extension length" help="default=200 (-l)"/>
+      </when>
+      <when value="lc">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+      </when>
+      <when value="wig">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+
+        <param name="extension" type="integer" value="200" label="Read extension length" help="default=200 (-l)"/>
+
+        <param name="split" truevalue="-s" falsevalue="" type="boolean" checked="False" label="Generate one wig file per chromosome" help="output will be in .zip format (-s)"/>
+        <param name="strand" truevalue="-x" falsevalue="" type="boolean" checked="False" label="Generate one wig file per strand" help="output will be in .zip format (-x)"/>
+        <param name="gzip" truevalue="-z" falsevalue="" type="boolean" checked="False" label="Compress the output" help="(-z)"/>
+      </when>
+      <when value="wigpe">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+
+        <param name="extension" type="integer" value="0" label="Read extension length" help="default=0 (-l)"/>
+
+        <param name="split" truevalue="-s" falsevalue="" type="boolean" checked="False" label="Generate one wig file per chromosome" help="(-s)"/>
+        <param name="strand" truevalue="-x" falsevalue="" type="boolean" checked="False" label="Generate one wig file per strand" help="(-x)"/>
+        <param name="gzip" truevalue="-z" falsevalue="" type="boolean" checked="False" label="Compress the output" help="(-z)"/>
+      </when>
+      <when value="ranger">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+        <param name="input_control_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Control File" />
+
+	<conditional name="gene_annotate_file">
+	  <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
+	    <option value="dm3refGene.txt">dm3refGene.txt</option>
+	    <option value="hg19refGene.txt">hg19refGene.txt</option>
+	    <option value="mm9refGene.txt">mm9refGene.txt</option>
+	    <option value="Upload">Select from history</option>
+	    <option value="None">None</option>
+	  </param>
+	  <when value="upload">
+            <param name="usr_annot_file" type="data" format="txt" label="Select gene annotation file" />
+	  </when>
+	</conditional>
+ 	<param name="threads" type="integer" value="1" label="Number of threads" help="default=1 (-t)"/>
+	<param name="plot_region" type="integer" value="6000" label="The length of the snapshot region in the HTML report" help="(--plot_region)"/>
+        <param name="extension" type="integer" value="200" label="Read extension length" help="default=200 (-l)"/>
+	<param name="pvalue" type="float" value="0.0001" label="p-value cut-off" help="default=0.0001 (-p)"/>
+	<param name="fdr" type="float" value="0.01" label="FDR cut-off" help="default=0.01 (-p)"/>
+ 	<param name="delta" type="integer" value="1" label="Sensitivity of the summit detector" help="default=1 (-r)"/>
+        <param name="bandwith" type="integer" value="99" label="Smoothing bandwith" help="default=99 (-b)"/>
+
+        <param name="pad" truevalue="--pad" falsevalue="" type="boolean" checked="False" label="Pad read coverage profile to avoid false positive summits" help="(--pad)"/>
+      </when>
+      <when value="ccat">
+        <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
+        <param name="input_control_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Control File" />
+
+	<conditional name="gene_annotate_file">
+	  <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
+	    <option value="dm3refGene.txt">dm3refGene.txt</option>
+	    <option value="hg19refGene.txt">hg19refGene.txt</option>
+	    <option value="mm9refGene.txt">mm9refGene.txt</option>
+	    <option value="Upload">Select from history</option>
+	    <option value="None">None</option>
+	  </param>
+	  <when value="upload">
+            <param name="usr_annot_file" type="data" format="txt" label="Select gene annotation file" />
+	  </when>
+	</conditional>
+        <param name="plot_region" type="integer" value="6000" label="Read extension length" help="default=6000 (--plot_region)"/>
+        <param name="extension" type="integer" value="100" label="Read extension length" help="default=100 (-l)"/>
+        <param name="fdr" type="float" value="0.11" label="FDR cut-off" help="default=0.11 (-q)"/>
+        <param name="winsize" type="integer" value="500" label="Sliding window size" help="default=500 (--win_size)"/>
+        <param name="winstep" type="integer" value="50" label="Window moving step" help="default=50 (--win_step)"/>
+        <param name="mincount" type="integer" value="4" label="Minimum window reads count" help="default=4 (--min_count)"/>
+        <param name="minscore" type="integer" value="5" label="Minimum window reads fold change" help="default=5 (--min_score)"/>
+      </when>
+    </conditional>
+  </inputs>
+
+  <outputs>
+    <data name="output_ranger_file" format="txt" label="${tool.name}: ${major_command.major_command_selector} on ${on_string}">
+        <filter>major_command['major_command_selector'] == 'nr' or major_command['major_command_selector'] == 'lc' or major_command['major_command_selector'] == 'ccat'</filter>
+    </data>
+    <data name="output_wigzip_file" format="wig, zip" label="${tool.name}: ${major_command.major_command_selector} on ${on_string}">
+        <filter>major_command['major_command_selector'] == 'wig' or major_command['major_command_selector'] == 'wigpe'</filter>
+    </data>
+    <data name="output_summit_file" format="bed" label="${tool.name}: ${major_command.major_command_selector} on ${on_string} (summit)">
+        <filter>major_command['major_command_selector'] == 'ranger' or major_command['major_command_selector'] == 'ccat'</filter>
+    </data>
+    <data name="output_region_file" format="bed" label="${tool.name}: ${major_command.major_command_selector} on ${on_string} (region)">
+        <filter>major_command['major_command_selector'] == 'ranger' or major_command['major_command_selector'] == 'ccat'</filter>
+    </data>
+    <data name="output_details_file" format="txt" label="${tool.name}: ${major_command.major_command_selector} on ${on_string} (details)">
+        <filter>major_command['major_command_selector'] == 'ranger' or major_command['major_command_selector'] == 'ccat'</filter>
+    </data>
+    <data name="output_report_file" format="zip" label="${tool.name}: ${major_command.major_command_selector} on ${on_string} (html report)">
+        <filter>major_command['major_command_selector'] == 'ranger' or major_command['major_command_selector'] == 'ccat'</filter>
+        <filter>major_command['gene_annotate_file']['gene_annotate_file_selector'] != 'None'</filter>
+    </data>
+  </outputs>
+
+  <configfiles>
+    <configfile name="outputs_file">&lt;%
+import simplejson
+%&gt;
+##=======================================================================================
+#set $__outputs = { 'command':str( $major_command.major_command_selector ) }
+#if str( $major_command.major_command_selector ) == 'nr' or str( $major_command.major_command_selector ) == 'lc':
+        #set $__outputs['output_ranger_file'] = str( $output_ranger_file )
+#end if
+##=======================================================================================
+#if str( $major_command.major_command_selector ) == 'wig' or str( $major_command.major_command_selector ) == 'wigpe':
+        #set $__outputs['output_wigzip_file'] = str( $output_wigzip_file )
+#end if
+##=======================================================================================
+#if str( $major_command.major_command_selector ) == 'ranger' or str( $major_command.major_command_selector ) == 'ccat':
+        #set $__outputs['output_summit_file'] = str( $output_summit_file )
+        #set $__outputs['output_region_file'] = str( $output_region_file )
+        #set $__outputs['output_details_file'] = str( $output_details_file )
+        #set $__outputs['output_report_file'] = str( $output_report_file )
+        #set $__outputs['output_ranger_file'] = str( $output_ranger_file )
+#end if
+##=======================================================================================
+${ simplejson.dumps( __outputs ) }
+    </configfile>
+    <configfile name="options_file">&lt;%
+import simplejson
+%&gt;
+#set $__options = { 'experiment_name':str($experiment_name), 'action':str( $major_command.major_command_selector ) }
+
+##=============================================================================
+#if str($major_command.major_command_selector) == 'nr':
+	#set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+       	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+
+	#set $__options['extension'] = str( $major_command.extension )
+#end if
+##=============================================================================
+##if str($major_command.major_command_selector) == 'lc':
+        #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+##end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'wig' or str($major_command.major_command_selector) == 'wigpe':
+        #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+
+        #set $__options['extension'] = str( $major_command.extension )
+        #set $__options['split'] = str( $major_command.split )
+        #set $__options['strand'] = str( $major_command.strand)
+        #set $__options['gzip'] = str( $major_command.gzip )
+#end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'ranger':
+        #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+       	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+
+        #set $__options['gene_annotate_file'] = str( $major_command.gene_annotate_file.gene_annotate_file_selector )
+	#if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
+		#set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
+	#end if
+
+        #set $__options['plot_region'] = str( $major_command.plot_region )
+        #set $__options['pvalue'] = str( $major_command.pvalue )
+        #set $__options['fdr'] = str( $major_command.fdr )
+        #set $__options['extension'] = str( $major_command.extension )
+        #set $__options['delta'] = str( $major_command.delta )
+	#set $__options['threads'] = str( $major_command.threads )
+        #set $__options['bandwith'] = str( $major_command.bandwith )
+        #set $__options['pad'] = str( $major_command.pad )
+#end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'ccat':
+        #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+      	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+
+        #set $__options['gene_annotate_file'] = str( $major_command.gene_annotate_file.gene_annotate_file_selector )
+	#if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
+		#set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
+	#end if
+
+        #set $__options['plot_region'] = str( $major_command.plot_region )
+        #set $__options['fdr'] = str( $major_command.fdr )
+        #set $__options['extension'] = str( $major_command.extension )
+        #set $__options['winsize'] = str( $major_command.winsize )
+        #set $__options['winstep'] = str( $major_command.winstep )
+        #set $__options['mincount'] = str( $major_command.mincount )
+        #set $__options['minscore'] = str( $major_command.minscore )
+#end if
+##=============================================================================
+${ simplejson.dumps( __options ) }
+    </configfile>
+  </configfiles>
+  <tests>
+	<!--none yet for macs2-->
+  </tests>
+  <help>
+**What it does**
+
+PeakRanger is a multi-purporse software suite for analyzing next-generation sequencing (NGS) data. The suite contains the following tools:
+
+View the modified PeakRanger documentation: http://ranger.sourceforge.net/manualv116.html#introduction
+
+------
+
+**Usage**
+
+**nr:** noise rate estimator. Estimates signal to noise ratio which is an indicator for ChIP enrichment
+
+**lc:** library complexity calculator. Calculates the ratio of unique reads over total reads. Only accepts bam files.
+
+**wig:** coverage file generator. Generates variable step format wiggle file
+
+**wigpe:** coverage file generator. Generates bedGraph format wiggle file and supports spliced alignments and thus only supports bam files
+
+        wigpe can also generate coverage files for bam files containing spliced reads, such as those from RNA-Seq experiments.
+
+**ranger:** ChIP-Seq peak caller. It is able to identify enriched genomic regions while at the same time discover summits within these regions.
+
+**ccat:** ChIP-Seq peak caller. Tuned for the discovery of broad peaks
+
+        Both ranger and ccat supports generating HTML-based annotation reports.
+
+------
+
+**Citation**
+
+If you use PeakRanger in your research, please cite:
+Feng X, Grossman R, Stein L: PeakRanger:A cloud-enabled peak caller for ChIP-seq data.BMC Bioinformatics 2011, 12(1):139.
+
+if you use the ccat tool, please also cite:
+Xu, H., L. Handoko, et al. (2010).A signal-noise model for significance analysis of ChIP-seq with negative control.Bioinformatics 26(9): 1199-1204.
+
+
+Integration of PeakRanger with Galaxy performed by Ziru Zhou ( ziruzhou@gmail.com ). Please send your comments/questions to help@modencode.org.
+  </help>
+</tool>

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/modencode_galaxy/!svn/ver/306/modENCODE_Galaxy/bin
+END
+modENCODE_galaxy_create.pl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/modencode_galaxy/!svn/ver/252/modENCODE_Galaxy/bin/modENCODE_galaxy_create.pl
+END
+modENCODE_galaxy_restart.pl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/modencode_galaxy/!svn/ver/219/modENCODE_Galaxy/bin/modENCODE_galaxy_restart.pl
+END
+modENCODE_galaxy_config.pl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/modencode_galaxy/!svn/ver/306/modENCODE_Galaxy/bin/modENCODE_galaxy_config.pl
+END
+modENCODE_galaxy_stop.pl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/modencode_galaxy/!svn/ver/219/modENCODE_Galaxy/bin/modENCODE_galaxy_stop.pl
+END
+enablespp.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/modencode_galaxy/!svn/ver/270/modENCODE_Galaxy/bin/enablespp.pl
+END
+spp_1.10.1.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/modencode_galaxy/!svn/ver/267/modENCODE_Galaxy/bin/spp_1.10.1.tar.gz
+END
+enablemacs2.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/modencode_galaxy/!svn/ver/286/modENCODE_Galaxy/bin/enablemacs2.pl
+END
+modENCODE_galaxy_namevolumes.pl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/modencode_galaxy/!svn/ver/181/modENCODE_Galaxy/bin/modENCODE_galaxy_namevolumes.pl
+END
+modENCODE_galaxy_check.pl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/modencode_galaxy/!svn/ver/90/modENCODE_Galaxy/bin/modENCODE_galaxy_check.pl
+END
+modENCODE_galaxy_createEC2.pl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/modencode_galaxy/!svn/ver/182/modENCODE_Galaxy/bin/modENCODE_galaxy_createEC2.pl
+END
+modENCODE_galaxy_start.pl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/modencode_galaxy/!svn/ver/219/modENCODE_Galaxy/bin/modENCODE_galaxy_start.pl
+END
+deploy_macs2.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/modencode_galaxy/!svn/ver/262/modENCODE_Galaxy/bin/deploy_macs2.sh
+END
+deploy_spp.R
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/modencode_galaxy/!svn/ver/267/modENCODE_Galaxy/bin/deploy_spp.R
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/modencode_galaxy/!svn/ver/288/modENCODE_Galaxy/modENCODE_DCC/peakranger/gene_annotation_files
+END
+hg19refGene.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/modencode_galaxy/!svn/ver/288/modENCODE_Galaxy/modENCODE_DCC/peakranger/gene_annotation_files/hg19refGene.txt
+END
+mm9refGene.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/modencode_galaxy/!svn/ver/288/modENCODE_Galaxy/modENCODE_DCC/peakranger/gene_annotation_files/mm9refGene.txt
+END
+dm3refGene.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/modencode_galaxy/!svn/ver/288/modENCODE_Galaxy/modENCODE_DCC/peakranger/gene_annotation_files/dm3refGene.txt
+END

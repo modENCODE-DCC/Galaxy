@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+August 14, 2012: OICR
+This tool integrates Galaxy with the modENCODE ftp site
+-->
+
+<!--
+    If the value of 'URL_method' is 'get', the request will consist of the value of 'URL' coming back in
+    the initial response.  If value of 'URL_method' is 'post', any additional params coming back in the
+    initial response ( in addition to 'URL' ) will be encoded and appended to URL and a post will be performed.
+-->
+<tool name="modENCODE get data" id="modENCODE_getData" tool_type="data_source" force_history_refresh="True">
+    <description>Retrieve fastq files from the modENCODE ftp site</description>
+    <command interpreter="python">modENCODE_data_source.py $output $__app__.config.output_size_limit $output.id $__new_file_path__</command>
+    <!-- Address of faceted browser with custom galaxy listener/java scripts-->
+    <inputs action="http://data.modencode.org/cgi-bin/galaxy_listener.pl" check_values="false" method="get">
+        <display>go to modENCODE Table Browser $GALAXY_URL</display>
+        <param name="GALAXY_URL" type="baseurl" value="/tool_runner" />
+        <param name="tool_id" type="hidden" value="modENCODE_getData" />
+    </inputs>
+    <request_param_translation>
+	<request_param galaxy_name="URL" remote_name="URL" missing=""/>
+	<request_param galaxy_name="data_type" remote_name="data_type" missing="auto">
+		<value_translation>
+                	<value galaxy_value="auto" remote_value="txt" />			
+		</value_translation>
+	</request_param>
+    </request_param_translation>
+    <uihints minwidth="800"/>
+    <outputs>
+	<data name="output" format="text" label="modENCODE fastq files" />
+    </outputs>
+    <options sanitize="False" refresh="True"/>
+</tool>

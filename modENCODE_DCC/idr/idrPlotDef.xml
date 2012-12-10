@@ -1,0 +1,31 @@
+<!--
+Usage of THIS SCRIPT: ./idrPlotWrapper.sh em uri outputfile 
+-->
+
+<tool id="batch_consistency_plot" name="IDR-Plot">
+  <description>Plot Consistency Analysis on IDR output files</description>
+  <command interpreter="bash">idrPlotWrapper.sh $em $uri $outputfile</command>
+  <inputs>
+    <param name="uri" type="data" label="uri.sav file (output from IDR consistency analysis)"/>
+    <param name="em" type="data" label="em.sav file (output from IDR consistency analysis)"/>
+  </inputs>
+  <outputs>
+    <data format="pdf" name="outputfile" label="IDR-plot.pdf"/>
+  </outputs>
+
+  <tests>
+    <test>
+<!--
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+-->
+    </test>
+  </tests>
+
+  <help>
+Plots the correspondence curve and IDR threshold (i.e. number of selected peaks vs IDR) for each pair of samples.
+Uses the output of IDR consistency analysis and produces a downloadable PDF file containing the graphical analysis.
+This is a part of the IDR package.  For more information about IDR, see https://sites.google.com/site/anshulkundaje/projects/idr.
+  </help>
+
+</tool>

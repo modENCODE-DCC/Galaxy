@@ -1,0 +1,122 @@
+<!--
+purpose: xml file for BAMEdit tool
+author: Ziru Zhou
+date: October, 2012
+-->
+<tool id="BAM_Editor" name="BAMEdit" version="1.1.0">
+  <requirements>
+    <requirement type="package" version="0.1.12">samtools</requirement>
+  </requirements>
+  <description>Merging, splitting, filtering, and QC of BAM files</description>
+  <command interpreter="python">bamedit.py $options_file </command>
+  <inputs>
+    <conditional name="input_type">
+      <param name="input_type_selector" type="select" label="Select your BAM command">
+	<option value="merge">Merge BAM files</option>
+	<option value="split">Split BAM file</option>
+	<option value="filter">Filter BAM file</option>
+	<option value="pileup">Calculate coverage QC</option>
+      </param>
+
+      <when value="merge">
+        <param format="bam" name="input1" type="data" label="Select your first input BAM file"/>
+	<param format="bam" name="input2" type="data" label="Select your second input BAM file"/>
+	<param format="bam" name="input3" type="data" optional="True" label="Select your third input BAM file (optional)" help="Optional third BAM file to be merged."/>
+      </when>
+
+      <when value="split">
+        <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
+      </when>	 
+
+      <when value="filter">
+        <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
+        <param name="quality" type="integer" min="1" value="1" label="Minimum Mapping Quality (MMQ)" help="Quality filter should be 1 or higher."/>
+      </when>
+
+      <when value="pileup">
+        <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
+	<param format="fasta" name="input2" type="data" label="Select your fasta reference file"/>	 
+	<!--<param name="outopt" type="boolean" truevalue="True" falsevalue="False" checked="False" label="Alternatative output format" help="format: BAM_FILE, REFERENCE_FILE, GENOME_COVERAGE_PERCENTAGE, AVERAGE_COVERAGE_OF_BASES_COVERED"/>-->
+      </when>
+    </conditional>
+ 
+    <!--<param name="output_name" type="text" value="output" size="30" label="Output file name"/>-->
+  </inputs>
+
+  <outputs>
+    <data format="bam" name="bamoutm" label="${tool.name}: merge on ${on_string}">
+	<filter>input_type['input_type_selector'] == 'merge'</filter>
+    </data>
+    <data format="bam" name="bamoutf" label="${tool.name}: filter on ${on_string}">
+	<filter> input_type['input_type_selector'] == 'filter'</filter>
+    </data>
+    <data format="bam" name="bamouts1" label="${tool.name}: split on ${on_string} (part 1)">
+	<filter>input_type['input_type_selector'] == 'split'</filter>
+    </data>
+    <data format="bam" name="bamouts2" label="${tool.name}: split on ${on_string} (part2)">
+	<filter>input_type['input_type_selector'] == 'split'</filter>
+    </data>
+    <data format="txt" name="bamoutp" label="${tool.name}: pileup on ${on_string}">
+	<filter>input_type['input_type_selector'] == 'pileup'</filter>
+    </data>
+  </outputs>
+  
+  <configfiles>
+    <configfile name="options_file">&lt;%
+import simplejson
+%&gt;
+#if str($input_type.input_type_selector) == 'merge':
+#if str($input_type.input3) != 'None':
+#set $__options = { 'action':str("merge"), 'bamout':str($bamoutm), 'input1':str($input1), 'input2':str($input2), 'input3':str($input3) }
+#else:
+#set $__options = { 'action':str("merge"), 'bamout':str($bamoutm), 'input1':str($input1), 'input2':str($input2) }
+#end if
+#end if
+#if str($input_type.input_type_selector) == 'split':
+#set $__options = { 'action':str("split"), 'bamout':str($bamouts1), 'bamout2':str($bamouts2), 'input1':str($input1) }
+#end if
+#if str($input_type.input_type_selector) == 'filter':
+#set $__options = { 'action':str("filter"), 'bamout':str($bamoutf), 'input1':str($input1), 'quality':int($input_type.quality) }
+#end if
+#if str($input_type.input_type_selector) == 'pileup':
+#set $__options = { 'action':str("pileup"), 'bamout':str($bamoutp), 'input1':str($input1), 'input2':str($input2), 'bamname':str($input1.name), 'refname':str($input2.name) }
+#end if
+${ simplejson.dumps( __options )}
+    </configfile>
+  </configfiles>
+  <tests>
+    <test>
+	<!--none -->
+    </test>
+  </tests>
+
+  <help>
+**What it does**
+
+Simple interface to manipulate BAM files through the use of SAMtools.
+
+View the original SAMtools documentation: http://samtools.sourceforge.net/
+
+------
+
+**Usage**
+
+**Merge BAM files**: Merges 2 or 3 input BAM files into a single BAM file.
+
+**Split BAM file**: Randomly split input BAM file into 2 BAM files. 
+
+**Filter BAM file**: Removes aligned reads from input BAM files with mapping quality lower than entered Minimum Mapping Quality (MMQ) value.  
+
+**Calculate coverage QC**: Calculates QC metrics such as percentage of genome covered and average coverage of bases covered for the input BAM and reference files.
+
+
+------
+
+**Citation**
+
+Li H.*, Handsaker B.*, Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup (2009) The Sequence alignment/map (SAM) format and SAMtools. Bioinformatics, 25, 2078-9. [PMID: 19505943]
+
+Written by Ziru Zhou ( ziruzhou@gmail.com ).  Please send your comments/questions to modENCODE DCC at help@modencode.org.
+
+ </help>
+</tool>

@@ -1,0 +1,30 @@
+# 
+# see Step 4 in README file for descriptions of these attributes.
+# 
+#
+
+# CloudMan password.  Default is 'galaxy_123'.  
+CLOUDMAN_PASSWORD: galaxy_123
+
+#
+# Galaxy instance 
+#
+KEY_PAIR: YOUR_NAME_modENCODE_Galaxy_Key
+SECURITY_GROUP: YOUR_NAME_modENCODE_Galaxy_Group
+INSTANCE_NAME: YOUR_NAME_modENCODE_Galaxy_Instance
+CLUSTER_NAME: YOUR_NAME_modENCODE_Galaxy_Cluster
+
+
+REGION: us-east-1
+AVAILABILITY_ZONE: us-east-1a
+INSTANCE_TYPE: m1.medium
+
+#
+# Galaxy Amazon Machine Image (AMI) ID
+# Also, see http://wiki.g2.bx.psu.edu/CloudMan/AWS/GettingStarted
+# No changes are needed below this line
+AMI: ami-da58aab3
+
+
+
+
