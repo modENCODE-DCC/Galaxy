@@ -283,9 +283,9 @@ sub createGalaxyInstance
 	my $URL = getGalaxyURL($instanceID);
 	
 	#my $shareInstanceCluster = "cm-d945c4daad85b97ee167273c2ade5209/shared/2012-09-25--16-07";
-	my $shareInstanceCluster = "cm-53052bb7c819455c6b3da1743e85392d/shared/2012-10-10--19-34";
-	print "\n\nmodENCODE Galaxy Share-an-Instance Cluster string:";
-	print "\n\t" . $shareInstanceCluster ;
+	#my $shareInstanceCluster = "cm-53052bb7c819455c6b3da1743e85392d/shared/2012-10-10--19-34";
+	#print "\n\nmodENCODE Galaxy Share-an-Instance Cluster string:";
+	#print "\n\t" . $shareInstanceCluster ;
 
 	print "\n\nGalaxy is starting up.  Please go to the Cloudman console URL below to configure your Galaxy cluster:\n\t" . $URL . "/cloud";
 
