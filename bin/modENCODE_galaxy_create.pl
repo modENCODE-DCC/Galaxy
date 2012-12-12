@@ -272,7 +272,7 @@ sub createGalaxyInstance
 		print "\n\n";
 		exit (1);
 	} else {
-		print "\nLaunching Galaxy instance done.  Waiting for Galaxy to start ... ";
+		print "\nLaunching Galaxy instance ... ";
 	}
 
 	$instanceID = getInstanceID($cmdOutput);
