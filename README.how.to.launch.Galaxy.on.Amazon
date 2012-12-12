@@ -87,7 +87,8 @@ Wait for a few seconds and reload your CloudMan console.  To login to your Cloud
 username field blank and use the password as indicated in 'config.txt' in Step 4.  
 
 In your Initial Cluster Configuration dialog box, click on 'Show more start up options' and then select 
-'Galaxy Cluster' and input your initial storage size ( say, 10 GB ).  Click on 'Choose CloudMan Platform'. 
+'Galaxy Cluster' and input your initial storage size ( say, 50 GB ).  Click on 'Choose CloudMan Platform'. 
+NOTE: increase your initial storage size if you are analyzing many data sets or large data sets.
 
 
 6. Check to make sure all Galaxy services have started.  Go to your CloudMan console and click on 'Admin' 

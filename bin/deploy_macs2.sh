@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd 
+
 #######################################
 #get python
 mkdir python2.7.3

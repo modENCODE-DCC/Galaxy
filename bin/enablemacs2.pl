@@ -12,7 +12,7 @@ use File::Basename;
 #======================================================================
 # file to store IP addresses of compute nodes already have macs2 
 # dependencies installed
-my $INSTALL_FILE=".install_list_macs2.txt";
+my $INSTALL_FILE="~/.install_list_macs2.txt";
 
 my $forceInstall = $ARGV[0];
 

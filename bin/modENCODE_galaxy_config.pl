@@ -11,7 +11,7 @@ use File::Basename;
 
 if ( @ARGV != 1 ) {
         print "\n";
-        print "This script copies modENCODE DCC configuration files over to Galaxy.  Please send questions/comments to help\@modencode.org.";
+        print "This script copies modENCODE DCC configuration files and tools over to Galaxy.  Please send questions/comments to help\@modencode.org.";
         print "\n\nusage: perl " . basename($0) . " [ DIR NAME ]  ";
 	print "\n\tDIR_NAME\tname of directory contains configuration files for Galaxy. ";
 	print "\n\n";
@@ -35,7 +35,7 @@ system ("sudo chmod a+rx $GALAXY_CENTRAL/static/images/cloud_text.png");
 system ("sudo chmod a+rx $GALAXY_CENTRAL/static/welcome.html");
 
 print "\n\ncopying modENCODE DCC tools and wrappers to Galaxy ...";
-my $DEST_DIR = "$GALAXY_CENTRAL/tools/modENCODE_DCC";
+my $DEST_DIR = "$GALAXY_CENTRAL/tools/$INPUT_DIR";
 # if $DESTination dir not exists, create it 
 if (! -e $DEST_DIR) {
 	system ("sudo mkdir $DEST_DIR");
@@ -52,7 +52,7 @@ if (! -e $BAMEDIT_DIR) {
         system ("sudo mkdir $BAMEDIT_DIR");
 }
 # use backticks so outputs do not appear in console 
-my $cmd_out_bamedit = `sudo tar xvf modENCODE_DCC/bamedit/0.1.12.tar`;
+my $cmd_out_bamedit = `sudo tar xvf $INPUT_DIR/bamedit/0.1.12.tar`;
 system ("sudo cp -R 0.1.12 $BAMEDIT_DIR/");
 system ("sudo rm -rf 0.1.12");
 if (! -e "$BAMEDIT_DIR/default") {
@@ -70,7 +70,7 @@ if (! -e $PEAKRANGER_DIR) {
         system ("sudo mkdir $PEAKRANGER_DIR");
 }
 # use backticks so outputs do not appear in console 
-my $cmd_out_ranger = `sudo tar xvf modENCODE_DCC/peakranger/1.16.tar`;
+my $cmd_out_ranger = `sudo tar xvf $INPUT_DIR/peakranger/1.16.tar`;
 system ("sudo cp -R 1.16 $PEAKRANGER_DIR/");
 system ("sudo rm -rf 1.16");
 if (! -e "$PEAKRANGER_DIR/default") {
@@ -88,7 +88,7 @@ if (! -e $MACS_DIR) {
 	system ("sudo mkdir $MACS_DIR");
 }
 # use backticks so outputs do not appear in console 
-my $cmd_out_macs = `sudo tar xvf modENCODE_DCC/macs/1.4.1.tar`; 
+my $cmd_out_macs = `sudo tar xvf $INPUT_DIR/macs/1.4.1.tar`; 
 system ("sudo cp -R 1.4.1 $MACS_DIR/");
 system ("sudo rm -rf 1.4.1");
 if (! -e "$MACS_DIR/default") {
@@ -106,7 +106,7 @@ if (! -e $MACS2_DIR) {
 	system ("sudo mkdir $MACS2_DIR");
 }
 # use backticks so outputs do not appear in console 
-my $cmd_out_macs2 = `sudo tar xvf modENCODE_DCC/macs2/2.0.10.2.tar`; 
+my $cmd_out_macs2 = `sudo tar xvf $INPUT_DIR/macs2/2.0.10.2.tar`; 
 system ("sudo cp -R 2.0.10.2 $MACS2_DIR/");
 system ("sudo rm -rf 2.0.10.2");
 if (! -e "$MACS2_DIR/default") {
