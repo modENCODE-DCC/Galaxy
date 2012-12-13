@@ -50,7 +50,7 @@ Tools
 
 
 How to launch an instance of Galaxy on Amazon Cloud
---------------------
+---------------------------------------------------
 This section describes how to launch an instance of Galaxy step-by-step on Amazon Cloud. 
 If you have any questions about this, please email help@modencode.org.
 
@@ -70,47 +70,47 @@ you will need them in Step 3.
 
 **3.** Edit 'env.sh' and set your JAVA_HOME, AWS_ACCESS_KEY, and AWS_SECRET_KEY environment variables. Set your environments by doing the following:
 
-    . env.sh 
+    > . env.sh 
 
 Test and make sure your environments are set correctly by doing the following:
 
-    ec2-describe-regions
+    > ec2-describe-regions
 
-If you are able to run the above command then your environments are set correctly.  If you are not able to run the above command then see the below link on how to setup your EC2 API tools:
-
-  >http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/SettingUp_CommandLine.html
+If you are able to run the above command then your environments are set correctly.  If you are not able to run the above command then go to this link on how to setup your EC2 API tools: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/SettingUp_CommandLine.html
 
 
 **4.** Edit 'config.txt' to include the following configuration values for your modENCODE Galaxy instance
 and CloudMan.  The Galaxy creation script bin/modENCODE_galaxy_create.pl in Step 5 uses values in this 
 file to configure Galaxy and Cloudman.
 
-  >**CLOUDMAN_PASSWORD:** galaxy_123
-  >>Password to get into CloudMan console.  Default value is 'galaxy_123'. 
+    # password to get into CloudMan console.  Default value is 'galaxy_123'. 
+    CLOUDMAN_PASSWORD: galaxy_123
+    
+    # keypair name to use to login to Galaxy.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Key'.
+    KEY_PAIR: YOUR_NAME_modENCODE_Galaxy_Key
 
-  >**KEY_PAIR:** YOUR_NAME_modENCODE_Galaxy_Key
-  >>Keypair name to use to login to Galaxy.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Key'.
-  
-  >**SECURITY_GROUP:** YOUR_NAME_modENCODE_Galaxy_Group
-  >>Security group to be used by Galaxy.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Group'.
-  
-  >**INSTANCE_NAME:** YOUR_NAME_modENCODE_Galaxy_Instance
-  >>Label or name of your modENCODE Galaxy instance. Default value is 'YOUR_NAME_modENCODE_Galaxy_Instance'.
-  
-  >**CLUSTER_NAME:** YOUR_NAME_modENCODE_Galaxy_Cluster
-  >>Galaxy cluster name.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Cluster'.
+    # security group to be used by Galaxy.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Group'.
+    SECURITY_GROUP: YOUR_NAME_modENCODE_Galaxy_Group
 
-  >**AMI:** ami-da58aab3
-  >>Latest Galaxy AMI ID.  Default value is 'ami-da58aab3'.  For the latest AMI, see http://wiki.g2.bx.psu.edu/CloudMan/AWS/GettingStarted
-  
-  >**INSTANCE_TYPE:** m1.medium
-  >>Amazon instance type.  Default value is 'm1.medium' ( recommended ). For other Amazon instance types, see http://aws.amazon.com/ec2/instance-types
-  
-  >**REGION:** us-east-1
-  >>Amazon regioin to create modENCODE Galaxy instance in.  Default value is 'us-east-1'.
-  
-  >**AVAILABILITY_ZONE:** us-east-1a
-  >>Amazon zone to create modENCODE Galaxy instance in.  Default value is 'us-east-1a'.
+    # label or name of your modENCODE Galaxy instance. Default value is 'YOUR_NAME_modENCODE_Galaxy_Instance'.
+    INSTANCE_NAME: YOUR_NAME_modENCODE_Galaxy_Instance
+
+    # Galaxy cluster name.  Default value is 'YOUR_NAME_modENCODE_Galaxy_Cluster'.
+    CLUSTER_NAME: YOUR_NAME_modENCODE_Galaxy_Cluster
+
+    # latest Galaxy AMI ID.  Default value is 'ami-da58aab3'.  For the latest AMI, see 
+    # http://wiki.g2.bx.psu.edu/CloudMan/AWS/GettingStarted
+    AMI: ami-da58aab3
+
+    # Amazon instance type.  Default value is 'm1.medium' ( recommended ). For other Amazon instance types, 
+    # see http://aws.amazon.com/ec2/instance-types
+    INSTANCE_TYPE: m1.medium
+
+    # Amazon regioin to create modENCODE Galaxy instance in.  Default value is 'us-east-1'.
+    REGION: us-east-1
+
+    # Amazon zone to create modENCODE Galaxy instance in.  Default value is 'us-east-1a'.
+    AVAILABILITY_ZONE: us-east-1a
 
 *NOTE: At the moment, Galaxy is supported only in US East region - see http://wiki.g2.bx.psu.edu/CloudMan.*
 
