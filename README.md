@@ -4,13 +4,13 @@ modENCODE-DCC: Galaxy
 Scripts
 -------
 
-**enablemacs2.pl** - uses sungrid engine to install python 2.7 across the cluster nodes 
+**macs2_enable.pl** - uses sungrid engine to install python 2.7 across the cluster nodes 
 
-  >**deploymacs2.sh** - subscript used by enablemacs2 to deploy python 2.7
+  >**macs2_deploy.sh** - subscript used by enablemacs2 to deploy python 2.7
 
-**enablespp.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
+**spp_enable.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
   
-  >**deployspp.R** - subscript used by enablespp to deploy R libraries
+  >**spp_deploy.R** - subscript used by enablespp to deploy R libraries
   
   >**spp_1.10.1.tar.gz** - package containing spp phantom peaks library
 
