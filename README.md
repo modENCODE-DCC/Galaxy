@@ -49,7 +49,7 @@ Tools
 **spp** - cross-correlation analysis package
 
 
-How to Launch Galaxy
+How to launch an instance of Galaxy on Amazon Cloud
 --------------------
 This section describes how to launch an instance of Galaxy step-by-step on Amazon Cloud. 
 If you have any questions about this, please email help@modencode.org.
@@ -63,9 +63,9 @@ you will need them in Step 3.
 
 **2.** Use git to clone or check out the latest copy of the modENCODE DCC Galaxy source code and tools.
 
-    cd 
-    git clone https://github.com/modENCODE-DCC/Galaxy.git
-    cd Galaxy 
+    > cd 
+    > git clone https://github.com/modENCODE-DCC/Galaxy.git
+    > cd Galaxy 
  
 
 **3.** Edit 'env.sh' and set your JAVA_HOME, AWS_ACCESS_KEY, and AWS_SECRET_KEY environment variables. Set your environments by doing the following:
