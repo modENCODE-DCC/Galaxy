@@ -4,27 +4,27 @@ modENCODE-DCC: Galaxy
 Scripts
 -------
 
-**macs2_enable.pl** - uses sungrid engine to install python 2.7 across the cluster nodes 
+**bin/macs2_enable.pl** - uses Sun Grid Engine's qrsh to install python 2.7 across the cluster nodes 
 
-  >**macs2_deploy.sh** - subscript used by enablemacs2 to deploy python 2.7
+  >**bin/macs2_deploy.sh** - subscript used by bin/macs2_enable.pl to deploy python 2.7
 
-**spp_enable.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
+**bin/spp_enable.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
   
-  >**spp_deploy.R** - subscript used by enablespp to deploy R libraries
+  >**bin/spp_deploy.R** - subscript used by bin/spp_enable.pl to deploy R libraries
   
   >**spp_1.10.1.tar.gz** - package containing spp phantom peaks library
 
-**modENCODE_galaxy_config.pl** - used to copy the modENCODE tools into galaxy and set up dependencies
+**bin/modENCODE_galaxy_config.pl** - used to copy the modENCODE tools into galaxy and set up dependencies
   
-  >**modENCODE_galaxy_restart.pl** - subscript used to restart galaxy services       
+  >**bin/modENCODE_galaxy_restart.pl** - subscript used to restart galaxy services       
   
-  >**modENCODE_galaxy_start.pl** - subscript used to start galaxy services
+  >**bin/modENCODE_galaxy_start.pl** - subscript used to start galaxy services
   
-  >**modENCODE_galaxy_stop.pl** - subscript used to stop galaxy services
+  >**bin/modENCODE_galaxy_stop.pl** - subscript used to stop galaxy services
 
-**modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
+**bin/modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
   
-  >**modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
+  >**bin/modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
 
 
 Tools
@@ -118,17 +118,17 @@ file to configure Galaxy and Cloudman.
 get its usage.  To launch modENCODE Galaxy instance with the configuration file created in Step 4, do the 
 following:
 
-    bin/modENCODE_galaxy_create.pl  config.txt 
+    > bin/modENCODE_galaxy_create.pl  config.txt 
 
 Your modENCODE Galaxy instance may take a couple of minutes to start.  For your convenience, this script 
 also outputs your Galaxy URL, your CloudMan console URL, and the ssh command to login to your modENCODE Galaxy.  
 The Galaxy URL, CloudMan console URL, and the ssh command should look something like:
 
-  >**Galaxy URL:** ec2-xx-xx-xx-xx.compute-1.amazonaws.com
+    Galaxy URL: ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 
-  >**CloudMan console URL:** ec2-xx-xx-xx-xx.compute-1.amazonaws.com/cloud
+    CloudMan console URL: ec2-xx-xx-xx-xx.compute-1.amazonaws.com/cloud
 
-  >**ssh command:** ssh -i KEY_FILE.pem ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
+    ssh command: ssh -i KEY_FILE.pem ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 
 
 Once Galaxy has started, go to your CloudMan console to configure your modENCODE Galaxy instance. 
@@ -147,14 +147,12 @@ In your Initial Cluster Configuration dialog box, click on 'Show more start up o
 PostgreSQL, SGE, and File systems are in 'Running' state.    These four services should start automatically.
 Reload and wait until all of these services have started.  
 
-*NOTE: These four services should start within 5 minutes.  If the services don't start after 5 minutes then there is something wrong!  Please contact help@modencode.org for help if this is the case.*
+*NOTE: These four services should start within 5 minutes.  If the services don't start after 5 minutes then 
+there is something wrong!  Please contact help@modencode.org for help if this is the case.*
   
 Once all four Galaxy services have started successfully, go to your Galaxy URL in a browser, and you should 
-see: 
-
-  >**(1)** the usual Galaxy tools in your Galaxy Tools panel on the left
-  
-  >**(2)** 'Welcome to Galaxy on the Cloud' logo in your working panel.
+see: (i) the usual Galaxy tools in your Galaxy Tools panel on the left; (ii) 'Welcome to Galaxy on the Cloud' logo 
+in your working panel.
 
 
 **7.** Before any analysis, you should add at least one more compute node to your Galaxy cluster.  Go to your CloudMan
