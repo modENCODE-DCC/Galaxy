@@ -49,9 +49,9 @@ Tools
 **spp** - cross-correlation analysis package
 
 
-Usage
------
-Describes how to launch an instance of Galaxy step-by-step on Amazon Cloud. 
+How to Launch Galaxy
+--------------------
+This section describes how to launch an instance of Galaxy step-by-step on Amazon Cloud. 
 If you have any questions about this, please email help@modencode.org.
 
 *NOTE: Steps 1 to 4 need only to be done once.  Afterward, you can go directly to Step 5 to launch your modENCODE Galaxy.*
