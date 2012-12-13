@@ -11,12 +11,15 @@ Scripts
 **enablespp.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
   
   >**deployspp.R** - subscript used by enablespp to deploy R libraries
+  
   >**spp_1.10.1.tar.gz** - package containing spp phantom peaks library
 
 **modENCODE_galaxy_config.pl** - used to copy the modENCODE tools into galaxy and set up dependencies
   
   >**modENCODE_galaxy_restart.pl** - subscript used to restart galaxy services       
+  
   >**modENCODE_galaxy_start.pl** - subscript used to start galaxy services
+  
   >**modENCODE_galaxy_stop.pl** - subscript used to stop galaxy services
 
 **modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
@@ -60,18 +63,18 @@ you will need them in Step 3.
 
 **2.** Use git to clone or check out the latest copy of the modENCODE DCC Galaxy source code and tools.
 
-  >cd 
-  >git clone https://github.com/modENCODE-DCC/Galaxy.git
-  >cd Galaxy 
+    cd 
+    git clone https://github.com/modENCODE-DCC/Galaxy.git
+    cd Galaxy 
  
 
 **3.** Edit 'env.sh' and set your JAVA_HOME, AWS_ACCESS_KEY, and AWS_SECRET_KEY environment variables. Set your environments by doing the following:
 
-  >. env.sh 
+    . env.sh 
 
 Test and make sure your environments are set correctly by doing the following:
 
-  >ec2-describe-regions
+    ec2-describe-regions
 
 If you are able to run the above command then your environments are set correctly.  If you are not able to run the above command then see the below link on how to setup your EC2 API tools:
 
@@ -115,7 +118,7 @@ file to configure Galaxy and Cloudman.
 get its usage.  To launch modENCODE Galaxy instance with the configuration file created in Step 4, do the 
 following:
 
-  >bin/modENCODE_galaxy_create.pl  config.txt 
+    bin/modENCODE_galaxy_create.pl  config.txt 
 
 Your modENCODE Galaxy instance may take a couple of minutes to start.  For your convenience, this script 
 also outputs your Galaxy URL, your CloudMan console URL, and the ssh command to login to your modENCODE Galaxy.  
