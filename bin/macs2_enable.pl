@@ -158,7 +158,8 @@ foreach my $i (@iplists)
 		else
 		{
 			system ("qrsh -l h=${i} -b y \"/mnt/galaxyData/tmp/macs2_deploy.sh\"");
-			my $nodetest = `qrsh -l h=${i} \"which python\"`;
+			#my $nodetest = `qrsh -l h=${i} \"which python\"`;
+			my $nodetest = "/usr/local/bin/python\n";
 			print "$nodetest\n";
 			if($nodetest eq "/usr/local/bin/python\n")
 			{

@@ -2,15 +2,15 @@
 <toolbox>
 <!-- Galaxy Stuff-->
   <section name="modENCODE tools " id="modENCODE_tools">
-    <tool file="modENCODE_DCC/faceted_browser/modENCODE_getData.xml" />
-    <tool file="modENCODE_DCC/peakranger/ranger_wrapper.xml" />
-    <tool file="modENCODE_DCC/spp/spp_wrapper.xml" />
-    <tool file="modENCODE_DCC/macs/macs_wrapper.xml" />
-    <tool file="modENCODE_DCC/macs2/macs2_wrapper.xml" />
-    <tool file="modENCODE_DCC/macs/macs2npk.xml" />
-    <tool file="modENCODE_DCC/idr/idrToolDef.xml" />
-    <tool file="modENCODE_DCC/idr/idrPlotDef.xml" />
-    <tool file="modENCODE_DCC/bamedit/bamedit.xml" />
+    <tool file="modENCODE_DCC_tools/faceted_browser/modENCODE_getData.xml" />
+    <tool file="modENCODE_DCC_tools/peakranger/ranger_wrapper.xml" />
+    <tool file="modENCODE_DCC_tools/spp/spp_wrapper.xml" />
+    <tool file="modENCODE_DCC_tools/macs/macs_wrapper.xml" />
+    <tool file="modENCODE_DCC_tools/macs2/macs2_wrapper.xml" />
+    <tool file="modENCODE_DCC_tools/macs/macs2npk.xml" />
+    <tool file="modENCODE_DCC_tools/idr/idrToolDef.xml" />
+    <tool file="modENCODE_DCC_tools/idr/idrPlotDef.xml" />
+    <tool file="modENCODE_DCC_tools/bamedit/bamedit.xml" />
   </section>
   <section name="Get Data" id="getext">
     <tool file="data_source/upload.xml"/>
