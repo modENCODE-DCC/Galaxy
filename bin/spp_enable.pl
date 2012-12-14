@@ -13,7 +13,7 @@ use Time::HiRes;
 #======================================================================
 # file to store IP addresses of compute nodes already have macs2 
 # dependencies installed
-my $INSTALL_FILE=".install_list_spp.txt";
+my $INSTALL_FILE = $ENV{"HOME"} . "/.install_list_spp.txt";
 
 my $forceInstall = $ARGV[0];
 
