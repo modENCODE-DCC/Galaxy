@@ -72,16 +72,16 @@ you will need them in Step 3.
 
     > . env.sh 
 
-Test and make sure your environments are set correctly by doing the following:
+Test and make sure your Amazon EC2 environments are set correctly by doing the following:
 
     > ec2-describe-regions
 
-If you are able to run the above command then your environments are set correctly.  If you are not able to run the above command then go to this link on how to setup your EC2 API tools: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/SettingUp_CommandLine.html
+If you are able to run the above command then your Amazon EC2 environments are set correctly.  If you are not able to run the above command then go to this link on how to setup your EC2 API tools: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/SettingUp_CommandLine.html
 
 
 **4.** Edit 'config.txt' to include the following configuration values for your modENCODE Galaxy instance
-and CloudMan.  The Galaxy creation script bin/modENCODE_galaxy_create.pl in Step 5 uses values in this 
-file to configure Galaxy and Cloudman.
+and CloudMan.  The Galaxy creation script bin/modENCODE_galaxy_create.pl in Step 5 uses values in this configuration
+file to set up Galaxy and Cloudman.
 
     # password to get into CloudMan console.  Default value is 'galaxy_123'. 
     CLOUDMAN_PASSWORD: galaxy_123
@@ -142,17 +142,17 @@ In your Initial Cluster Configuration dialog box, click on 'Show more start up o
 *NOTE: increase your initial storage size if you are analyzing many data sets or large data sets.*
 
 
-**6.** Check to make sure all Galaxy services have started.  Go to your CloudMan console and click on 'Admin' 
-( top right of your browser ).  Scroll down to 'Services controls' and check to make sure status for Galaxy, 
-PostgreSQL, SGE, and File systems are in 'Running' state.    These four services should start automatically.
+**6.** Check to make sure all Galaxy services have started.  Go to your CloudMan console ( see URL output from Step 5 ) 
+and click on 'Admin' ( top right of your browser ).  Scroll down to 'Services controls' and check to make sure status 
+for Galaxy, PostgreSQL, SGE, and File systems are in 'Running' state.    These four services should start automatically.
 Reload and wait until all of these services have started.  
 
 *NOTE: These four services should start within 5 minutes.  If the services don't start after 5 minutes then 
 there is something wrong!  Please contact help@modencode.org for help if this is the case.*
   
-Once all four Galaxy services have started successfully, go to your Galaxy URL in a browser, and you should 
-see: (i) the usual Galaxy tools in your Galaxy Tools panel on the left; (ii) 'Welcome to Galaxy on the Cloud' logo 
-in your working panel.
+Once all four Galaxy services have started successfully, go to your Galaxy URL ( see URL output from Step 5 ) in a 
+browser, and you should see: (i) the usual Galaxy tools in your Galaxy Tools panel on the left; 
+(ii) 'Welcome to Galaxy on the Cloud' logo in your working panel.
 
 
 **7.** Before any analysis, you should add at least one more compute node to your Galaxy cluster.  Go to your CloudMan
