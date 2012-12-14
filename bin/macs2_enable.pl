@@ -142,35 +142,14 @@ foreach my $i (@iplists)
 		if(($i eq $local1) || ($i eq $local2))
 		{
 			system ("bash /mnt/galaxyData/tmp/macs2_deploy.sh");
-			my $test = `which python`;
-			print "$test\n";
-			if($test eq "/usr/local/bin/python\n")
-			{
-				push (@installed, "$i\n");
-				print "Installation of macs2 dependencies on $i completed\n";
-			}
-			else
-			{
-				print "Installation of macs2 dependencies on $i failed\n";
-			}
-
+			push (@installed, "$i\n");
+			print "Installation of macs2 dependencies on $i completed\n";
 		}
 		else
 		{
 			system ("qrsh -l h=${i} -b y \"/mnt/galaxyData/tmp/macs2_deploy.sh\"");
-			#my $nodetest = `qrsh -l h=${i} \"which python\"`;
-			my $nodetest = "/usr/local/bin/python\n";
-			print "$nodetest\n";
-			if($nodetest eq "/usr/local/bin/python\n")
-			{
-				push (@installed, "$i\n");
-				print "Installation of macs2 dependencies on $i completed\n";
-			}
-			else
-			{
-				print "Installation of macs2 dependencies on $i failed\n";
-			}
-
+			push (@installed, "$i\n");
+			print "Installation of macs2 dependencies on $i completed\n";
 		}
 	}
 	else
