@@ -8,7 +8,7 @@ Scripts
 
   >**bin/macs2_deploy.sh** - subscript used by bin/macs2_enable.pl to deploy python 2.7
 
-**bin/spp_enable.pl** - uses sungrid engine to install several R libraries and spp library across cluster nodes
+**bin/spp_enable.pl** - uses Sun Grid Engine's qrsh to install several R libraries and spp library across cluster nodes
   
   >**bin/spp_deploy.R** - subscript used by bin/spp_enable.pl to deploy R libraries
   
