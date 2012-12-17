@@ -26,7 +26,7 @@ def main():
     chip_file = "%s.bam" % (options['chip_file'])
     subprocess.call(["cp", options['chip_file'], chip_file])
 
-    cmdline = "Rscript /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/spp/run_spp.R -c=%s" % ( chip_file )
+    cmdline = "Rscript /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/spp/run_spp.R -c=%s" % ( chip_file )
     if 'input_file' in options:
         input_file = "%s.bam" % (options['input_file'])
         subprocess.call(["cp", options['input_file'], input_file])

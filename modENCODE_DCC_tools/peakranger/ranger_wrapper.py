@@ -21,7 +21,7 @@ def main():
     #========================================================================================    
     experiment_name = '_'.join( options['experiment_name'].split() ) #save experiment name
 
-    #cmdline = "bash /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/peakranger/peakranger %s -d %s --format bam" % ( options['action'], options['chip_file'] )
+    #cmdline = "bash /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/peakranger/peakranger %s -d %s --format bam" % ( options['action'], options['chip_file'] )
     cmdline = "peakranger %s -d %s" % ( options['action'], options['chip_file'] )
     if 'input_file' in options:
         cmdline = "%s -c %s" % ( cmdline, options['input_file'] )
@@ -51,7 +51,7 @@ def main():
 	output_report_file = outputs['output_report_file']
 
 	if (options['gene_annotate_file'] != "None"):
-		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
+		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
 		report = "--report"
 	elif (options['gene_annotate_file'] == "Upload"):
 		gene_annotate_file = options['usr_annot_file']
@@ -69,7 +69,7 @@ def main():
 	output_ranger_file = outputs['output_ranger_file']
 	
 	if (options['gene_annotate_file'] != "None"):
-		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
+		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
 		report = "--report"
 	elif (options['gene_annotate_file'] == "Upload"):
 		gene_annotate_file = options['usr_annot_file']
