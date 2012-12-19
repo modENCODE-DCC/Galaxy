@@ -49,7 +49,7 @@ def __main__():
 
 #########################################################
 # August 13, 2012: Added parameters:
-    modENCODE_getData = '/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/faceted_browser/modENCODE_getData.pl'
+    modENCODE_getData = '/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/faceted_browser/modENCODE_getData.pl'
     outputID = sys.argv[3]
     newFilePath = sys.argv[4]
 #########################################################
