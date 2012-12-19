@@ -68,7 +68,7 @@ sig.value <- args[6]
 #sig.value <- "signal.value"
 
 
-source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/idr/functions-all-clayton-12-13.r")
+source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/functions-all-clayton-12-13.r")
 
 # read the length of the chromosomes, which will be used to concatenate chr's
 # chr.file <- "genome_table.txt"

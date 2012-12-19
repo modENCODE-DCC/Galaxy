@@ -17,7 +17,7 @@ output.file.prefix <- args[2] # file name for plot, generated from script at the
 df.txt <- 10
 ntemp <- as.numeric(npair)
 saved.file.prefix <- list() # identifier of filenames that contain the em and URI results
-source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/idr/functions-all-clayton-12-13.r")
+source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/functions-all-clayton-12-13.r")
 
 uri.list <- list()
 uri.list.match <- list()
