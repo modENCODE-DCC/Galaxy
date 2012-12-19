@@ -30,11 +30,11 @@ genome_table.txt [ drop down to select ]
       <option value="q.value">q-value</option>
       <option value="signal.value">Significant Value</option>
     </param>
-    <param name="gtable" type="select" label="Genome Table" value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/macs/genome_tables/genome_table.worm.ws220.txt">
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/macs/genome_tables/genome_table.human.hg19.txt">human hg19</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/macs/genome_tables/genome_table.mm9.txt">mouse mm9</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/macs/genome_tables/genome_table.worm.ws220.txt">worm ws220</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC/macs/genome_tables/genome_table.dmel.r5.32.txt">dmel r5.32</option>
+    <param name="gtable" type="select" label="Genome Table" value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.worm.ws220.txt">
+      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.human.hg19.txt">human hg19</option>
+      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.mm9.txt">mouse mm9</option>
+      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.worm.ws220.txt">worm ws220</option>
+      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.dmel.r5.32.txt">dmel r5.32</option>
     </param>
   </inputs>
   <outputs>
