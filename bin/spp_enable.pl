@@ -11,7 +11,7 @@ use Time::HiRes;
 
 #globals
 #======================================================================
-# file to store IP addresses of compute nodes already have macs2 
+# file to store IP addresses of compute nodes already have spp
 # dependencies installed
 my $INSTALL_FILE = $ENV{"HOME"} . "/.install_list_spp.txt";
 
@@ -52,7 +52,7 @@ sub Usage()
         if(@ARGV > 1)
         {
                 print "\n";
-                print "This script installs dependencies for MACS2.  Please send questions/comments to help\@modencode.org.";
+                print "This script installs dependencies for SPP.  Please send questions/comments to help\@modencode.org.";
                 print "\n\nusage: perl " . basename($0) . " [ -f ]  ";
                 print "\n\t-f\tforce to reinstall dependencies on all compute nodes ( OPTIONAL ). ";
                 print "\n\n";
