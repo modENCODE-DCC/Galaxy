@@ -20,13 +20,15 @@ if ( @ARGV != 1 ) {
 
 my $INPUT_DIR = $ARGV[0];
 
+
+system "bin/modENCODE_update_tool_config_xml.pl";
+#print "\nmaking back up of $GALAXY_CENTRAL/tool_conf.xml ...";
+#system ("sudo cp -f $GALAXY_CENTRAL/tool_conf.xml $GALAXY_CENTRAL/tool_conf.xml.org");
+
+#print "\n\nreplacing $GALAXY_CENTRAL/tool_conf.xml with one from modENCODE DCC ...";
+#system ("sudo cp -f $INPUT_DIR/tool_conf.xml  $GALAXY_CENTRAL");
+
 my $GALAXY_CENTRAL = "/mnt/galaxyTools/galaxy-central";
-
-print "\nmaking back up of $GALAXY_CENTRAL/tool_conf.xml ...";
-system ("sudo cp -f $GALAXY_CENTRAL/tool_conf.xml $GALAXY_CENTRAL/tool_conf.xml.org");
-
-print "\n\nreplacing $GALAXY_CENTRAL/tool_conf.xml with one from modENCODE DCC ...";
-system ("sudo cp -f $INPUT_DIR/tool_conf.xml  $GALAXY_CENTRAL");
 
 print "\n\nreplacing Galaxy logo with one from modENCODE DCC ...";
 system ("sudo cp -f $INPUT_DIR/modencode_logo.png $GALAXY_CENTRAL/static/images/cloud_text.png");
