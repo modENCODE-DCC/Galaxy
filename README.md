@@ -27,25 +27,25 @@ Scripts
   >**bin/modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
 
 
-Tools
+Galaxy Tools
 -----
 
-**bamedit** - merging, splitting, filtering, and QC of BAM files
+**modENCODE_DCC_tools/bamedit** - merging, splitting, filtering, and QC of BAM files
 
-**faceted_browser** - retrieve fastq files from the modENCODE ftp website
+**modENCODE_DCC_tools/faceted_browser** - retrieve fastq files from the modENCODE ftp website
 
-**idr** - consistency analysis on a pair of Peak files
+**modENCODE_DCC_tools/idr** - consistency analysis on a pair of Peak files
 
   >**idr-plot** - plot consistency analysis on idr output files
 
-**macs** - model-based analysis of ChIP-Seq with peak.xls (1.4.1)
+**modENCODE_DCC_tools/macs** - model-based analysis of ChIP-Seq with peak.xls (1.4.1)
   
   >**mac2npk** - converts macs output peak file to ENCODE narrowPeak format
 
-**macs2** - model-based analysis of ChIP-Seq (2.0.10.2)
+**modENCODE_DCC_tools/macs2** - model-based analysis of ChIP-Seq (2.0.10.2)
 
-**peakranger** - multi-purpose, ultrafast ChIP-Seq peak caller
+**modENCODE_DCC_tools/peakranger** - multi-purpose, ultrafast ChIP-Seq peak caller
 
-**spp** - cross-correlation analysis package
+**modENCODE_DCC_tools/spp** - cross-correlation analysis package
 
 
