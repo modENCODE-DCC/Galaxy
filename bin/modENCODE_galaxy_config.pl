@@ -21,6 +21,9 @@ if ( @ARGV != 1 ) {
 my $INPUT_DIR = $ARGV[0];
 
 
+# update /mnt/galaxyTools/galaxy-central/universe_wsgi.ini to include toolshed 
+system "bin/modENCODE_update_universe_wsgi.pl";
+
 system "bin/modENCODE_update_tool_config_xml.pl";
 #print "\nmaking back up of $GALAXY_CENTRAL/tool_conf.xml ...";
 #system ("sudo cp -f $GALAXY_CENTRAL/tool_conf.xml $GALAXY_CENTRAL/tool_conf.xml.org");
