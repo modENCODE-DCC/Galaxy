@@ -10,4 +10,5 @@ use warnings;
 
 system ("bin/macs2_enable.pl");
 system ("bin/spp_enable.pl");
+system ("bin/modENCODE_galaxy_restart.pl");
 

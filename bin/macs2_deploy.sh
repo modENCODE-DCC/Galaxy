@@ -4,8 +4,8 @@ cd
 
 #######################################
 #get python
-mkdir python2.7.3
-cd python2.7.3
+#mkdir python2.7.3
+#cd python2.7.3
 wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
 tar -xvf Python-2.7.3.tar.bz2
 cd Python-2.7.3
