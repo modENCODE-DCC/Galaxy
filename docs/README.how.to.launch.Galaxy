@@ -111,7 +111,8 @@ logo in your working panel.
 console and click on 'Add nodes' to add additional compute nodes to your Galaxy cluster.  
 
 
-8.  You are now ready to use Galaxy for your analysis.  
+8.  You are now ready to use Galaxy for your analysis.  If you want to use Galaxy to call peaks, see
+instructions in docs/README.how.to.call.peaks.
 
 
 9. Finally, when you are done with all your analysis, terminate your Galaxy instance and its cluster.  Go to your 
