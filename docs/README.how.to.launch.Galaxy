@@ -61,6 +61,7 @@ file to configure Galaxy and Cloudman.
 
 NOTE: At the moment, Galaxy is supported only in US East region - see http://wiki.g2.bx.psu.edu/CloudMan.
 
+
 5. Launch an instance of modENCODE Galaxy using bin/modENCODE_galaxy_create.pl.  Run the script by itself to 
 get its usage.  To launch modENCODE Galaxy instance with the configuration file created in Step 4, do the 
 following:
