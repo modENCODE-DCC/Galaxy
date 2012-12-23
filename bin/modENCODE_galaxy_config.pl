@@ -20,6 +20,9 @@ if ( @ARGV != 1 ) {
 
 my $INPUT_DIR = $ARGV[0];
 
+# upgrade as per newsbrief from http://wiki.galaxyproject.org/DevNewsBriefs/2012_12_20
+print "\nupgrade to revision 36ad8aa7b922 ...";
+system "cd /mnt/galaxyTools/galaxy-central; sudo -u galaxy hg pull -u -r 36ad8aa7b922";
 
 # update /mnt/galaxyTools/galaxy-central/universe_wsgi.ini to include toolshed 
 system "bin/modENCODE_update_universe_wsgi.pl";
