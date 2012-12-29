@@ -4,7 +4,7 @@ modENCODE-DCC: Galaxy
 Documentations
 -------------------
 **docs/README.how.to.launch.Galaxy** - README file on how to launch an instance of Galaxy on Amazon
-
+**docs/README.how.to.call.peaks** - README file on how to call peaks using tools put together by modENCODE DCC
 
 Galaxy Tools
 ------------
