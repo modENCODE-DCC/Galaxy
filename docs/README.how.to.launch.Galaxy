@@ -3,21 +3,21 @@ This file describes how to launch an instance of Galaxy step-by-step on Amazon C
 If you have any questions about this, please email help@modencode.org.
 
 NOTE: Steps 1 to 4 need only to be done once.  Afterward, you can go directly to Step 5 to launch 
-your modENCODE Galaxy. 
+your Galaxy. 
 
 
-1.  Create your Amazon EC2 account if you don't already have one.  Go to http://aws.amazon.com, click 
+Step 1.  Create your Amazon EC2 account if you don't already have one.  Go to http://aws.amazon.com, click 
 on 'Sign Up Now' and follow the instructions.  Keep your Amazon access and secret keys handy because 
 you will need them in Step 3.  
 
-2. Use git to clone or check out the latest copy of the modENCODE DCC Galaxy source code and tools.
+Step 2. Use git to clone or check out the latest copy of the modENCODE DCC Galaxy source code and tools.
 
   > cd 
   > git clone https://github.com/modENCODE-DCC/Galaxy.git
   > cd Galaxy 
  
 
-3. Edit 'env.sh' and set your JAVA_HOME, AWS_ACCESS_KEY, and AWS_SECRET_KEY environment variables.  
+Step 3. Edit 'env.sh' and set your JAVA_HOME, AWS_ACCESS_KEY, and AWS_SECRET_KEY environment variables.  
 Set your environments by doing the following:
 
  > .  env.sh 
@@ -32,7 +32,7 @@ run the above command then see the below link on how to setup your EC2 API tools
    http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/SettingUp_CommandLine.html
 
 
-4. Edit 'config.txt' to include the following configuration values for your modENCODE Galaxy instance
+Step 4. Edit 'config.txt' to include the following configuration values for your modENCODE Galaxy instance
 and CloudMan.  The Galaxy creation script bin/modENCODE_galaxy_create.pl in Step 5 uses values in this 
 file to configure Galaxy and Cloudman.
 
@@ -62,7 +62,7 @@ file to configure Galaxy and Cloudman.
 NOTE: At the moment, Galaxy is supported only in US East region - see http://wiki.g2.bx.psu.edu/CloudMan.
 
 
-5. Launch an instance of modENCODE Galaxy using bin/modENCODE_galaxy_create.pl.  Run the script by itself to 
+Step 5. Launch an instance of modENCODE Galaxy using bin/modENCODE_galaxy_create.pl.  Run the script by itself to 
 get its usage.  To launch modENCODE Galaxy instance with the configuration file created in Step 4, do the 
 following:
 
@@ -94,7 +94,7 @@ of getting things up and running, input 10Gb as your initial storage size.  Clic
 NOTE: be sure to increase your initial storage size if you are analyzing many data sets or large data sets.
 
 
-6. Check to make sure all Galaxy services have started.  Go to your CloudMan console and click on 'Admin' 
+Step 6. Check to make sure all Galaxy services have started.  Go to your CloudMan console and click on 'Admin' 
 ( top right of your browser ).  Scroll down to 'Services controls' and check to make sure status for Galaxy, 
 PostgreSQL, SGE, and File systems are in 'Running' state.    These four services should start automatically.
 Reload and wait until all of these services have started.  
@@ -107,15 +107,22 @@ see: (1) the usual Galaxy tools in your Galaxy Tools panel on the left; (2) 'Wel
 logo in your working panel.
 
 
-7. Before any analysis, you should add at least one more compute node to your Galaxy cluster.  Go to your CloudMan
-console and click on 'Add nodes' to add additional compute nodes to your Galaxy cluster.  
+Step 7. Before any analysis, you will need one or more additional compute nodes for your analysis.
+The number of compute nodes to add depends on the number of data sets, how large your data set is, and
+how many analysis you want to do with your data.  For the purpose of showing how to use modENCODE DCC tools,
+start one additional compute node.  Login to your CloudMan Console and click on "Add nodes" to
+add one more additional compute node for your analysis.  Leave "Type of node(s)" as "Same as Master" and
+click on "Start Additional Nodes".
+
+  Wait until all your compute nodes are up and running - in your CloudMan Console, your compute nodes are up
+and running when their icons are in green and black colors.
 
 
-8.  You are now ready to use Galaxy for your analysis.  If you want to use Galaxy to call peaks, see
+Step 8.  You are now ready to use Galaxy for your analysis.  If you want to use Galaxy to call peaks, see
 instructions in docs/README.how.to.call.peaks.
 
 
-9. Finally, when you are done with all your analysis, terminate your Galaxy instance and its cluster.  Go to your 
+Step 9. Finally, when you are done with all your analysis, terminate your Galaxy instance and its cluster.  Go to your 
 CloudMan console and click on 'Terminate cluster', check off 'also delete this cluster', and click on 'Yes, power off'.
 Your modENCODE Galaxy and its volumes should be terminated and delete shortly.  Use the AWS Management Console to make 
 sure all nodes and volumes created by your modENCODE Galaxy are terminated and deleted.  
