@@ -1,7 +1,5 @@
 #!/bin/bash
 
-python_installed=`python -V 2>&1`
-numpy_installed=`pip freeze 2>/dev/null | grep numpy`
 hostname=`hostname`
 
 function create_dir ( )
@@ -11,7 +9,7 @@ function create_dir ( )
 		echo ""
 	else
 		sudo mkdir -p /var/log/macs2_installation
-		echo -e "$hostname:	\n  -Log file directory has been created.\n  -You can access log files: /var/log/macs2_installation"
+		echo -e "$hostname:	\n   -Log file directory has been created.\n   -You can access log files: /var/log/macs2_installation"
 		echo ""
 	fi	
 }
@@ -42,6 +40,7 @@ function python_install ( )
 
 function numpy_install ( )
 {
+	cd
 	#install numpy
 	git clone git://github.com/numpy/numpy.git numpy
 	cd numpy
@@ -59,6 +58,7 @@ function numpy_install ( )
 create_dir
 
 #Python: log installation outputs to logfile and also send them back to main concole to update users
+python_installed=`python -V 2>&1`
 if [ "$python_installed" == "Python 2.7.3" ]; 
 then
     date=`date`
@@ -75,7 +75,8 @@ else
 fi
 
 #Numpy: log installation outputs to logfile and also send them back to main concole to update users
-if [ "$numpy_installed" == "numpy==1.3.0" ]; 
+python -c "import numpy" 2>/dev/null
+if [ $? -eq 0 ]; 
 then
 	date=`date`
 	echo -e "$hostname:\n   -python package - numpy 1.3.0 has been installed. Don't need to install numpy!"
