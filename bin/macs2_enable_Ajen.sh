@@ -15,12 +15,16 @@ function ComputingNodes ( )
  	NodesList=`cut -d ' ' --fields=1 trim_macs2.txt`
 }
 
+function Cleanup ( )
+{
+	sudo rm trim_macs2.txt
+}
 
 #Copy the installer over to the shared drive
 #===========================================
 function CopyInstaller ( )
 {
-	sudo cp bin/macs2_deploy.sh /mnt/galaxyData/tmp
+	sudo cp bin/macs2_deploy_Ajen.sh /mnt/galaxyData/tmp
 }
 
 
@@ -58,6 +62,8 @@ done
 
 #Wait till the process to finish in parallel 
 wait
+
+Cleanup
 
 echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
 
