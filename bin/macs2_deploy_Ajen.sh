@@ -53,6 +53,8 @@ function numpy_install ( )
 	python setup.py install
 	date=`date`
 	echo "$date : python package - numpy 1.3.0 is installed" >> /var/log/macs2_installation/numpy_log
+	cd
+	rm -rf numpy
 }
 
 
