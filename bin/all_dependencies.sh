@@ -1,4 +1,4 @@
-#!/bin/ban
+#!/bin/bash
 
 hostname=`hostname`
 
@@ -7,9 +7,11 @@ hostname=`hostname`
 
 #Install spp
 rm -rf /usr/local/lib/R/site-library/00LOCK
-echo "Installing spp on $hostname. It may take a few minutes ..."
+echo -e "$hostname:\n   -Installing spp. It may take a few minutes ..."
 echo ""
-R CMD BATCH /mnt/galaxyData/tmp/spp_deploy.R
-echo "Installation of spp completed on $hostname ... "
+#use /dev/null to suppress the creation of the .Rout file.
+R CMD BATCH /mnt/galaxyData/tmp/spp_deploy.R /dev/null
+echo -e "$hostname:\n   -Installation of spp completed ... "
 echo ""
+
 
