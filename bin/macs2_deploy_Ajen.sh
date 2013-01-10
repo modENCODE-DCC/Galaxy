@@ -2,6 +2,8 @@
 
 hostname=`hostname`
 
+
+
 #Create a directory to store log files
 #=======================================
 function create_dir ( )
@@ -75,7 +77,7 @@ then
     echo ""
     echo "$date : Python 2.7.3 has been installed. Don't need to install python!" >> /var/log/macs2_installation/python_log
 else
-	echo "Installing PYTHON on $hostname. It may take a few minutes ..."
+	echo -e "$hostname:\n   -Installing PYTHON .... It may take a few minutes ..."
 	echo ""
 	#Call python_install function to install dependencies
 	python_install >> /var/log/macs2_installation/python_install.log 2>> /var/log/macs2_installation/python_error.log 
@@ -90,7 +92,7 @@ then
 	echo ""
 	echo "$date : python package - numpy 1.3.0 has been installed. Don't need to install numpy!" >> /var/log/macs2_installation/numpy_log
 else
-	echo "Installing NUMPY on $hostname. It may take a few minutes ..."
+	echo -e "$hostname:\n   -Installing NUMPY .... It may take a few minutes ..."
 	echo ""
 	#Call numpy_install function to install dependencies 
 	numpy_install >> /var/log/macs2_installation/numpy_install.log 2>> /var/log/macs2_installation/numpy_error
@@ -98,7 +100,7 @@ fi
 
 wait
 
-echo "Installation of macs2 completed on $hostname ..."
+echo -e "$hostname:\n   -Installation of macs2 completed ..."
 echo ""
 
 
