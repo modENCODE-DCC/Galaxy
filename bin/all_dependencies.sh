@@ -8,6 +8,7 @@ hostname=`hostname`
 #Install spp
 rm -rf /usr/local/lib/R/site-library/00LOCK
 echo "Installing spp on $hostname. It may take a few minutes ..."
+echo ""
 R CMD BATCH /mnt/galaxyData/tmp/spp_deploy.R
 echo "Installation of spp completed on $hostname ... "
 echo ""
