@@ -52,7 +52,7 @@ function Execute ( )
 		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 	elif [[ "$1" == "$hostname" ]]; then
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
-		bash /mnt/galaxyData/tmp/macs2_deploy_Ajen.sh
+		bash /mnt/galaxyData/tmp/all_dependencies.sh
 	else
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
@@ -80,6 +80,7 @@ wait
 Cleanup
 
 echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
+echo ""
 
 Restart
 
