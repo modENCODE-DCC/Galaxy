@@ -9,6 +9,7 @@ hostname=`hostname`
 
 function header ( )
 {
+	echo ""
 	echo "#####################################################"
 	echo "###                                               ###"
 	echo "### The script will install/update dependencies   ###"
@@ -20,6 +21,7 @@ function header ( )
 	echo "### Have a cup of coffee then come back  = ) !!   ###"
 	echo "###                                               ###"
 	echo "#####################################################"
+	echo ""
 	sleep 3
 }
 
