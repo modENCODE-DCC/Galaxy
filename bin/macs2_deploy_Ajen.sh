@@ -99,6 +99,7 @@ fi
 wait
 
 echo "Installation of macs2 completed on $hostname ..."
+echo ""
 
 
 
