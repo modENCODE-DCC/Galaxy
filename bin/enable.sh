@@ -7,6 +7,22 @@ NodesList=""
 hostname=`hostname`
 
 
+function header ( )
+{
+	echo "#####################################################"
+	echo "###                                               ###"
+	echo "### The script will install/update dependencies   ###"
+	echo "### on all the computing nodes and servers. This  ###"
+	echo "### includes:                                     ###"
+	echo "###   - Python, and its package numpy.            ###"
+	echo "###   - .R packages: bitops, caTools, and snow.   ###"
+	echo "### It will take a while to complete the process. ###"
+	echo "### Have a cup of coffee then come back  = ) !!   ###"
+	echo "###                                               ###"
+	echo "#####################################################"
+	sleep 3
+}
+
 #Get the name of the computing nodes
 #==========================================
 function ComputingNodes ( )
@@ -65,6 +81,7 @@ function Execute ( )
 
 #Function Calls
 #============================================
+header
 ComputingNodes
 CopyInstaller
 
