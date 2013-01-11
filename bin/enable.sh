@@ -2,9 +2,9 @@
 
 
 # Purpose     : Install/update dependencies on all cluster nodes and servers.        
-#		      : These include,                                       
-# 		      :        - Python, and its package numpy.           
-# 		      :        - .R packages: bitops, caTools, and snow.  
+#             : These include,                                       
+#             :        - Python, and its package numpy.           
+#             :        - .R packages: bitops, caTools, and snow.  
 # Date        : January, 2013                                 
 # Author      : Ziru Zhou									  
 # Modified by : Fei-Yang Jen                                   
