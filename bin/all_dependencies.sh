@@ -13,5 +13,3 @@ echo ""
 R CMD BATCH /mnt/galaxyData/tmp/spp_deploy.R /dev/null
 echo -e "$hostname:\n   -Installation of spp completed ... "
 echo ""
-
-

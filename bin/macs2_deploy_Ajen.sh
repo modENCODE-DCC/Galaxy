@@ -68,7 +68,7 @@ function numpy_install ( )
 
 create_dir
 
-#Python: log installation outputs to logfile and also send them back to main concole to update users
+#Python: log installation outputs to logfile and also send them back to main console to update users
 python_installed=`python -V 2>&1`
 if [ "$python_installed" == "Python 2.7.3" ]; 
 then
