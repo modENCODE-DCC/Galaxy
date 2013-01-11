@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Purpose: deploy macs2 and spp
+# Date   : January, 2013
+
 hostname=`hostname`
 
 #Install macs2

@@ -1,6 +1,16 @@
 #!/bin/bash
 
 
+# Purpose     : Install/update dependencies on all cluster nodes and servers.        
+#		      : These include,                                       
+# 		      :        - Python, and its package numpy.           
+# 		      :        - .R packages: bitops, caTools, and snow.  
+# Date        : January, 2013                                 
+# Author      : Ziru Zhou									  
+# Modified by : Fei-Yang Jen                                   
+
+
+
 #Globals
 #=========================================
 NodesList=""
@@ -97,8 +107,7 @@ wait
 
 Cleanup
 
-echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
-echo ""
-
 Restart
 
+echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
+echo ""

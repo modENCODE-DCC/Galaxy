@@ -1,8 +1,14 @@
 #!/bin/bash
 
+# Purpose     : Install Python and numpy on all cluster nodes  
+# Date        : January, 2013                                 
+# Author      : Ziru Zhou									  
+# Modified by : Fei-Yang Jen 
+
+
+#Global
+#======================================
 hostname=`hostname`
-
-
 
 #Create a directory to store log files
 #=======================================
@@ -58,8 +64,6 @@ function numpy_install ( )
 	cd
 	rm -rf numpy
 }
-
-
 
 
 

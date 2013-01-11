@@ -1,8 +1,8 @@
 
-#install.packages("bitops",dependencies=TRUE, repos="http://cran.us.r-project.org")
-#install.packages("caTools",dependencies=TRUE, repos="http://cran.us.r-project.org")
-#install.packages("snow",dependencies=TRUE, repos="http://cran.us.r-project.org")
-
+# Purpose     : Install/update R packages 
+# Date        : January, 2013                                 
+# Author      : Ziru Zhou									  
+# Modified by : Fei-Yang Jen 
 
 #Check bitops' version, and update the package if needed. 
 x <- system("cat /usr/local/lib/R/site-library/bitops/DESCRIPTION | grep Version", intern = TRUE)
