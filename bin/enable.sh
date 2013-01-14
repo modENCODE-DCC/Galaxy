@@ -55,6 +55,7 @@ function Cleanup ( )
 function Restart ( )
 {
 	bin/modENCODE_galaxy_restart.pl
+	echo -e "\n\n"
 }
 
 #Copy the installer over to the shared drive
@@ -111,9 +112,10 @@ done
 #Wait till the process to finish in parallel 
 wait
 
+echo -e "\n"
+echo "Done: All the dependencies have been installed on computing nodes. You can start analizing your data ..."
+
 Cleanup
 
 Restart
 
-echo ""
-echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."

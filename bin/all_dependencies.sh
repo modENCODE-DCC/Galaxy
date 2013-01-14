@@ -16,3 +16,4 @@ echo ""
 #use /dev/null to suppress the creation of the .Rout file.
 R CMD BATCH /mnt/galaxyData/tmp/spp_deploy.R /dev/null
 echo -e "$hostname $Node_Type:\n   -Installation of spp completed ... "
+echo ""
