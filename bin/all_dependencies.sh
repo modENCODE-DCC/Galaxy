@@ -4,7 +4,26 @@
 # Date   : January, 2013
 # Author : Fei-Yang Jen
 
+#Global
+#====================
 hostname=`hostname`
+
+
+#Check if the host is master/computing node
+#==========================================
+function check_node ( )
+{
+	if [[ "$Node_Type" == "" ]]; then
+		export Node_Type="(Computing_Node)"	
+	fi
+}
+
+
+
+#Function Call
+#=====================
+
+check_node
 
 #Install macs2
 /mnt/galaxyData/tmp/macs2_deploy.sh
