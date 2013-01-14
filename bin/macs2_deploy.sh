@@ -104,7 +104,7 @@ function out_ext_dep ( )
 #==========================================================
 function out_unext_dep ( )
 {
-	echo -e "$Node_Type, $hostname $Node_Type:\n   -Installing $1 .... It may take a few minutes ..."
+	echo -e "$hostname $Node_Type:\n   -Installing $1 .... It may take a few minutes ..."
 	echo ""
 }
 
