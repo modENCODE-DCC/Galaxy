@@ -117,4 +117,3 @@ Restart
 
 echo ""
 echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
-echo ""
