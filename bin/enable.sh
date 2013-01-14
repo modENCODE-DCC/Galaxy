@@ -75,9 +75,9 @@ function Execute ( )
 	#process the nodes 
 	if [[ "$1" == dom* ]]; 
 	then
-		1="$1.compute-1.internal"
+		tmp_ip="$1.compute-1.internal"
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
-		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
+		sudo ssh $tmp_ip -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 	elif [[ "$1" == "$hostname" ]]; then
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		bash /mnt/galaxyData/tmp/all_dependencies.sh
@@ -109,5 +109,6 @@ Cleanup
 
 Restart
 
+echo ""
 echo "Done: All dependencies have been installed on computing nodes. You can start analizing your data ..."
 echo ""
