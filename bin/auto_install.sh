@@ -58,7 +58,9 @@ while true; do
   echo ""
   echo ""
   echo -n "    > Please make sure Galaxy is running and the database is updated before continuing [y/n]:"  
-  read yn  
+  read yn
+  echo ""
+  echo ""  
     case $yn in
       [Yy]* )
         #Change directory to home directory to install modENCODE-DCC 
