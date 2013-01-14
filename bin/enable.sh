@@ -116,5 +116,3 @@ echo "Done: All the dependencies have been installed on computing nodes. You can
 Cleanup
 
 Restart
-
-echo ""
