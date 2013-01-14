@@ -75,13 +75,19 @@ function Execute ( )
 	#process the nodes 
 	if [[ "$1" == dom* ]]; 
 	then
+		#Set environment variable for master-node
+		export Node_Type="(Computing_Node)"
 		tmp_ip="$1.compute-1.internal"
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		sudo ssh $tmp_ip -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 	elif [[ "$1" == "$hostname" ]]; then
+		#Set environment variable for master-node
+		export Node_Type="(Master_Node)"
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		bash /mnt/galaxyData/tmp/all_dependencies.sh
 	else
+		#Set environment variable for master-node
+		export Node_Type="(Computing_Node)"
 		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 	fi 

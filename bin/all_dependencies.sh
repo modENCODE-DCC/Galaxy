@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Purpose: deploy macs2 and spp
+# Purpose: Deploy macs2 and spp
 # Date   : January, 2013
+# Author : Fei-Yang Jen
 
 hostname=`hostname`
 
