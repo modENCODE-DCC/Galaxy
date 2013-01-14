@@ -72,7 +72,7 @@ while true; do
             cd Galaxy
             echo "Checking updates ..."
             git pull
-            if [ -d "$gitrepo" ] && [ $? -eq 0 ]; then
+            if [[ -d "$gitrepo" && $? -eq 0 ]]; then
                 echo "Galaxy has been updated ..."
                 cd
             else
