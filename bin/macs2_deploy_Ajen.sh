@@ -1,7 +1,17 @@
 #!/bin/bash
 
+# Purpose     : Install Python and numpy on all cluster nodes  
+# Date        : January, 2013                                 
+# Author      : Ziru Zhou									  
+# Modified by : Fei-Yang Jen 
+
+
+#Global
+#======================================
 hostname=`hostname`
 
+#Create a directory to store log files
+#=======================================
 function create_dir ( )
 {
 	if [[ -d "/var/log/macs2_installation" ]]; then
@@ -14,7 +24,8 @@ function create_dir ( )
 	fi	
 }
 
-
+#Install python dependencies
+#=======================================
 function python_install ( )
 {
 	cd 
@@ -38,6 +49,8 @@ function python_install ( )
 	rm -rf Python-2.7.3
 }
 
+#Install python package - numpy
+#=======================================
 function numpy_install ( )
 {
 	cd
@@ -48,6 +61,8 @@ function numpy_install ( )
 	python setup.py install
 	date=`date`
 	echo "$date : python package - numpy 1.3.0 is installed" >> /var/log/macs2_installation/numpy_log
+	cd
+	rm -rf numpy
 }
 
 
@@ -57,7 +72,7 @@ function numpy_install ( )
 
 create_dir
 
-#Python: log installation outputs to logfile and also send them back to main concole to update users
+#Python: log installation outputs to logfile and also send them back to main console to update users
 python_installed=`python -V 2>&1`
 if [ "$python_installed" == "Python 2.7.3" ]; 
 then
@@ -66,16 +81,14 @@ then
     echo ""
     echo "$date : Python 2.7.3 has been installed. Don't need to install python!" >> /var/log/macs2_installation/python_log
 else
-	echo "Installing $python_installed on $hostname. It may take a few minutes ..."
+	echo -e "$hostname:\n   -Installing PYTHON .... It may take a few minutes ..."
 	echo ""
 	#Call python_install function to install dependencies
 	python_install >> /var/log/macs2_installation/python_install.log 2>> /var/log/macs2_installation/python_error.log 
-	echo "Installation of macs2 dependencies on $hostname completed ..."
-	echo ""
 fi
 
 #Numpy: log installation outputs to logfile and also send them back to main concole to update users
-python -c "import numpy" 2>/dev/null
+python -c "import numpy" 2>/dev/null #check if numpy is installed or not! 
 if [ $? -eq 0 ]; 
 then
 	date=`date`
@@ -83,13 +96,16 @@ then
 	echo ""
 	echo "$date : python package - numpy 1.3.0 has been installed. Don't need to install numpy!" >> /var/log/macs2_installation/numpy_log
 else
-	echo "Installing $numpy_installed on $hostname. It may take a few minutes ..."
+	echo -e "$hostname:\n   -Installing NUMPY .... It may take a few minutes ..."
 	echo ""
 	#Call numpy_install function to install dependencies 
 	numpy_install >> /var/log/macs2_installation/numpy_install.log 2>> /var/log/macs2_installation/numpy_error
-	echo "Installation of macs2 dependencies on $hostname completed ..."
-	echo ""
 fi
+
+wait
+
+echo -e "$hostname:\n   -Installation of macs2 completed ..."
+echo ""
 
 
 
