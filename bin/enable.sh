@@ -61,7 +61,7 @@ function Restart ( )
 #===========================================
 function CopyInstaller ( )
 {
-	sudo cp bin/macs2_deploy_Ajen.sh /mnt/galaxyData/tmp
+	sudo cp bin/macs2_deploy.sh /mnt/galaxyData/tmp
 	sudo cp bin/spp_deploy.R /mnt/galaxyData/tmp
 	sudo cp bin/spp_1.10.1.tar.gz /mnt/galaxyData/tmp
 	sudo cp bin/all_dependencies.sh /mnt/galaxyData/tmp
