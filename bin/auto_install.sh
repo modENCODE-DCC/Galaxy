@@ -59,8 +59,7 @@ while true; do
   echo ""
   echo -n "    > Please make sure Galaxy is running and the database is updated before continuing [y/n]:"  
   read yn
-  echo ""
-  echo ""  
+  echo "" 
     case $yn in
       [Yy]* )
         #Change directory to home directory to install modENCODE-DCC 
@@ -68,15 +67,16 @@ while true; do
         #============================================================
         cd
         if [ -d "$galaxy" ]; then
+            echo ""
             echo "Galaxy has been found ..."
-            echo "Checking updates ..."
             cd Galaxy
-            if [ -d "$gitrepo" ]; then
-                git pull
+            echo "Checking updates ..."
+            git pull
+            if [ -d "$gitrepo" ] && [ $? -eq 0 ]; then
                 echo "Galaxy has been updated ..."
                 cd
             else
-                echo "Missing file(s) ... removing original files ... "
+                echo "ERROR/Missing file(s) ... removing original files ... "
                 cd
                 rm -rf Galaxy
                 echo "Reinstalling Galaxy ..."
