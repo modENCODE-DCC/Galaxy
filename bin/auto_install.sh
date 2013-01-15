@@ -61,6 +61,7 @@ function Update_DB ( )
     echo "Done ...."
     echo ""
     echo "Wait till the upgade is completed then update your database ...."
+    echo "Current version before update:"
     get_version
     print_version
     echo "Upgrade has been initiated  ...."
@@ -73,9 +74,9 @@ function Update_DB ( )
 
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
+        echo "Upgrade has completed ...."
         sh manage_db.sh upgrade
         print_version
-        echo "Upgrade has completed ...."
     else
         print_version 1>&2
         echo "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
