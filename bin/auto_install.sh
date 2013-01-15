@@ -119,7 +119,7 @@ echo ""
 bin/modENCODE_galaxy_config.pl modENCODE_DCC_tools
 echo "bin/enable.sh downloads and install all dependencies for modENCODE DCC tools."
 echo "This process takes a few minutes to complete.  Wait until this process complete before going to the next step (Demo)."
-#bin/enable.sh
+bin/enable.sh
 echo ""
 
 
