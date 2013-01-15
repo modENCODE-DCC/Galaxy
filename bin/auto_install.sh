@@ -20,8 +20,8 @@ filename="DevNewsBriefs"
 #================================================
 function print_version ( )
 {
-    echo "galaxy_version: $version"
-    echo "db_version: $db_version"
+    echo "   - Galaxy_version: $version"
+    echo "   - DB_version: $db_version"
 }
 
 #Update/Restart DB
