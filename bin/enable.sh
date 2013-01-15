@@ -80,10 +80,7 @@ function Execute ( )
 		tmp_ip="$1.compute-1.internal"
 	elif [[ "$1" == ip* ]];
 	then
-		echo "QTQT $1";
 		tmp_ip=`echo $1 | sed 's/ip-//' | sed 's/-/\./g'`;
-		echo "QTQT after $tmp_ip";
-
 	else 
 		tmp_ip=`hostname`;
 	fi
