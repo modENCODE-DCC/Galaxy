@@ -19,12 +19,7 @@ and click on 'Add admin users'.
   Galaxy should restarted automatically.  Wait until Galaxy is fully up and running.
 
 
-Step 4. Update your database schema.  Go to your CloudMan Console and click on 'Admin'.  Scroll down and 
-click on 'Update DB' to update your database schema.  Galaxy should restart automatically after database 
-schema upgraded.  Make sure Galaxy is up and running before going to the next step.
-
-
-Step 5. Before any analysis, you will need one or more additional compute nodes for your analysis.  
+Step 4. Before any analysis, you will need one or more additional compute nodes for your analysis.  
 The number of compute nodes to add depends on the number of data sets, how large your data set is, and 
 how many analysis you want to do with your data.  For the purpose of showing how to use modENCODE DCC tools,
 start one additional compute node.  Login to your CloudMan Console and click on "Add nodes" to 
@@ -35,13 +30,13 @@ click on "Start Additional Nodes".
 and running when their icons are in green and black colors.
 
   
-Step 6. Use the ssh command output from Step 5 as described in docs/README.how.to.launch.Galaxy.on.Amazon 
+Step 5. Use the ssh command output from Step 5 as described in docs/README.how.to.launch.Galaxy.on.Amazon 
 to login to your Galaxy instance.  Your ssh command should look similar to:
 
   > ssh -i KEY_FILE ubuntu@HOST_NAME 
 
   
-Step 7. On your Galaxy instance, get a copy of the modENCODE DCC tools from githhub and install their 
+Step 6. On your Galaxy instance, get a copy of the modENCODE DCC tools from githhub and install their 
 depedencies: 
 
   > sudo su 
@@ -54,7 +49,7 @@ depedencies:
   - restart Galaxy so all changes are updated 
 
 
-Step 8. Upload your bam files by clicking on 'Get Data' and 'Upload File'.  For the demo purpose of how to 
+Step 7. Upload your bam files by clicking on 'Get Data' and 'Upload File'.  For the demo purpose of how to 
 call peaks using Galaxy, we have provided sample bam files below.  Cut and paste the following URLs to 
 the URL/Text box and click on 'Execute':  
 
@@ -70,7 +65,7 @@ We used BWA and WS220 reference to produce these four bam files.  The first two 
   Once the upload is complete, you should see the 4 bam entries in your History panel.   
 
 
-Step 9. To call peaks using MACS2 ( https://github.com/taoliu/MACS/blob/master/README ), in your Tools panel, 
+Step 8. To call peaks using MACS2 ( https://github.com/taoliu/MACS/blob/master/README ), in your Tools panel, 
 expand modENCODE tools and click on MACS2.  Set or select the following MACS2 options: 
 
 - Select action to be performed:  Peak Calling
@@ -87,7 +82,7 @@ Click on 'Execute' to run MACS2.  MACS2 should produce 4 output files:
 5: MACS2: callpeak on data 2 and data 1 (peaks: bed)
 
  
-Step 10. Repeat Step 9 for replicate 2 ChIP and Input.  MACS2 should produce the following 4 files:
+Step 9. Repeat Step 8 for replicate 2 ChIP and Input.  MACS2 should produce the following 4 files:
 
 12: MACS2: callpeak on data 4 and data 3 (peaks: encodePeak)
 11: MACS2: callpeak on data 4 and data 3 (peaks: xls)
@@ -96,7 +91,7 @@ Step 10. Repeat Step 9 for replicate 2 ChIP and Input.  MACS2 should produce the
 
 
 
-Step 11. Run IDR on MACS2 outputs from Steps 9 and 10.  Expand modENCODE tools and click on IDR.  Select 
+Step 10. Run IDR on MACS2 outputs from Steps 9 and 10.  Expand modENCODE tools and click on IDR.  Select 
 your input data for IDR:
 
 First NarrowPeak File: ( select your data entry 8, which is the encodePeak produced by MACS2 from replicate 1 )
@@ -111,7 +106,7 @@ Second NarrowPeak File: ( select your data entry 12, which is the encodePeak pro
 13: IDR.Rout.txt
 
 
-Step 12. Run IDR-Plot on IDR outputs from Step 11.  Expand modENCODE tools and click on IDR-Plot.
+Step 11. Run IDR-Plot on IDR outputs from Step 10.  Expand modENCODE tools and click on IDR-Plot.
 Select your input data for IDR-Plot:
 
 uri.sav file (output from IDR consistency analysis): ( select data entry 17 )
