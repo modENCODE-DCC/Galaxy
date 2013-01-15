@@ -74,47 +74,23 @@ function CopyInstaller ( )
 function Execute ( )
 {
 	#process the nodes 
-	if [[ "$1" == dom* ]]; 
+	if [[ "$1" == "$hostname" ]]; 
 	then
-		#Set environment variable for master-node
-		tmp_ip="$1.compute-1.internal"
-	elif [[ "$1" == ip* ]];
-	then
-		tmp_ip=`echo $1 | sed 's/ip-//' | sed 's/-/\./g'`;
-	else 
-		tmp_ip=`hostname`;
-	fi
 
-	if [[ "$tmp_ip" == "$hostname" ]]; then
 		#Set environment variable for master-node
 		export Node_Type="(Master_Node)"
-		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		bash /mnt/galaxyData/tmp/all_dependencies.sh
-	else
-		#Set environment variable for master-node
-		#echo "Installing dependencies on $1. It may take a few minutes ..."
-		sudo ssh $tmp_ip -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
-	fi 
 
-	return ;
-
-
-	#process the nodes 
-	if [[ "$1" == dom* ]]; 
+	elif [[ "$1" == dom* ]]; 
 	then
-		#Set environment variable for master-node
+
 		tmp_ip="$1.compute-1.internal"
-		#echo "Installing dependencies on $1. It may take a few minutes ..."
 		sudo ssh $tmp_ip -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
-	elif [[ "$1" == "$hostname" ]]; then
-		#Set environment variable for master-node
-		export Node_Type="(Master_Node)"
-		#echo "Installing dependencies on $1. It may take a few minutes ..."
-		bash /mnt/galaxyData/tmp/all_dependencies.sh
+
 	else
-		#Set environment variable for master-node
-		#echo "Installing dependencies on $1. It may take a few minutes ..."
+
 		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
+
 	fi 
 }
 
