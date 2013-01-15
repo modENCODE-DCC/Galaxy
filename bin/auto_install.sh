@@ -14,7 +14,13 @@ galaxy="/root/Galaxy"
 dir="/mnt/galaxyTools/galaxy-central"
 filename="DevNewsBriefs"
 
-
+#Get galaxy_version and db_version
+#=======================================
+function get_version ( )
+{
+    db_version=`sh manage_db.sh db_version`
+    version=`sh manage_db.sh version`
+}
 
 #It will print the galaxy_version and db_version
 #================================================
@@ -55,14 +61,15 @@ function Update_DB ( )
     echo "Done ...."
     echo ""
     echo "Wait till the upgade is completed then update your database ...."
+    get_version
+    print_version
     echo "Upgrade has been initiated  ...."
     sudo -u galaxy $upgrade || exit 1
     rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
     #Check db_version and code_version
     #==================================
-    db_version=`sh manage_db.sh db_version`
-    version=`sh manage_db.sh version`
+    get_version
 
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
