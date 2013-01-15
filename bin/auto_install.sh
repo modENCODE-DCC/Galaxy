@@ -98,6 +98,7 @@ function Check_Git ( )
 #========================================
 function Restart ( )
 {
+    cd ~/Galaxy
     bin/modENCODE_galaxy_restart.pl
     echo -e "\n"
 }
