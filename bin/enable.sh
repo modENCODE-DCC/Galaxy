@@ -88,7 +88,7 @@ function Execute ( )
 		sudo ssh $tmp_ip -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 
 	else
-
+		tmp_ip=`echo $1 | sed 's/ip-//' | sed 's/-/\./g'`
 		sudo ssh $1 -o "StrictHostKeyChecking no" "bash -s" < /mnt/galaxyData/tmp/all_dependencies.sh
 
 	fi 
