@@ -68,14 +68,13 @@ function Update_DB ( )
     sudo -u galaxy $upgrade || exit 1
     rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
-    #Check db_version and code_version
-    #==================================
-    get_version
-
+    #Check galaxy and db version
+    #============================
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
         echo "Upgrade has completed ...."
         sh manage_db.sh upgrade
+        get_version
         print_version
     else
         print_version 1>&2
@@ -119,7 +118,6 @@ function Restart ( )
     ~/Galaxy/bin/modENCODE_galaxy_restart.pl
     echo -e "\n"
 }
-
 
 
 
