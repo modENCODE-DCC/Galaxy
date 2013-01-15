@@ -62,7 +62,6 @@ http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_GFP_
 http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_Input_L3_rep1.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23input.bam
 http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_GFP_L3_rep2.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23ChIP.bam
 http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_Input_L3_rep2.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23input.bam
-http://data.modencode.org/modENCODE_Galaxy/Test_Data/fasta/WS220.fasta
 
   The raw FASTQ files for these four bam files are provided by the Snyder Lab - http://snyderlab.stanford.edu.  
 We used BWA and WS220 reference to produce these four bam files.  The first two bam files are ChIP and Input 
