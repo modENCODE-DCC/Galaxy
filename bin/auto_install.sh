@@ -15,6 +15,15 @@ dir="/mnt/galaxyTools/galaxy-central"
 filename="DevNewsBriefs"
 
 
+
+#It will print the galaxy_version and db_version
+#================================================
+function print_version ( )
+{
+    echo "galaxy_version: $version"
+    echo "db_version: $db_version"
+}
+
 #Update/Restart DB
 #============================================================
 function Update_DB ( )
@@ -58,8 +67,10 @@ function Update_DB ( )
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
         sh manage_db.sh upgrade
+        print_version
         echo "Upgrade has completed ...."
     else
+        print_version 1>&2
         echo "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
         exit 1
     fi
@@ -100,6 +111,9 @@ function Restart ( )
     ~/Galaxy/bin/modENCODE_galaxy_restart.pl
     echo -e "\n"
 }
+
+
+
 
 #Function Calls
 #===============================
