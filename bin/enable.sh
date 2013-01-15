@@ -50,6 +50,14 @@ function Cleanup ( )
 	sudo rm trim_macs2.txt
 }
 
+#Purge known_hosts file to resolve possible error message
+#=========================================================
+
+function Purge ( )
+{
+	cat /dev/null > /root/.ssh/known_hosts
+}
+
 #Restart Galaxy
 #========================================
 function Restart ( )
@@ -95,13 +103,12 @@ function Execute ( )
 }
 
 
-
-
 #Function Calls
 #============================================
 header
 ComputingNodes
 CopyInstaller
+Purge
 
 #Calling Execution function. 
 #All the dependencies will be installed on computing nodes at the same time.
