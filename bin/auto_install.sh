@@ -48,7 +48,6 @@ function Update_DB ( )
     echo "Wait till the upgade is completed then update your database ...."
     echo "Upgrade has been initiated  ...."
     sudo -u galaxy $upgrade || exit 1
-    echo ""
     rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
     #Check db_version and code_version
@@ -98,8 +97,8 @@ function Check_Git ( )
 #========================================
 function Restart ( )
 {
-    cd ~/Galaxy
-    bin/modENCODE_galaxy_restart.pl
+    ~/Galaxy/bin/modENCODE_galaxy_restart.pl
+    echo -e "\n"
 }
 
 #Function Calls
