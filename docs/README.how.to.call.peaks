@@ -39,7 +39,7 @@ to login to your Galaxy instance.  Your ssh command should look similar to:
 Step 6. On your Galaxy instance, get a copy of the modENCODE DCC tools from githhub and install their 
 depedencies: 
 
-  > sudo su 
+  > sudo su -
   > cd ; git clone https://github.com/modENCODE-DCC/Galaxy.git 
   > cd Galaxy ; ./setup.sh 
 
