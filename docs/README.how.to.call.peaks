@@ -48,6 +48,8 @@ depedencies:
   - install and configure modENCODE DCC tools and their dependencies on Galaxy instance and all compute nodes
   - restart Galaxy so all changes are updated 
 
+  This process will take about 5 to 10 mins!
+
 
 Step 7. Upload your bam files by clicking on 'Get Data' and 'Upload File'.  For the demo purpose of how to 
 call peaks using Galaxy, we have provided sample bam files below.  Cut and paste the following URLs to 

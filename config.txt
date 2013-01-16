@@ -1,5 +1,6 @@
 # 
-# see Step 4 in  docs/README.how.to.launch.Galaxy.on.Amazon file for descriptions of these attributes.
+# see Step 4 in  docs/README.how.to.launch.Galaxy.on.Amazon file for 
+# descriptions of these attributes.
 # 
 #
 
