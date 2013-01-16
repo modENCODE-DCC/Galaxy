@@ -15,7 +15,9 @@ hostname=`hostname`
 function logfile ( )
 {	echo "   - You can access log files by using the following commands:"
 	echo "       1. ssh $hostname"
-	echo "       2. more /var/log/macs2_installation"
+	echo "       2. cd /var/log/modENCODE_DCC/"
+	echo "       3. ls"
+	echo "       4. vi filename"
 	echo "" 
 }
 
@@ -25,11 +27,11 @@ function logfile ( )
 #=======================================
 function create_dir ( )
 {
-	if [[ -d "/var/log/macs2_installation" ]]; then
+	if [[ -d "/var/log/modENCODE_DCC" ]]; then
 		echo -e "$hostname $Node_Type:\n   - Log file directory exists ... skip creating directory ... continuing the installation"
 		logfile
 	else
-		sudo mkdir -p /var/log/macs2_installation
+		sudo mkdir -p /var/log/modENCODE_DCC
 		echo -e "$hostname $Node_Type:\n   - Log file directory has been created."
 		logfile
 	fi	
@@ -54,7 +56,7 @@ function python_install ( )
 	sudo chmod ag+w /usr/local/lib/python2.7/site-packages
 	sudo chmod ag+wx /usr/local/bin
 	date=`date`
-    echo "$date : Python 2.7.3 is installed" >> /var/log/macs2_installation/python_log
+    echo "$date : Python 2.7.3 is installed" >> /var/log/modENCODE_DCC/python_log
     #remove downloaded files
 	cd
 	rm -rf Python-2.7.3
@@ -71,7 +73,7 @@ function numpy_install ( )
 	python setup.py build
 	python setup.py install
 	date=`date`
-	echo "$date : python package - numpy 1.3.0 is installed" >> /var/log/macs2_installation/numpy_log
+	echo "$date : python package - numpy 1.3.0 is installed" >> /var/log/modENCODE_DCC/numpy_log
 	cd
 	rm -rf numpy
 }
@@ -96,7 +98,7 @@ function out_ext_dep ( )
 	date=`date`
     echo -e "$hostname $Node_Type:\n   -$1 has been installed. Don't need to install python!"
     echo ""
-    echo "$date : $1 has been installed. Don't need to install python!" >> /var/log/macs2_installation/"$2" #python_log, numpy_log
+    echo "$date : $1 has been installed. Don't need to install python!" >> /var/log/modENCODE_DCC/"$2" #python_log, numpy_log
 }
 
 #Function to log output for unexistence of the dependencies
@@ -125,7 +127,7 @@ then
 else
 	out_unext_dep PYTHON
 	#Call python_install function to install dependencies
-	python_install >> /var/log/macs2_installation/python_install.log 2>> /var/log/macs2_installation/python_error.log 
+	python_install >> /var/log/modENCODE_DCC/python_install.log 2>> /var/log/modENCODE_DCC/python_error.log 
 fi
 
 #Numpy: log installation outputs to logfile and also send them back to main concole to update users
@@ -136,7 +138,7 @@ then
 else
 	out_unext_dep NUMPY
 	#Call numpy_install function to install dependencies 
-	numpy_install >> /var/log/macs2_installation/numpy_install.log 2>> /var/log/macs2_installation/numpy_error
+	numpy_install >> /var/log/modENCODE_DCC/numpy_install.log 2>> /var/log/modENCODE_DCC/numpy_error
 fi
 
 wait
