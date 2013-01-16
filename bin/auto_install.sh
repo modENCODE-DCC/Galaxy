@@ -70,11 +70,12 @@ function Update_DB ( )
 
     #Check galaxy and db version
     #============================
+    get_version
+    
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
         echo "Upgrade has completed ...."
         sh manage_db.sh upgrade
-        get_version
         print_version
     else
         print_version 1>&2
