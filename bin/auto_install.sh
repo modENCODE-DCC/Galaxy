@@ -68,8 +68,8 @@ function Update_DB ( )
     sudo -u galaxy $upgrade || exit 1
     rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
-    #Check galaxy and db version
-    #============================
+    #Check galaxy and db version again after upgrade
+    #================================================
     get_version
 
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
