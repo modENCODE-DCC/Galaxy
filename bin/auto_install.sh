@@ -74,8 +74,9 @@ function Update_DB ( )
 
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
-        echo "Upgrade has completed ...."
         sh manage_db.sh upgrade
+        get_version
+        echo "Upgrade has completed ...."
         print_version
     else
         print_version 1>&2

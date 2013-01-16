@@ -17,7 +17,7 @@ function logfile ( )
 	echo "       1. ssh $hostname"
 	echo "       2. cd /var/log/macs2_installation/"
 	echo "       3. ls"
-	echo "       4. vi `filename`" 
+	echo "       4. vi filename" 
 }
 
 
