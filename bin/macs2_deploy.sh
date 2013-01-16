@@ -15,8 +15,9 @@ hostname=`hostname`
 function logfile ( )
 {	echo "   - You can access log files by using the following commands:"
 	echo "       1. ssh $hostname"
-	echo "       2. more /var/log/macs2_installation"
-	echo "" 
+	echo "       2. cd /var/log/macs2_installation/"
+	echo "       3. ls"
+	echo "       4. vi `filename`" 
 }
 
 
