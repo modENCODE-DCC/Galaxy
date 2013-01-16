@@ -71,7 +71,7 @@ function Update_DB ( )
     #Check galaxy and db version
     #============================
     get_version
-    
+
     if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
     then
         echo "Upgrade has completed ...."
@@ -79,7 +79,7 @@ function Update_DB ( )
         print_version
     else
         print_version 1>&2
-        echo "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
+        echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
         exit 1
     fi
 
