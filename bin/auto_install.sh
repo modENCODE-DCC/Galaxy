@@ -30,6 +30,14 @@ function print_version ( )
     echo "   - DB_version: $db_version"
 }
 
+#Restart Galaxy
+#========================================
+function Restart ( )
+{
+    ~/Galaxy/bin/modENCODE_galaxy_restart.pl
+    echo -e "\n"
+}
+
 #Update/Restart DB
 #============================================================
 function Update_DB ( )
@@ -71,11 +79,13 @@ function Update_DB ( )
     #Check galaxy and db version again after upgrade
     #================================================
     sh manage_db.sh upgrade
+    Restart
     get_version
 
-    if [[ "$version" -eq "db_version" || "$version" -gt "db_version" ]]; 
+    if [[ "$version" -eq "db_version" ]]; 
     then
         echo "Upgrade has completed ...."
+        echo "Current version after update:"
         print_version
     else
         print_version 1>&2
@@ -112,20 +122,11 @@ function Check_Git ( )
     fi
 }
 
-#Restart Galaxy
-#========================================
-function Restart ( )
-{
-    ~/Galaxy/bin/modENCODE_galaxy_restart.pl
-    echo -e "\n"
-}
-
 
 
 #Function Calls
 #===============================
 Update_DB
-Restart
 Check_Git
 
 cd ~/Galaxy
