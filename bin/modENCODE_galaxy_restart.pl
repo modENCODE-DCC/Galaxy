@@ -7,6 +7,6 @@ my $cmdOutput =`sudo sh $GALAXY_HOME/run.sh --stop`;
 system ("sudo chmod 755 $GALAXY_HOME/run.sh");
 $cmdOutput = `sudo su -l galaxy -c \"$GALAXY_HOME/run.sh --reload --daemon\"`;
 
-# wait for another 10 secs to make sure Galaxy restarted
-sleep (10);
+# wait for another 20 secs to make sure Galaxy restarted
+sleep (20);
 print "done ";
