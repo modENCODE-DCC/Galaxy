@@ -5,28 +5,30 @@ date: October, 2012
 -->
 <tool id="BAM_Editor" name="BAMEdit" version="1.1.0">
   <requirements>
+    <requirement type="set_environment">SCRIPT_PATH</requirement>
     <requirement type="package" version="0.1.12">samtools</requirement>
+    <requirement type="package" version="0.1.12">maq2sam-long</requirement>
   </requirements>
   <description>Merging, splitting, filtering, and QC of BAM files</description>
-  <command interpreter="python">bamedit.py $options_file </command>
+  <command interpreter="python">bamedit.py $options_file \$SCRIPT_PATH</command>
   <inputs>
     <conditional name="input_type">
       <param name="input_type_selector" type="select" label="Select your BAM command">
-	<option value="merge">Merge BAM files</option>
-	<option value="split">Split BAM file</option>
-	<option value="filter">Filter BAM file</option>
-	<option value="pileup">Calculate coverage QC</option>
+  <option value="merge">Merge BAM files</option>
+  <option value="split">Split BAM file</option>
+  <option value="filter">Filter BAM file</option>
+  <option value="pileup">Calculate coverage QC</option>
       </param>
 
       <when value="merge">
         <param format="bam" name="input1" type="data" label="Select your first input BAM file"/>
-	<param format="bam" name="input2" type="data" label="Select your second input BAM file"/>
-	<param format="bam" name="input3" type="data" optional="True" label="Select your third input BAM file (optional)" help="Optional third BAM file to be merged."/>
+  <param format="bam" name="input2" type="data" label="Select your second input BAM file"/>
+  <param format="bam" name="input3" type="data" optional="True" label="Select your third input BAM file (optional)" help="Optional third BAM file to be merged."/>
       </when>
 
       <when value="split">
         <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
-      </when>	 
+      </when>  
 
       <when value="filter">
         <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
@@ -35,8 +37,8 @@ date: October, 2012
 
       <when value="pileup">
         <param format="bam" name="input1" type="data" label="Select your input BAM file"/>
-	<param format="fasta" name="input2" type="data" label="Select your fasta reference file"/>	 
-	<!--<param name="outopt" type="boolean" truevalue="True" falsevalue="False" checked="False" label="Alternatative output format" help="format: BAM_FILE, REFERENCE_FILE, GENOME_COVERAGE_PERCENTAGE, AVERAGE_COVERAGE_OF_BASES_COVERED"/>-->
+  <param format="fasta" name="input2" type="data" label="Select your fasta reference file"/>   
+  <!--<param name="outopt" type="boolean" truevalue="True" falsevalue="False" checked="False" label="Alternatative output format" help="format: BAM_FILE, REFERENCE_FILE, GENOME_COVERAGE_PERCENTAGE, AVERAGE_COVERAGE_OF_BASES_COVERED"/>-->
       </when>
     </conditional>
  
@@ -45,19 +47,19 @@ date: October, 2012
 
   <outputs>
     <data format="bam" name="bamoutm" label="${tool.name}: merge on ${on_string}">
-	<filter>input_type['input_type_selector'] == 'merge'</filter>
+  <filter>input_type['input_type_selector'] == 'merge'</filter>
     </data>
     <data format="bam" name="bamoutf" label="${tool.name}: filter on ${on_string}">
-	<filter> input_type['input_type_selector'] == 'filter'</filter>
+  <filter> input_type['input_type_selector'] == 'filter'</filter>
     </data>
     <data format="bam" name="bamouts1" label="${tool.name}: split on ${on_string} (part 1)">
-	<filter>input_type['input_type_selector'] == 'split'</filter>
+  <filter>input_type['input_type_selector'] == 'split'</filter>
     </data>
     <data format="bam" name="bamouts2" label="${tool.name}: split on ${on_string} (part2)">
-	<filter>input_type['input_type_selector'] == 'split'</filter>
+  <filter>input_type['input_type_selector'] == 'split'</filter>
     </data>
     <data format="txt" name="bamoutp" label="${tool.name}: pileup on ${on_string}">
-	<filter>input_type['input_type_selector'] == 'pileup'</filter>
+  <filter>input_type['input_type_selector'] == 'pileup'</filter>
     </data>
   </outputs>
   
@@ -86,7 +88,7 @@ ${ simplejson.dumps( __options )}
   </configfiles>
   <tests>
     <test>
-	<!--none -->
+  <!--none -->
     </test>
   </tests>
 

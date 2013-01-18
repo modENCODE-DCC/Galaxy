@@ -1,10 +1,10 @@
 <tool id="modencode_peakcalling_macs" name="MACS" version="1.0.1">
-  <description>Model-based Analysis of ChIP-Seq with peak.xls</description>
-  <command interpreter="python">macs_wrapper.py $options_file $output_bed_file $output_extra_files $output_extra_files.files_path $output_peaks_file</command>
   <requirements>
     <requirement type="python-module">macs</requirement>
-    <requirement type="package">macs</requirement>
+    <requirement type="package" version="1.4.1">macs</requirement>
   </requirements>
+  <description>Model-based Analysis of ChIP-Seq with peak.xls</description>
+  <command interpreter="python">macs_wrapper.py $options_file $outputs_file</command>
   <inputs>
     <param name="experiment_name" type="text" value="MACS in Galaxy" size="50" label="Experiment Name"/>
     <conditional name="input_type">

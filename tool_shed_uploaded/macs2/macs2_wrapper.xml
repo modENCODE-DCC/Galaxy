@@ -1,11 +1,11 @@
 <tool id="modencode_peakcalling_macs2" name="MACS2" version="2.0.10.2">
-  <description>Model-based Analysis of ChIP-Seq</description>
-  <!--<command interpreter="python">macs2_wrapper.py $options_file $output_bed_file $output_extra_files $output_extra_files.files_path $output_peaks_file $output_narrowpeaks_file</command>-->
-  <command interpreter="python">macs2_wrapper.py $options_file $outputs_file</command>
   <requirements>
     <requirement type="python-module">macs2</requirement>
-    <requirement type="package">macs2</requirement>
+    <requirement type="package" version="2.0.10.2">macs2</requirement>
+    <!--<requirement type="set_environment">SCRIPT_PATH</requirement>-->
   </requirements>
+  <description>Model-based Analysis of ChIP-Seq</description>
+  <command interpreter="python">macs2_wrapper.py $options_file $outputs_file</command>
   <inputs>
     <!--experiment name and option of selecting paired or single end will always be present-->
     <param name="experiment_name" type="text" value="MACS2 in Galaxy" size="50" label="Experiment Name"/>

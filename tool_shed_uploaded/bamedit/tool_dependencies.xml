@@ -17,7 +17,7 @@
                     <source>maq2sam-long</source>
                     <destination>$INSTALL_DIR/bin</destination>
                 </action>
-                 <action type="set_environment">
+                <action type="set_environment">
                     <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
                 </action>
             </actions>

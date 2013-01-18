@@ -1,9 +1,10 @@
 <tool id="modencode_peakcalling_ranger" name="PeakRanger" version="1.16">
-  <description>multi-purpose, ultrafast ChIP Seq peak caller</description>
-  <command interpreter="python">ranger_wrapper.py $options_file $outputs_file</command>
   <requirements>
-    <requirement type="package">peakranger</requirement>
+    <requirement type="set_environment">SCRIPT_PATH</requirement>
+    <requirement type="package" version="1.16">peakranger</requirement>
   </requirements>
+  <description>multi-purpose, ultrafast ChIP Seq peak caller</description>
+  <command interpreter="python">ranger_wrapper.py $options_file $outputs_file \$SCRIPT_PATH</command>
   <inputs>
     <param name="experiment_name" type="text" value="PeakRanger in Galaxy" size="50" label="Experiment Name"/>    
 
@@ -47,24 +48,24 @@
         <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
         <param name="input_control_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Control File" />
 
-	<conditional name="gene_annotate_file">
-	  <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
-	    <option value="dm3refGene.txt">dm3refGene.txt</option>
-	    <option value="hg19refGene.txt">hg19refGene.txt</option>
-	    <option value="mm9refGene.txt">mm9refGene.txt</option>
-	    <option value="Upload">Select from history</option>
-	    <option value="None">None</option>
-	  </param>
-	  <when value="upload">
+  <conditional name="gene_annotate_file">
+    <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
+      <option value="dm3refGene.txt">dm3refGene.txt</option>
+      <option value="hg19refGene.txt">hg19refGene.txt</option>
+      <option value="mm9refGene.txt">mm9refGene.txt</option>
+      <option value="Upload">Select from history</option>
+      <option value="None">None</option>
+    </param>
+    <when value="upload">
             <param name="usr_annot_file" type="data" format="txt" label="Select gene annotation file" />
-	  </when>
-	</conditional>
- 	<param name="threads" type="integer" value="1" label="Number of threads" help="default=1 (-t)"/>
-	<param name="plot_region" type="integer" value="6000" label="The length of the snapshot region in the HTML report" help="(--plot_region)"/>
+    </when>
+  </conditional>
+  <param name="threads" type="integer" value="1" label="Number of threads" help="default=1 (-t)"/>
+  <param name="plot_region" type="integer" value="6000" label="The length of the snapshot region in the HTML report" help="(--plot_region)"/>
         <param name="extension" type="integer" value="200" label="Read extension length" help="default=200 (-l)"/>
-	<param name="pvalue" type="float" value="0.0001" label="p-value cut-off" help="default=0.0001 (-p)"/>
-	<param name="fdr" type="float" value="0.01" label="FDR cut-off" help="default=0.01 (-p)"/>
- 	<param name="delta" type="integer" value="1" label="Sensitivity of the summit detector" help="default=1 (-r)"/>
+  <param name="pvalue" type="float" value="0.0001" label="p-value cut-off" help="default=0.0001 (-p)"/>
+  <param name="fdr" type="float" value="0.01" label="FDR cut-off" help="default=0.01 (-p)"/>
+  <param name="delta" type="integer" value="1" label="Sensitivity of the summit detector" help="default=1 (-r)"/>
         <param name="bandwith" type="integer" value="99" label="Smoothing bandwith" help="default=99 (-b)"/>
 
         <param name="pad" truevalue="--pad" falsevalue="" type="boolean" checked="False" label="Pad read coverage profile to avoid false positive summits" help="(--pad)"/>
@@ -73,18 +74,18 @@
         <param name="input_chipseq_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Tag File" />
         <param name="input_control_file1" type="data" format="bed,sam,bam,eland,elandmulti" label="ChIP-Seq Control File" />
 
-	<conditional name="gene_annotate_file">
-	  <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
-	    <option value="dm3refGene.txt">dm3refGene.txt</option>
-	    <option value="hg19refGene.txt">hg19refGene.txt</option>
-	    <option value="mm9refGene.txt">mm9refGene.txt</option>
-	    <option value="Upload">Select from history</option>
-	    <option value="None">None</option>
-	  </param>
-	  <when value="upload">
+  <conditional name="gene_annotate_file">
+    <param name="gene_annotate_file_selector" type="select" label="Select the gene annotation file">
+      <option value="dm3refGene.txt">dm3refGene.txt</option>
+      <option value="hg19refGene.txt">hg19refGene.txt</option>
+      <option value="mm9refGene.txt">mm9refGene.txt</option>
+      <option value="Upload">Select from history</option>
+      <option value="None">None</option>
+    </param>
+    <when value="upload">
             <param name="usr_annot_file" type="data" format="txt" label="Select gene annotation file" />
-	  </when>
-	</conditional>
+    </when>
+  </conditional>
         <param name="plot_region" type="integer" value="6000" label="Read extension length" help="default=6000 (--plot_region)"/>
         <param name="extension" type="integer" value="100" label="Read extension length" help="default=100 (-l)"/>
         <param name="fdr" type="float" value="0.11" label="FDR cut-off" help="default=0.11 (-q)"/>
@@ -149,10 +150,10 @@ import simplejson
 
 ##=============================================================================
 #if str($major_command.major_command_selector) == 'nr':
-	#set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
-       	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+  #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
+        #set $__options['input_file'] = str( $major_command.input_control_file1 )
 
-	#set $__options['extension'] = str( $major_command.extension )
+  #set $__options['extension'] = str( $major_command.extension )
 #end if
 ##=============================================================================
 ##if str($major_command.major_command_selector) == 'lc':
@@ -170,31 +171,31 @@ import simplejson
 ##=============================================================================
 #if str($major_command.major_command_selector) == 'ranger':
         #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
-       	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+        #set $__options['input_file'] = str( $major_command.input_control_file1 )
 
         #set $__options['gene_annotate_file'] = str( $major_command.gene_annotate_file.gene_annotate_file_selector )
-	#if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
-		#set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
-	#end if
+  #if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
+    #set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
+  #end if
 
         #set $__options['plot_region'] = str( $major_command.plot_region )
         #set $__options['pvalue'] = str( $major_command.pvalue )
         #set $__options['fdr'] = str( $major_command.fdr )
         #set $__options['extension'] = str( $major_command.extension )
         #set $__options['delta'] = str( $major_command.delta )
-	#set $__options['threads'] = str( $major_command.threads )
+  #set $__options['threads'] = str( $major_command.threads )
         #set $__options['bandwith'] = str( $major_command.bandwith )
         #set $__options['pad'] = str( $major_command.pad )
 #end if
 ##=============================================================================
 #if str($major_command.major_command_selector) == 'ccat':
         #set $__options['chip_file'] = str( $major_command.input_chipseq_file1 )
-      	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+        #set $__options['input_file'] = str( $major_command.input_control_file1 )
 
         #set $__options['gene_annotate_file'] = str( $major_command.gene_annotate_file.gene_annotate_file_selector )
-	#if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
-		#set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
-	#end if
+  #if str( $major_command.gene_annotate_file.gene_annotate_file_selector ) == 'Upload'
+    #set $__options['usr_annot_file'] = str( $major_command.gene_annotate_file.usr_annot_file ) 
+  #end if
 
         #set $__options['plot_region'] = str( $major_command.plot_region )
         #set $__options['fdr'] = str( $major_command.fdr )
@@ -209,7 +210,7 @@ ${ simplejson.dumps( __options ) }
     </configfile>
   </configfiles>
   <tests>
-	<!--none yet for macs2-->
+  <!--none yet for macs2-->
   </tests>
   <help>
 **What it does**
