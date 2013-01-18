@@ -1,0 +1,201 @@
+<tool id="modencode_peakcalling_spp" name="SPP" version="1.10.1">
+  <description>SPP cross-correlation analysis package</description>
+  <command interpreter="python">spp_wrapper.py $options_file $output_narrow_peak $output_region_peak $output_peakshift_file $output_rdata_file $output_plot_file $output_default_file</command>
+  <inputs>
+    <!--experiment name and inputs-->
+    <param name="experiment_name" type="text" value="SPP in Galaxy" size="50" label="Experiment Name"/>
+    
+    <!--select function to perform-->
+    <conditional name="major_command">
+      <param name="major_command_selector" type="select" label="Select action to be performed">
+	<option value="cross_correlation">Determine strand cross-correlation peak</option>
+	<option value="peak_calling">Peak calling</option>
+	<option value="idr">IDR analysis</option>
+	<option value="custom">Custom settings</option>
+      </param>
+      <when value="cross_correlation">
+	<!--cross correlation options-->
+    	<param name="input_chipseq_file1" type="data" format="bam" label="ChIP-Seq Tag File" />
+    	<param name="input_control_file1" type="data" format="bam" optional="True" label="ChIP-Seq Control File" />
+
+	<param name="replace" truevalue="-rf" falsevalue="" type="boolean" checked="True" label="Replace existing plot, Rdata, or narrowpeak file (execution aborts if file exists and option not enabled)" help="(-rf)"/>
+
+	<param name="save_peakshift_file" truevalue="-out=peakshift.txt" falsevalue="" type="boolean" checked="True" label="Save peakshift file" help="(-out)"/>
+	<param name="save_plot_file" truevalue="-savp" falsevalue="" type="boolean" checked="True" label="Save plot file" help="(-savp)"/>
+      </when>
+      <when value="peak_calling">
+	<!--peak calling options-->
+	<param name="input_chipseq_file1" type="data" format="bam" label="ChIP-Seq Tag File" />
+	<param name="input_control_file1" type="data" format="bam" label="ChIP-Seq Control File" />
+
+	<param name="fdr" type="text" label="False discovery rate threshold" value="0" help="default=0 (-fdr)"/>
+	<param name="num_peaks" type="text" label="Threshold on number of peaks to call" value="0" help="default=0 (-npeak)"/>
+	<param name="replace" truevalue="-rf" falsevalue="" type="boolean" checked="True" label="Replace existing plot, Rdata, or narrowpeak file (execution aborts if file exists and option not enabled)" help="(-rf)"/>
+
+	<param name="save_regionpeak_file" truevalue="-savr" falsevalue="" type="boolean" checked="True" label="Save regionpeak file " help="(-savr)"/>   
+	<param name="save_rdata_file" truevalue="-savd" falsevalue="" type="boolean" checked="True" label="Save Rdata file" help="(-savd)"/>
+	<param name="save_narrowpeak_file" truevalue="-savn" falsevalue="" type="boolean" checked="True" label="Save narrowpeak file" help="(-savn)"/>
+	<param name="save_plot_file" truevalue="-savp" falsevalue="" type="boolean" checked="True" label="Save plot file" help="(-savp)"/>
+      </when>
+      <when value="idr">
+	<!--idr options-->
+    	<param name="input_chipseq_file1" type="data" format="bam" label="ChIP-Seq Tag File" />
+    	<param name="input_control_file1" type="data" format="bam" label="ChIP-Seq Control File" />
+	
+	<param name="num_peaks" type="integer" label="Threshold on number of peaks to call" value="300000" help="default=300000 (-npeak)"/>
+	<param name="replace" truevalue="-rf" falsevalue="" type="boolean" checked="True" label="Replace existing plot, Rdata, or narrowpeak file (execution aborts if file exists and option not enabled)" help="(-rf)"/>
+
+	<param name="save_regionpeak_file" truevalue="-savr" falsevalue="" type="boolean" checked="True" label="Save regionpeak file" help="(-savr)"/>   
+	<param name="save_peakshift_file" truevalue="-out=peakshift.txt" falsevalue="" type="boolean" checked="True" label="Save peakshift file" help="(-out)"/>
+	<param name="save_plot_file" truevalue="-savp" falsevalue="" type="boolean" checked="True" label="Save plot file" help="(-savp)"/>
+      </when> 
+      <when value="custom">
+	<!--custom settings, includes all relevant options here-->
+    	<param name="input_chipseq_file1" type="data" format="bam" label="ChIP-Seq Tag File" />
+    	<param name="input_control_file1" type="data" format="bam" optional="True" label="ChIP-Seq Control File" />
+
+	<param name="strand_shift" type="text" label="Strand shifts at which cross-correlation is evaluated" size="30" value="-100:5:600" help="default=-100:5:600 (-s)"/>
+	<param name="excluded_strand_shift" type="text" label="Strand shifts to exclude" value="10:10" help="default=10:(readlen+10) (-x)"/>
+	<param name="user_defined_strpeak" type="text" label="User defined cross-correlation peak strand shift" help="(-speak)"/>
+	<param name="num_peaks" type="integer" label="Threshold on number of peaks to call" value="0" help="default=0 (-npeak)"/>
+	<param name="fdr" type="integer" label="False discovery rate threshold" value="0" help="default=0 (-fdr)"/>
+	<param name="filter_char" type="text" label="Pattern to use to remove tags that map to specific chromosomes" help="(-filtchr)"/>
+	<param name="replace" truevalue="-rf" falsevalue="" type="boolean" checked="False" label="Replace existing plot, Rdata, or narrowpeak file (execution aborts if file exists and option not enabled)" help="(-rf)"/>
+
+	<param name="save_regionpeak_file" truevalue="-savr" falsevalue="" type="boolean" checked="False" label="Save regionpeak file" help="(-savr)"/>   
+	<param name="save_peakshift_file" truevalue="-out=peakshift.txt" falsevalue="" type="boolean" checked="False" label="Save peakshift file" help="(-out)"/>
+	<param name="save_rdata_file" truevalue="-savd" falsevalue="" type="boolean" checked="False" label="Save Rdata file" help="(-savd)"/>
+	<param name="save_narrowpeak_file" truevalue="-savn" falsevalue="" type="boolean" checked="False" label="Save narrowpeak file" help="(-savn)"/>
+	<param name="save_plot_file" truevalue="-savp" falsevalue="" type="boolean" checked="False" label="Save plot file" help="(-savp)"/>
+      </when>
+    </conditional>
+  </inputs>
+
+  <outputs>
+    <data name="output_default_file" format="txt" label="${tool.name} on ${on_string}"/>
+    <data name="output_narrow_peak" format="txt" label="${tool.name} on ${on_string} (narrowpeaks)">
+	<filter>major_command['save_narrowpeak_file'] is True</filter>
+	<filter>major_command['major_command_selector'] == 'peak_calling' or major_command['major_command_selector'] == 'custom'</filter> 
+    </data>
+    <data name="output_plot_file" format="pdf" label="${tool.name} on ${on_string} (plot)">
+	<filter>major_command['save_plot_file'] is True</filter>
+    </data>
+    <data name="output_region_peak" format="txt" label="${tool.name} on ${on_string} (regionpeaks)">
+	<filter>major_command['save_regionpeak_file'] is True</filter>
+    	<filter>major_command['major_command_selector'] == 'peak_calling' or major_command['major_command_selector'] == 'custom' or major_command['major_command_selector'] == 'idr' </filter> 
+    </data>
+    <data name="output_peakshift_file" format="txt" label="${tool.name} on ${on_string} (peakshift/phantompeak)">
+	<filter>major_command['save_peakshift_file'] is True</filter>
+    	<filter>major_command['major_command_selector'] == 'cross_correlation' or major_command['major_command_selector'] == 'custom' or major_command['major_command_selector'] == 'idr' </filter> 
+    </data>
+    <data name="output_rdata_file" format="txt" label="${tool.name} on ${on_string} (Rdata)">
+	<filter>major_command['save_rdata_file'] is True</filter>
+	<filter>major_command['major_command_selector'] == 'peak_calling' or major_command['major_command_selector'] == 'custom' </filter> 
+    </data>
+  </outputs>
+
+  <configfiles>
+    <configfile name="options_file">&lt;%
+import simplejson
+%&gt;
+#set $__options ={ 'experiment_name':str($experiment_name), 'chip_file':str($major_command.input_chipseq_file1) }
+
+#if str( $major_command.input_control_file1 ) != 'None':
+	#set $__options['input_file'] = str( $major_command.input_control_file1 )
+#end if
+
+##=============================================================================
+#if str($major_command.major_command_selector) == 'cross_correlation':
+	#set $__options['action'] = str( "cross_correlation" )
+ 	#set $__options['rf'] = str( $major_command.replace )
+
+	#set $__options['out'] = str( $major_command.save_peakshift_file )
+	#set $__options['savp'] = str( $major_command.save_plot_file ) 
+#end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'peak_calling':
+	#set $__options['action'] = str( "peak_calling" )
+	#set $__options['fdr'] = str( $major_command.fdr )
+	#set $__options['npeak'] = str( $major_command.num_peaks )	
+ 	#set $__options['rf'] = str( $major_command.replace )
+
+	#set $__options['savr'] = str( $major_command.save_regionpeak_file )
+	#set $__options['savd'] = str( $major_command.save_rdata_file )
+	#set $__options['savn'] = str( $major_command.save_narrowpeak_file )
+	#set $__options['savp'] = str( $major_command.save_plot_file )
+#end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'idr':
+	#set $__options['action'] = str( "idr" ) 
+	#set $__options['npeak'] = int( $major_command.num_peaks  )
+	#set $__options['rf'] = str( $major_command.replace )
+
+	#set $__options['savr'] = str( $major_command.save_regionpeak_file )
+	#set $__options['out'] = str( $major_command.save_peakshift_file )
+	#set $__options['savp'] = str( $major_command.save_plot_file )
+#end if
+##=============================================================================
+#if str($major_command.major_command_selector) == 'custom':
+	#set $__options['action'] = str( "custom" )
+        #set $__options['s'] = str( $major_command.strand_shift )
+        #set $__options['x'] = str( $major_command.excluded_strand_shift  )
+        #set $__options['npeak'] = int( $major_command.num_peaks )
+        #set $__options['fdr'] = int( $major_command.fdr  )
+        #set $__options['rf'] = str( $major_command.replace )
+
+	#if str($major_command.user_defined_strpeak) == '':
+        	#set $__options['speak'] = str( $major_command.user_defined_strpeak )
+	#else:
+	       	#set $__options['speak'] = "-speak=$major_command.user_defined_strpeak"
+	#end if 
+
+	#if str($major_command.filter_char) == '':
+ 	       #set $__options['filtchr'] = str( $major_command.filter_char )
+	#else:
+ 	       #set $__options['filtchr'] = "-filtchr=$major_command.filter_char"
+	#end if	
+
+	#set $__options['out'] = str( $major_command.save_peakshift_file )
+        #set $__options['savr'] = str( $major_command.save_regionpeak_file )
+        #set $__options['savd'] = str( $major_command.save_rdata_file )
+        #set $__options['savn'] = str( $major_command.save_narrowpeak_file )
+        #set $__options['savp'] = str( $major_command.save_plot_file ) 
+#end if
+
+${ simplejson.dumps( __options ) }
+    </configfile>
+  </configfiles>
+  <tests>
+	<!--none yet for spp-->
+  </tests>
+  <help>
+**What it does**
+
+This tool allows ChIP-seq peak calling using SPP
+
+This set of programs operate on mapped Illumina single-end read datasets in tagAlign or BAM format.
+
+View the modified SPP documentation: http://code.google.com/p/phantompeakqualtools/
+
+------
+
+**Usage**
+
+**Determine strand cross-correlation peak**: Compute the predominant insert-size (fragment length) based on strand cross-correlation peak.
+
+**Peak calling**: Call Peaks and regions for punctate binding datasets.
+
+**IDR analysis**: Compute Data quality measures based on relative phantom peak.
+
+**Custom settings**: Enables all options available to SPP for custom analysis. 
+
+------
+
+**Citation**
+
+Anshul Kundaje, Computer Science Dept., Stanford University, ENCODE Consortium, Personal Communication, Oct 2010
+Kharchenko PK, Tolstorukov MY, Park PJ, Design and analysis of ChIP-seq experiments for DNA-binding proteins Nat Biotechnol. 2008 Dec;26(12):1351-9
+
+Integration of SPP with Galaxy performed by Ziru Zhou ( ziruzhou@gmail.com ). Please send your comments/questions to help@modencode.org.
+  </help>
+</tool>

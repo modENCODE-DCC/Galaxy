@@ -1,0 +1,21 @@
+<tool id="macs2npk" name="mac2npk">
+  <description>Convert MACS output peak file to ENCODE narrowPeak format</description>
+  <command interpreter="bash">macs2npk.sh $input1 $output1</command>
+  <inputs>
+    <param format="narrowPeak" name="input1" type="data" label="Input MACS peak  file"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output1"/>
+  </outputs>
+  <tests>
+    <test>
+<!--
+      <param name="input" value="fa_gc_content_input.fa"/>
+      <output name="out_file1" file="fa_gc_content_output.txt"/>
+-->
+    </test>
+  </tests>
+  <help>
+Convert MACS output peak files ( _peaks.xls ) to ENCODE narrowPeak format ( http://genome.ucsc.edu/FAQ/FAQformat#format12 ).  mac2npk is a part of the IDR package.  For more information about IDR, see https://sites.google.com/site/anshulkundaje/projects/idr.
+  </help>
+</tool>

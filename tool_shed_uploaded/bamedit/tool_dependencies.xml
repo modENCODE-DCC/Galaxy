@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <set_environment version="1.0">
+        <environment_variable name="SCRIPT_PATH" action="set_to">$REPOSITORY_INSTALL_DIR</environment_variable>
+    </set_environment>
+    <package name="samtools" version="0.1.12">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/tools/tool_shed_dependencies/bamedit/samtoolspkg.tar?raw=true</action>
+                <action type="shell_command">chmod ago+x samtools</action>
+                <action type="shell_command">chmod ago+x maq2sam-long</action>
+                <action type="move_file">
+                    <source>samtools</source>
+                    <destination>$INSTALL_DIR/bin</destination>
+                </action>
+                <action type="move_file">
+                    <source>maq2sam-long</source>
+                    <destination>$INSTALL_DIR/bin</destination>
+                </action>
+                 <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>Compiling SAMtools requires the ncurses and zlib development libraries.</readme>
+    </package>
+</tool_dependency>
