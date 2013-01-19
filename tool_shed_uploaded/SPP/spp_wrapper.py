@@ -18,6 +18,7 @@ def main():
     output_rdata_file = sys.argv[5]
     output_plot_file = sys.argv[6]
     output_default_file = sys.argv[7]
+    script_path = sys.argv[8]
 
     #set file extensions and set mandatory options
     #========================================================================================    
@@ -26,25 +27,23 @@ def main():
     chip_file = "%s.bam" % (options['chip_file'])
     subprocess.call(["cp", options['chip_file'], chip_file])
 
-    cmdline = "Rscript /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/spp/run_spp.R -c=%s" % ( chip_file )
+    cmdline = "Rscript %s/run_spp.R -c=%s" % (script_path, chip_file )
     if 'input_file' in options:
         input_file = "%s.bam" % (options['input_file'])
         subprocess.call(["cp", options['input_file'], input_file])
         cmdline = "%s -i=%s" % ( cmdline, input_file )
 
-    #test = "%s_VS_%s.narrowPeak.gz" %(chip_name, input_name)
-    #print test
     #set additional options
     #========================================================================================
     if (options['action'] == "cross_correlation"):
-	cmdline = "%s %s %s %s > default_output.txt" % ( cmdline, options['savp'], options['out'], options['rf'] ) 
+        cmdline = "%s %s %s %s > default_output.txt" % ( cmdline, options['savp'], options['out'], options['rf'] ) 
     elif (options['action'] == "peak_calling"):
-	cmdline = "%s -fdr=%s -npeak=%s %s %s %s %s %s > default_output.txt" % ( cmdline, options['fdr'], options['npeak'], options['savr'], options['savd'], options['savn'], options['savp'], options['rf'] ) 
+        cmdline = "%s -fdr=%s -npeak=%s %s %s %s %s %s > default_output.txt" % ( cmdline, options['fdr'], options['npeak'], options['savr'], options['savd'], options['savn'], options['savp'], options['rf'] ) 
     elif (options['action'] == "idr"):
-	cmdline = "%s -npeak=%s %s %s %s %s > default_output.txt" % ( cmdline, options['npeak'], options['savr'], options['savp'], options['out'], options['rf'] ) 
+        cmdline = "%s -npeak=%s %s %s %s %s > default_output.txt" % ( cmdline, options['npeak'], options['savr'], options['savp'], options['out'], options['rf'] ) 
     elif (options['action'] == "custom"):
-	cmdline = "%s -s=%s %s -x=%s -fdr=%s -npeak=%s %s %s" % ( cmdline, options['s'], options['speak'], options['x'], options['fdr'], options['npeak'], options['filtchr'], options['rf'] )
-	cmdline = "%s %s  %s %s %s %s > default_output.txt" % ( cmdline, options['out'], options['savn'], options['savr'], options['savp'], options['savd'] )
+        cmdline = "%s -s=%s %s -x=%s -fdr=%s -npeak=%s %s %s" % ( cmdline, options['s'], options['speak'], options['x'], options['fdr'], options['npeak'], options['filtchr'], options['rf'] )
+        cmdline = "%s %s  %s %s %s %s > default_output.txt" % ( cmdline, options['out'], options['savn'], options['savr'], options['savp'], options['savd'] )
 
     #run cmdline
     #========================================================================================

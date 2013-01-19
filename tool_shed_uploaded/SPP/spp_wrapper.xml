@@ -1,6 +1,9 @@
 <tool id="modencode_peakcalling_spp" name="SPP" version="1.10.1">
+  <requirements>
+    <requirement type="set_environment">SCRIPT_PATH</requirement>
+  </requirements>
   <description>SPP cross-correlation analysis package</description>
-  <command interpreter="python">spp_wrapper.py $options_file $output_narrow_peak $output_region_peak $output_peakshift_file $output_rdata_file $output_plot_file $output_default_file</command>
+  <command interpreter="python">spp_wrapper.py $options_file $output_narrow_peak $output_region_peak $output_peakshift_file $output_rdata_file $output_plot_file $output_default_file \$SCRIPT_PATH</command>
   <inputs>
     <!--experiment name and inputs-->
     <param name="experiment_name" type="text" value="SPP in Galaxy" size="50" label="Experiment Name"/>
