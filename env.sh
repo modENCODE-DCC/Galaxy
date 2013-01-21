@@ -11,6 +11,6 @@ export AWS_SECRET_KEY=your_AWS_SECRET_KEY
 ############################################
 
 # set EC2_HOME and add $EC2_HOME/bin to $PATH
-export EC2_HOME=./tools/ec2-api-tools-1.6.1.4
+export EC2_HOME=./ec2_tools/ec2-api-tools-1.6.1.4
 export PATH=$PATH:$EC2_HOME/bin
 
