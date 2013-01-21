@@ -6,7 +6,7 @@
      <package name="macs" version="1.4.1">
          <install version="1.0">
              <actions>
-                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/tools/tool_shed_dependencies/macs/macs.tar?raw=true</action>
+                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs/macs.tar?raw=true</action>
                 <action type="move_directory_files">
                     <source_directory>bin</source_directory>
                     <destination_directory>$INSTALL_DIR/bin</destination_directory>

@@ -6,7 +6,7 @@
     <package name="peakranger" version="1.16">
         <install version="1.0">
             <actions>
-                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/tools/tool_shed_dependencies/peakranger/peakranger.tar?raw=true</action>
+                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/peakranger/peakranger.tar?raw=true</action>
                 <action type="shell_command">chmod ago+x peakranger</action>
                 <action type="move_file">
                     <source>peakranger</source>
