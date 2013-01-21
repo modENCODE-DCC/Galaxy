@@ -13,8 +13,11 @@ genome_table.txt [ drop down to select ]
 -->
 
 <tool id="batch_consistency_analysis_2" name="IDR">
+  <requirements>
+    <requirement type="set_environment">SCRIPT_PATH</requirement>
+  </requirements>
   <description>Consistency Analysis on a pair of narrowPeak files</description>
-  <command interpreter="Rscript">batch-consistency-analysis.r $input1 $input2 $halfwidth $overlap $option $sigvalue $gtable $rout $aboveIDR $ratio $emSav $uriSav</command>
+  <command interpreter="Rscript">batch-consistency-analysis.r \$SCRIPT_PATH $input1 $input2 $halfwidth $overlap $option $sigvalue $gtable $rout $aboveIDR $ratio $emSav $uriSav </command>
   <inputs>
     <param format="narrowPeak" name="input1" type="data" label="First NarrowPeak File"/>
     <param format="narrowPeak" name="input2" type="data" label="Second NarrowPeak File"/>
@@ -30,11 +33,11 @@ genome_table.txt [ drop down to select ]
       <option value="q.value">q-value</option>
       <option value="signal.value">Significant Value</option>
     </param>
-    <param name="gtable" type="select" label="Genome Table" value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.worm.ws220.txt">
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.human.hg19.txt">human hg19</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.mm9.txt">mouse mm9</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.worm.ws220.txt">worm ws220</option>
-      <option value="/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.dmel.r5.32.txt">dmel r5.32</option>
+    <param name="gtable" type="select" label="Genome Table" value="genome_table.worm.ws220.txt">
+      <option value="genome_table.human.hg19.txt">human hg19</option>
+      <option value="genome_table.mm9.txt">mouse mm9</option>
+      <option value="genome_table.worm.ws220.txt">worm ws220</option>
+      <option value="genome_table.dmel.r5.32.txt">dmel r5.32</option>
     </param>
   </inputs>
   <outputs>
