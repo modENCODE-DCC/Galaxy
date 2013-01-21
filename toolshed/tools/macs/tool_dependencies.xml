@@ -3,10 +3,12 @@
     <set_environment version="1.0">
         <environment_variable name="SCRIPT_PATH" action="set_to">$REPOSITORY_INSTALL_DIR</environment_variable>
     </set_environment>
-     <package name="macs" version="1.4.1">
+     <package name="macs14" version="1.4.1">
          <install version="1.0">
              <actions>
-                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs/macs.tar?raw=true</action>
+                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs/macs.tar.gz?raw=true</action>
+                <action type="shell_command">sudo su</action>
+                <action type="shell_command">python setup.py install</action>
                 <action type="move_directory_files">
                     <source_directory>bin</source_directory>
                     <destination_directory>$INSTALL_DIR/bin</destination_directory>
@@ -17,7 +19,7 @@
                 </action>
                 <action type="set_environment">
                      <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
-                     <environment_variable name="PYTHONPATH" action="prepend_to">$INSTALL_DIR/lib/python2.6/site-packages</environment_variable>
+                     <environment_variable name="PYTHONPATH" action="prepend_to">$INSTALL_DIR/lib</environment_variable>
                 </action>
             </actions>
         </install>
