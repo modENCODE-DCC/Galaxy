@@ -15,6 +15,7 @@ CHUNK_SIZE = 1024
 def main():
     options = simplejson.load( open( sys.argv[1] ) )
     outputs = simplejson.load( open( sys.argv[2] ) )
+    script_path = sys.argv[3]
 
 
     #sets experiment name and sets the chip/input files
@@ -51,7 +52,7 @@ def main():
 	output_report_file = outputs['output_report_file']
 
 	if (options['gene_annotate_file'] != "None"):
-		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
+		gene_annotate_file = "--gene_annot_file %s/gene_annotation_files/%s" % ( script_path, options['gene_annotate_file'] )
 		report = "--report"
 	elif (options['gene_annotate_file'] == "Upload"):
 		gene_annotate_file = options['usr_annot_file']
@@ -69,7 +70,7 @@ def main():
 	output_ranger_file = outputs['output_ranger_file']
 	
 	if (options['gene_annotate_file'] != "None"):
-		gene_annotate_file = "--gene_annot_file /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/peakranger/gene_annotation_files/%s" % options['gene_annotate_file']
+		gene_annotate_file = "--gene_annot_file %s/gene_annotation_files/%s" % ( script_path, options['gene_annotate_file'] )
 		report = "--report"
 	elif (options['gene_annotate_file'] == "Upload"):
 		gene_annotate_file = options['usr_annot_file']
