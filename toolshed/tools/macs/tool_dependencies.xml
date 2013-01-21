@@ -8,7 +8,6 @@
              <actions>
                 <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs/macs.tar.gz?raw=true</action>
                 <action type="shell_command">make</action>
-                <action type="shell_command">python setup.py install</action>
                 <action type="move_directory_files">
                     <source_directory>bin</source_directory>
                     <destination_directory>$INSTALL_DIR/bin</destination_directory>
