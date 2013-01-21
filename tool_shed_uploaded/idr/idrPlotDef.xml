@@ -3,8 +3,11 @@ Usage of THIS SCRIPT: ./idrPlotWrapper.sh em uri outputfile
 -->
 
 <tool id="batch_consistency_plot" name="IDR-Plot">
+  <requirements>
+    <requirement type="set_environment">SCRIPT_PATH</requirement>
+  </requirements>
   <description>Plot Consistency Analysis on IDR output files</description>
-  <command interpreter="bash">idrPlotWrapper.sh $em $uri $outputfile</command>
+  <command interpreter="bash">idrPlotWrapper.sh $em $uri $outputfile \$SCRIPT_PATH</command>
   <inputs>
     <param name="uri" type="data" label="uri.sav file (output from IDR consistency analysis)"/>
     <param name="em" type="data" label="em.sav file (output from IDR consistency analysis)"/>

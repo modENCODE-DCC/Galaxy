@@ -4,7 +4,7 @@
 # (i.e. number of selected peaks vs IDR) for each pair of sample
 #
 # usage: 
-# Rscript batch-consistency-plot-merged.r [npairs] [output.dir] [input.file.prefix 1, 2, 3 ...]
+# Rscript batch-consistency-plot-merged.r [script_path] [npairs] [output.dir] [input.file.prefix 1, 2, 3 ...]
 # [npairs]: integer, number of consistency analyses
 #          (e.g. if 2 replicates, npairs=1, if 3 replicates, npairs=3
 # [output.prefix]: output directory and file name prefix for plot eg. /plots/idrPlot
@@ -12,12 +12,13 @@
 #
 
 args <- commandArgs(trailingOnly=T)
-npair <- args[1] # number of curves to plot on the same figure
-output.file.prefix <- args[2] # file name for plot, generated from script at the outer level
+script_path <- args[1]
+npair <- args[2] # number of curves to plot on the same figure
+output.file.prefix <- args[3] # file name for plot, generated from script at the outer level
 df.txt <- 10
 ntemp <- as.numeric(npair)
 saved.file.prefix <- list() # identifier of filenames that contain the em and URI results
-source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/functions-all-clayton-12-13.r")
+source(paste(script_path, "/functions-all-clayton-12-13.r", sep=""))
 
 uri.list <- list()
 uri.list.match <- list()
@@ -27,7 +28,7 @@ em.output.list <- list()
 uri.output.list <- list()
 
 for(i in 1:npair){
-  saved.file.prefix[i] <- args[2+i]
+  saved.file.prefix[i] <- args[3+i]
  
   load(paste(saved.file.prefix[i], "-uri.sav", sep=""))
   load(paste(saved.file.prefix[i], "-em.sav", sep=""))

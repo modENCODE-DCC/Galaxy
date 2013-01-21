@@ -12,6 +12,7 @@ CHUNK_SIZE = 1024
 
 def main():
     options = simplejson.load( open( sys.argv[1] ) )
+    script_path = sys.argv[2]
     
     #experiment_name = '_'.join( options['bamout'] ) 
    
@@ -20,9 +21,9 @@ def main():
 	if('input3' in options):
 		cmdline = "samtools merge  %s %s %s %s" % ( options['bamout'], options['input1'], options['input2'], options['input3'] )
     elif (options['action'] == "split"):
-	cmdline = "bash /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/bamedit/split.sh %s %s %s" % ( options['bamout'], options['bamout2'], options['input1'] )
+	cmdline = "bash %s/split.sh %s %s %s" % ( script_path, options['bamout'], options['bamout2'], options['input1'] )
     elif (options['action'] == "pileup"):
-	cmdline = "perl /mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/bamedit/pileup.pl %s %s %s %s %s" % ( options['input1'], options['input2'], options['bamout'], options['bamname'], options['refname'] )
+	cmdline = "perl %s/pileup.pl %s %s %s %s %s" % ( script_path, options['input1'], options['input2'], options['bamout'], options['bamname'], options['refname'] )
     elif (options['action'] == "filter"):
 	cmdline = "samtools view -q %s %s -bo %s" % ( options['quality'], options['input1'], options['bamout'] )
 

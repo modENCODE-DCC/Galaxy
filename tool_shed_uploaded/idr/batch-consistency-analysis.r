@@ -39,25 +39,25 @@ args <- commandArgs(trailingOnly=T)
 # consistency between peakfile1 and peakfile2
 #input1.dir <- args[1]
 #input2.dir <- args[2] # directories of the two input files
-peakfile1 <- args[1]
-peakfile2 <- args[2]
+script_path <- args[1]
+peakfile1 <- args[2]
+peakfile2 <- args[3]
 
-if(as.numeric(args[3])==-1){ # enter -1 when using the reported length 
+if(as.numeric(args[4])==-1){ # enter -1 when using the reported length 
   half.width <- NULL
 }else{
-  half.width <- as.numeric(args[3])
+  half.width <- as.numeric(args[4])
 }
 
-overlap.ratio <- args[4]
+overlap.ratio <- args[5]
 
-if(args[5] == "T"){
+if(args[6] == "T"){
   is.broadpeak <- T
 }else{
   is.broadpeak <- F
 }
 
-sig.value <- args[6]
-
+sig.value <- args[7]
 
 #dir1 <- "~/ENCODE/anshul/data/"
 #dir2 <- dir1
@@ -68,21 +68,21 @@ sig.value <- args[6]
 #sig.value <- "signal.value"
 
 
-source("/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/functions-all-clayton-12-13.r")
+source(paste(script_path, "/functions-all-clayton-12-13.r", sep=""))
 
 # read the length of the chromosomes, which will be used to concatenate chr's
 # chr.file <- "genome_table.txt"
-# args[7] is the gtable
-chr.file <- args[7]
+# args[8] is the gtable
+chr.file <- args[8]
 
-chr.size <- read.table(chr.file)
+chr.size <- read.table(paste(script_path, "/genome_tables/", chr.file, sep=""))
 
 # setting output files
-r.output <- args[8]
-overlap.output <- args[9]
-npeaks.output <- args[10]
-em.sav.output <- args[11]
-uri.sav.output <- args[12]
+r.output <- args[9]
+overlap.output <- args[10]
+npeaks.output <- args[11]
+em.sav.output <- args[12]
+uri.sav.output <- args[13]
 
 # sink(paste(output.prefix, "-Rout.txt", sep=""))
 sink(r.output)
@@ -95,7 +95,7 @@ rep2 <- process.narrowpeak(paste(peakfile2, sep=""), chr.size, half.width=half.w
 
 cat(paste("read", peakfile1, ": ", nrow(rep1$data.ori), "peaks\n", nrow(rep1$data.cleaned), "peaks are left after cleaning\n", peakfile2, ": ", nrow(rep2$data.ori), "peaks\n", nrow(rep2$data.cleaned), " peaks are left after cleaning"))
 
-if(args[3]==-1){
+if(args[4]==-1){
   cat(paste("half.width=", "reported", "\n"))
 }else{
   cat(paste("half.width=", half.width, "\n"))
