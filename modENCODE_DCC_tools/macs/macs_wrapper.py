@@ -50,7 +50,7 @@ def main():
     output_peaks =  sys.argv[5]    
     
     experiment_name = '_'.join( options['experiment_name'].split() ) #save experiment name here, it will be used by macs for filenames (gzip of wig files will fail with spaces - macs doesn't properly escape them)..need to replace all whitespace, split makes this easier
-    cmdline = "macs -t %s" % ",".join( options['input_chipseq'] )
+    cmdline = "macs14 -t %s" % ",".join( options['input_chipseq'] )
     if options['input_control']:
         cmdline = "%s -c %s" % ( cmdline, ",".join( options['input_control'] ) )
     cmdline = "%s --format='%s' --name='%s' --gsize='%s' --tsize='%s' --bw='%s' --pvalue='%s' --mfold='%s' %s --lambdaset='%s' %s" % ( cmdline, options['format'], experiment_name, options['gsize'], options['tsize'], options['bw'], options['pvalue'], options['mfold'], options['nolambda'], options['lambdaset'], options['futurefdr'] )
