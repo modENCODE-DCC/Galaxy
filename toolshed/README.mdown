@@ -14,7 +14,8 @@ When you navigate to the folder, you will see 5 subfolders. They are:
 >	3. macs2         ->  macs2pkg.tar
 >	4. peakranger    ->  peakranger.tar
 >	5. spp           ->  spp_1.10.1.tar.gz
-Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
+
+*Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
 
 For example,
 	https://github.com/modENCODE-DCC/Galaxy/blob/b1/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true 
