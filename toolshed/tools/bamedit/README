@@ -1,0 +1,10 @@
+** Please don't upload README file to Galaxy ToolShed. **
+
+
+Synopsis:
+Merging, splitting, filtering, and QC of BAM files (bamedit)
+
+
+Detailed description:
+View the original SAMtools documentation: http://samtools.sourceforge.net/
+Send your comments/questions to modENCODE DCC at help@modencode.org.
