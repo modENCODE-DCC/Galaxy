@@ -36,6 +36,5 @@ axxb.py:
 	It is a wrapper script which will take parameters passed from axxb.xml and execute commands on the cluster nodes and return the results.
 
 tool_dependencies.xml:
-	This is the file which will be parsed by Galaxy program. Galaxy has its own parser to handle whatever files that are named "tool_dependencies.xml". Information in the file includes whether packages have dependencies to install, whether you need to set environment variable, whether it requires moving different files to specific directory and so on. The link below provides a good understanding to what a tool_dependencies.xml parser can do and some essential knowledge of syntax.
-		http://galaxy-central.readthedocs.org/en/latest/_modules/galaxy/tool_shed/tool_dependencies/install_util.html 
+	This is the file which will be parsed by Galaxy program. Galaxy has its own parser to handle whatever files that are named "tool_dependencies.xml". Information in the file includes whether packages have dependencies to install, whether you need to set environment variable, whether it requires moving different files to specific directory and so on. The link below provides a good understanding to what a tool_dependencies.xml parser can do and some essential knowledge of syntax.http://galaxy-central.readthedocs.org/en/latest/_modules/galaxy/tool_shed/tool_dependencies/install_util.html 
 
