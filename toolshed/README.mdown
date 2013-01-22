@@ -34,8 +34,8 @@ Adding "?raw=true" at the end telling GitHub server that you would like to downl
 
 The files in this folder are uploaded to Galaxy ToolShed. When you navigate to the folder, you will see one additional package folder: idr. The rest are all the same as in dependencies folder. In each package folder, you will see three main types of files: 
 
->	1. axxb.py
->	2. axxb.xml
+>	1. axxb.py     (example)
+>	2. axxb.xml    (example)
 >	3. tool_dependencies.xml 
 
 Depend on packages, there might be other files (or scripts) with different functionalities located in package folders. Those external scripts will be used by axxb.xml above to perform calculation. With that being said, let's look into what exactly those three main type of files are.
@@ -54,4 +54,9 @@ Depend on packages, there might be other files (or scripts) with different funct
 
 >	http://galaxy-central.readthedocs.org/en/latest/_modules/galaxy/tool_shed/tool_dependencies/install_util.html 
 
+Tips:
+-----------
 
+There are a few things to notice while coding tool_dependencies.xml.
+
+>	1. If axxb.py will use files (Ex. genome_tables) that are bundled with a package in the tools directory, in another words, there are some codes that will access the files by giving it wtih a path, then please make sure you have set a variable and export it in your tool_dependencies.xml. Here is an example to show how you can achieve it.
