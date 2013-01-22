@@ -1,3 +1,8 @@
+modENCODE-DCC: Galaxy - ToolShed
+===================================
+
+Documentation:
+-----------------------
 
 This directory stores Galaxy toolshed files for different packages put together by modDENCODE DCC group. Please send your questions and comments to modENCODE DCC at help@modencode.org.
 
@@ -5,7 +10,7 @@ This directory stores Galaxy toolshed files for different packages put together 
 Two folders are located in this directory: dependencies and tools. Due to the mechanism of installing package with or without dependencies through Galaxy Tool Shed, we have had this hierarchy structure to improve management in the future. As a result, these two folders contains different type of files and have different purposes. Dependencies folder stores necessary archived files that will be used during the installation of packages that require dependencies, and tools folder contains the files that are uploaded to Galaxy tool Shed for every users to download to their local Galaxy machines.     
 
 
-Introduction:
+Folder Description:
 -----------------------
 
 **Dependencies Folder:**
@@ -18,11 +23,11 @@ When you navigate to the folder, you will see 5 subfolders. They are:
 >	4. peakranger    ->  peakranger.tar
 >	5. spp           ->  spp_1.10.1.tar.gz
 
-Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
+Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy ToolShed. Those archived filed can be accessed/downloaded by typing the URLs:
 
 >	https://github.com/modENCODE-DCC/Galaxy/blob/b1/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true (Example)
 
-Adding "?raw=true" at the end telling GitHub server that you would like to download the specific files, and this is the way that we use to tell Galaxy Tool Shed where to grab the archived files from. 
+Adding "?raw=true" at the end telling GitHub server that you would like to download the specific files, and this is the way that we use to tell Galaxy ToolShed where to grab the archived files from. 
 
 
 **Tools Folder:**
@@ -48,4 +53,5 @@ Depend on packages, there might be other files (or scripts) with different funct
 >	This is the file which will be parsed by Galaxy program. Galaxy has its own parser to handle whatever files that are named "tool_dependencies.xml". Information in the file includes whether packages have dependencies to install, whether you need to set environment variable, whether it requires moving different files to specific directory and so on. The link below provides a good understanding to what a tool_dependencies.xml parser can do and some essential knowledge of syntax.
 
 >	http://galaxy-central.readthedocs.org/en/latest/_modules/galaxy/tool_shed/tool_dependencies/install_util.html 
+
 
