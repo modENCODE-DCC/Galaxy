@@ -5,9 +5,11 @@ This directory stores Galaxy toolshed files for different packages put together 
 Two folders are located in this directory: dependencies and tools. Due to the mechanism of installing package with or without dependencies through Galaxy Tool Shed, we have had this hierarchy structure to improve management in the future. As a result, these two folders contains different type of files and have different purposes. Dependencies folder stores necessary archived files that will be used during the installation of packages that require dependencies, and tools folder contains the files that are uploaded to Galaxy tool Shed for every users to download to their local Galaxy machines.     
 
 
-A brief introduction of what type of files are located in dependencies folder and tools folder:
+A brief introduction:
+-----------------------
 
 Dependencies Folder:
+
 When you navigate to the folder, you will see 5 subfolders. They are:
 >	1. bamedit       ->  samtoolspkg.tar
 >	2. macs          ->  macs.tar.bz2
@@ -15,7 +17,7 @@ When you navigate to the folder, you will see 5 subfolders. They are:
 >	4. peakranger    ->  peakranger.tar
 >	5. spp           ->  spp_1.10.1.tar.gz
 
-*Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
+Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
 
 For example,
 	https://github.com/modENCODE-DCC/Galaxy/blob/b1/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true 
