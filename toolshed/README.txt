@@ -23,15 +23,19 @@ Adding "?raw=true" at the end telling GitHub server that you would like to downl
 
 
 Tools Folder:
-The files in this folder are uploaded to Galaxy ToolShed. When you navigate to the folder, you will see one additional package folder: idr. The rest are all the same as in dependencies folder. In each package folder you will see three main type of files: 
+The files in this folder are uploaded to Galaxy ToolShed. When you navigate to the folder, you will see one additional package folder: idr. The rest are all the same as in dependencies folder. In each package folder, you will see three main types of files: 
 	1. axxb.py
 	2. axxb.xml
 	3. tool_dependencies.xml 
-Depend on what packages are, there might be other files (or scripts) with different functionalities located in package folders. Those external scripts will be used by axxb.xml above to perform calculation. With that being said, let's look into what exactly those three main type of files are.
+Depend on packages, there might be other files (or scripts) with different functionalities located in package folders. Those external scripts will be used by axxb.xml above to perform calculation. With that being said, let's look into what exactly those three main type of files are.
 
 axxb.xml:
-	It servers as an applicatin page on Galaxy. When you are on Galaxy and navigate yourself to the left hand side of the vertical tool bar where you can see all the packaged that you have installed. This axxb.xml is the application page that allow you to choose which dataset, information, parameters and so on to execute your experiments.
+	It servers as an applicatin page on Galaxy. When you are on Galaxy and navigate yourself to the left hand side of the vertical tool bar where you can see all the packages that you have installed. This axxb.xml is the application page that allow you to choose which dataset, information, parameters and so on to execute your experiments.
 
 axxb.py:
-	It is a wrapper script which will take parameters passed from axxb.xml and run the test on the cluster nodes and return the results. 
+	It is a wrapper script which will take parameters passed from axxb.xml and execute commands on the cluster nodes and return the results.
+
+tool_dependencies.xml:
+	This is the file which will be parsed by Galaxy program. Galaxy has its own parser to handle whatever files that are named "tool_dependencies.xml". Information in the file includes whether packages have dependencies to install, whether you need to set environment variable, whether it requires moving different files to specific directory and so on. The link below provides a good understanding to what a tool_dependencies.xml parser can do and some essential knowledge of syntax.
+		http://galaxy-central.readthedocs.org/en/latest/_modules/galaxy/tool_shed/tool_dependencies/install_util.html 
 
