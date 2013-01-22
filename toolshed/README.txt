@@ -8,17 +8,30 @@ Two folders are located in this directory: dependencies and tools. Due to the me
 A brief introduction of what type of files are located in dependencies folder and tools folder:
 
 Dependencies Folder:
-When navigate to the folder, you will see 5 subfolders. They are:
-	1. bamedit
-	2. macs
-	3. macs2
-	4. peakranger
-	5. spp
+When you navigate to the folder, you will see 5 subfolders. They are:
+	1. bamedit       >  samtoolspkg.tar
+	2. macs          >  macs.tar.bz2
+	3. macs2         >  macs2pkg.tar
+	4. peakranger    >  peakranger.tar
+	5. spp           >  spp_1.10.1.tar.gz
 Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
 
 For example,
 	https://github.com/modENCODE-DCC/Galaxy/blob/b1/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true 
 
-Adding "?raw=true" at the end telling GitHub server that you would like to download the specified files, and this is the way that we use to tell Galaxy Tool Shed where to grab the archived files from. 
+Adding "?raw=true" at the end telling GitHub server that you would like to download the specific files, and this is the way that we use to tell Galaxy Tool Shed where to grab the archived files from. 
 
+
+Tools Folder:
+The files in this folder are uploaded to Galaxy ToolShed. When you navigate to the folder, you will see one additional package folder: idr. The rest are all the same as in dependencies folder. In each package folder you will see three main type of files: 
+	1. axxb.py
+	2. axxb.xml
+	3. tool_dependencies.xml 
+Depend on what packages are, there might be other files (or scripts) with different functionalities located in package folders. Those external scripts will be used by axxb.xml above to perform calculation. With that being said, let's look into what exactly those three main type of files are.
+
+axxb.xml:
+	It servers as an applicatin page on Galaxy. When you are on Galaxy and navigate yourself to the left hand side of the vertical tool bar where you can see all the packaged that you have installed. This axxb.xml is the application page that allow you to choose which dataset, information, parameters and so on to execute your experiments.
+
+axxb.py:
+	It is a wrapper script which will take parameters passed from axxb.xml and run the test on the cluster nodes and return the results. 
 
