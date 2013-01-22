@@ -15,8 +15,10 @@ When navigate to the folder, you will see 5 subfolders. They are:
 	4. peakranger
 	5. spp
 Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy Tool Shed. Those archived filed can be accessed/downloaded by typing the URLs:
+
 For example,
 	https://github.com/modENCODE-DCC/Galaxy/blob/b1/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true 
+
 Adding "?raw=true" at the end telling GitHub server that you would like to download the specified files, and this is the way that we use to tell Galaxy Tool Shed where to grab the archived files from. 
 
 
