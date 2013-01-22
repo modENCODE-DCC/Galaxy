@@ -35,9 +35,9 @@ Scripts
   
   >**bin/auto_install.sh** - subscript used by setup.py to check version for both Galaxy and database, and update modENODE-DCC:Galaxy from GitHub   
 
-    >>**bin/enable.sh** - uses Linux's ssh to install python 2.7, python packge - numpy, and spp across the cluster nodes 
+  >**bin/enable.sh** - uses Linux's ssh to install python 2.7, python packge - numpy, and spp across the cluster nodes 
 
-    >>**bin/all_dependencies.sh** - lists out all the dependencies scripts and executes them one by one
+  >**bin/all_dependencies.sh** - lists out all the dependencies scripts and executes them one by one
 
   >**bin/macs2_deploy.sh** - subscript used by bin/all_dependencies.sh to deploy python 2.7 and numpy
   
@@ -56,3 +56,16 @@ Scripts
 **bin/modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
   
   >**bin/modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
+
+
+<table>
+  <tr>
+    <th>ID</th><th>Name</th><th>Rank</th>
+  </tr>
+  <tr>
+    <td>1</td><td>Tom Preston-Werner</td><td>Awesome</td>
+  </tr>
+  <tr>
+    <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
+  </tr>
+</table>
