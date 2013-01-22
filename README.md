@@ -56,16 +56,3 @@ Scripts
 **bin/modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
   
   >**bin/modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
-
-
-<table>
-  <tr>
-    <th>ID</th><th>Name</th><th>Rank</th>
-  </tr>
-  <tr>
-    <td>1</td><td>Tom Preston-Werner</td><td>Awesome</td>
-  </tr>
-  <tr>
-    <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
-  </tr>
-</table>
