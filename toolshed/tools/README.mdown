@@ -1,0 +1,1 @@
+This directory stores Galaxy packages that have been uploaded to Galaxy ToolShed for individual users to download to their local Galaxy machine. These packages are put together by modDENCODE DCC group. Please send your questions and comments to modENCODE DCC at help@modencode.org
