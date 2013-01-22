@@ -5,9 +5,9 @@
     <tool file="modENCODE_DCC_tools/faceted_browser/modENCODE_getData.xml" />
     <tool file="modENCODE_DCC_tools/peakranger/ranger_wrapper.xml" />
     <tool file="modENCODE_DCC_tools/spp/spp_wrapper.xml" />
-    <tool file="modENCODE_DCC_tools/macs/macs_wrapper.xml" />
-    <tool file="modENCODE_DCC_tools/macs2/macs2_wrapper.xml" />
+    <!--<tool file="modENCODE_DCC_tools/macs/macs_wrapper.xml" />-->
     <tool file="modENCODE_DCC_tools/macs/macs2npk.xml" />
+    <tool file="modENCODE_DCC_tools/macs2/macs2_wrapper.xml" />
     <tool file="modENCODE_DCC_tools/idr/idrToolDef.xml" />
     <tool file="modENCODE_DCC_tools/idr/idrPlotDef.xml" />
     <tool file="modENCODE_DCC_tools/bamedit/bamedit.xml" />
