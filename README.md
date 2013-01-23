@@ -3,16 +3,17 @@ modENCODE-DCC: Galaxy
 
 This GitHub repository contains tools and scripts put together by members of the modENCODE DCC team:
 
- * Fei-Yang ( Arthur ) Jen, student, University of Waterloo
- * Quang Trinh, Ontario Institute for Cancer Research
- * Marc Perry, Ontario Institute for Cancer Research
- * Ellen Kephart, Ontario Institute for Cancer Research
+ * Fei-Yang ( Arthur ) Jen
+ * Quang Trinh
+ * Marc Perry
+ * Ellen Kephart
  * Sergio Contrino
- * Lincoln Stein, Ontario Institute for Cancer Research
+ * Lincoln Stein
  
 Alumini:
- * KarMing Chu, student, Univeristy of Waterloo
- * Ziru Zhou, student, University of Waterloo
+ * Ziru Zhou 
+ * KarMing Chu
+ 
 
 Please send your comments/questions to modENCODE DCC at help@modencode.org.
 
