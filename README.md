@@ -1,6 +1,22 @@
 modENCODE-DCC: Galaxy
 =========================
 
+This GitHub repository contains tools and scripts put together by members of the modENCODE DCC team:
+
+ * Fei-Yang ( Arthur ) Jen, student, University of Waterloo
+ * Quang Trinh, OICR
+ * Marc Perry, OICR
+ * Ellen Kephart 
+ * Sergio Contrino
+ * Lincoln Stein, OICR
+ 
+Alumini:
+ * KarMing Chu, student, Univeristy of Waterloo
+ * Ziru Zhou, student, University of Waterloo
+
+Please send your comments/questions to modENCODE DCC at help@modencode.org.
+
+
 Documentations
 -------------------
 **docs/README.how.to.launch.Galaxy** - README file on how to launch an instance of Galaxy on Amazon
