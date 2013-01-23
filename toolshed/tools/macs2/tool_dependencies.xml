@@ -14,9 +14,9 @@
                 <action type="shell_command">sudo -n chmod ag+wx /usr/local/bin</action>
             </actions>-->
             <actions>
-                <action type="download_by_url">git clone git://github.com/numpy/numpy.git</action>
-                <action type="shell_command">python setup.py build</action>
-                <action type="shell_command">python setup.py install</action>
+                <action type="shell_command">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs2/numpy.tar.gz?raw=true</action>
+                <action type="shell_command">sudo -n python setup.py build</action>
+                <action type="shell_command">sudo -n python setup.py install</action>
             </actions>
             <actions>
                 <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs2/macs2pkg.tar?raw=true</action>
