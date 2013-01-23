@@ -17,11 +17,11 @@ Folder Description:
 
 When you navigate to the folder, you will see 5 subfolders. They are:
 
->	1. bamedit       ->  samtoolspkg.tar
->	2. macs          ->  macs.tar.bz2
->	3. macs2         ->  macs2pkg.tar
->	4. peakranger    ->  peakranger.tar
->	5. spp           ->  spp_1.10.1.tar.gz
+ * bamedit       ->  samtoolspkg.tar
+ * macs          ->  macs.tar.bz2
+ * macs2         ->  macs2pkg.tar
+ * peakranger    ->  peakranger.tar
+ * spp           ->  spp_1.10.1.tar.gz
 
 Each folder contains one compressed file (.tar, .tar.gz, or .tar.bz2) which will be used later on during package installation through Galaxy ToolShed. Those archived filed can be accessed/downloaded by typing the URLs:
 
@@ -34,9 +34,9 @@ Adding "?raw=true" at the end telling GitHub server that you would like to downl
 
 The files in this folder are uploaded to Galaxy ToolShed. When you navigate to the folder, you will see one additional package folder: idr. The rest are all the same as in dependencies folder. In each package folder, you will see three main types of files: 
 
->	1. axxb.py     (example)
->	2. axxb.xml    (example)
->	3. tool_dependencies.xml 
+ * axxb.py     (example)
+ * axxb.xml    (example)
+ * tool_dependencies.xml 
 
 Depend on packages, there might be other files (or scripts) with different functionalities located in package folders. Those external scripts will be used by axxb.xml above to perform calculation. With that being said, let's look into what exactly those three main type of files are.
 
