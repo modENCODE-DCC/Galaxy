@@ -13,6 +13,8 @@ gitrepo="/root/Galaxy/.git"
 galaxy="/root/Galaxy"
 dir="/mnt/galaxyTools/galaxy-central"
 filename="DevNewsBriefs"
+db_version=""
+version=""
 
 #Get galaxy_version and db_version
 #=======================================
@@ -67,7 +69,6 @@ function Update_DB ( )
     echo "Fetching latest patch number ...."
     upgrade=`grep -o -m 1 "hg pull -u .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
     echo -e "Done ....\n"
-    echo "Wait till the upgade is completed then update your database ...."
     echo "Current version before update:"
     get_version
     print_version
@@ -142,8 +143,7 @@ echo "  - updates /mnt/galaxyTools/galaxy-central/universe_wsgi.ini configuratio
 echo "  - makes a backup of /mnt/galaxyTools/galaxy-central/tool_conf.xml"
 echo "  - updates /mnt/galaxyTools/galaxy-central/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc."  
 echo "  - copies modENCODE DCC tools to /mnt/galaxyTools/galaxy-central/tools/"
-echo "  - restarts Galaxy"  
-echo ""
+echo -e "  - restarts Galaxy\n"  
 bin/modENCODE_galaxy_config.pl modENCODE_DCC_tools
 echo "bin/enable.sh downloads and install all dependencies for modENCODE DCC tools."
 echo "This process takes a few minutes to complete.  Wait until this process complete before going to the next step (Demo)."
