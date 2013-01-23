@@ -26,7 +26,7 @@ function get_version ( )
 #================================================
 function print_version ( )
 {
-    echo "   - Galaxy_version: $version"
+    echo "   - Code_version: $version"
     echo "   - DB_version: $db_version"
 }
 
@@ -66,32 +66,38 @@ function Update_DB ( )
     #==============================================================
     echo "Fetching latest patch number ...."
     upgrade=`grep -o -m 1 "hg pull -u .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
-    echo "Done ...."
-    echo ""
+    echo -e "Done ....\n"
     echo "Wait till the upgade is completed then update your database ...."
     echo "Current version before update:"
     get_version
     print_version
-    echo "Upgrade has been initiated  ...."
-    sudo -u galaxy $upgrade || exit 1
-    rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
-
-    #Check galaxy and db version again after upgrade
-    #================================================
-    sh manage_db.sh upgrade
-    Restart
-    get_version
-
-    if [[ "$version" -eq "db_version" ]]; 
+    if [[ "$version" -eq 107 ]];
     then
-        echo "Upgrade has completed ...."
-        echo "Current version after update:"
-        print_version
+        echo "Upgrade has been initiated  ...."
+        sudo -u galaxy $upgrade || exit 1
+        rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
+
+        #Check galaxy and db version again after upgrade
+        #================================================
+        sh manage_db.sh upgrade
+        Restart
+        get_version
+
+        if [[ "$version" -eq "db_version" ]]; 
+        then
+            echo "Upgrade has completed ...."
+            echo "Current version after update:"
+            print_version
+        else
+            print_version 1>&2
+            echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
+            exit 1
+        fi
     else
-        print_version 1>&2
-        echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
-        exit 1
+        echo "Current version is up-to-date ... skip the update ..."
+        print_version
     fi
+    
 
 }
 
