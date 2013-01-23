@@ -48,12 +48,10 @@ function Update_DB ( )
     #==============================================================
     if [ -d "$dir" ];
     then
-        echo "Changing to dir: $dir ...."
-        echo ""
+        echo -e "Changing to dir: $dir ....\n"
         cd $dir
     else
-        echo "The dir: $dir does not exit ...." 
-        echo ""
+        echo -e "The dir: $dir does not exit ....\n" 
         exit 1
     fi
 
@@ -61,8 +59,7 @@ function Update_DB ( )
     #========================================================
     echo "Fetching files ....."
     wget -nv http://wiki.galaxyproject.org/DevNewsBriefs || { echo "Error: The DevNewsBriefs link might need to be updated in the script and make sure you are connected to Internet"; exit 1;}
-    echo "Done ....."
-    echo ""
+    echo -e "Done .....\n"
 
     #Process the pre-fetched webpage to obtain latest patch number
     #==============================================================
