@@ -14,12 +14,12 @@
                 <action type="shell_command">sudo -n chmod ag+wx /usr/local/bin</action>
             </actions>-->
             <actions>
-                <action type="download_by_url"></action>
+                <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/numpy.tar</action>
                 <action type="shell_command">sudo -n python setup.py build</action>
                 <action type="shell_command">sudo -n python setup.py install</action>
             </actions>
             <actions>
-                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs2/macs2pkg.tar?raw=true</action>
+                <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/macs2pkg.tar</action>
                 <action type="move_directory_files">
                     <source_directory>bin</source_directory>
                     <destination_directory>$INSTALL_DIR/bin</destination_directory>

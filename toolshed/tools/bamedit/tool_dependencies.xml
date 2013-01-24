@@ -6,7 +6,7 @@
     <package name="samtools" version="0.1.12">
         <install version="1.0">
             <actions>
-                <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/bamedit/samtoolspkg.tar?raw=true</action>
+                <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/samtoolspkg.tar</action>
                 <action type="shell_command">chmod ago+x samtools</action>
                 <action type="shell_command">chmod ago+x maq2sam-long</action>
                 <action type="move_file">
