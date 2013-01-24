@@ -13,6 +13,8 @@ gitrepo="/root/Galaxy/.git"
 galaxy="/root/Galaxy"
 dir="/mnt/galaxyTools/galaxy-central"
 filename="DevNewsBriefs"
+db_version=""
+version=""
 
 #Get galaxy_version and db_version
 #=======================================
@@ -26,7 +28,7 @@ function get_version ( )
 #================================================
 function print_version ( )
 {
-    echo "   - Galaxy_version: $version"
+    echo "   - Code_version: $version"
     echo "   - DB_version: $db_version"
 }
 
@@ -46,12 +48,10 @@ function Update_DB ( )
     #==============================================================
     if [ -d "$dir" ];
     then
-        echo "Changing to dir: $dir ...."
-        echo ""
+        echo -e "Changing to dir: $dir ....\n"
         cd $dir
     else
-        echo "The dir: $dir does not exit ...." 
-        echo ""
+        echo -e "The dir: $dir does not exit ....\n" 
         exit 1
     fi
 
@@ -59,39 +59,43 @@ function Update_DB ( )
     #========================================================
     echo "Fetching files ....."
     wget -nv http://wiki.galaxyproject.org/DevNewsBriefs || { echo "Error: The DevNewsBriefs link might need to be updated in the script and make sure you are connected to Internet"; exit 1;}
-    echo "Done ....."
-    echo ""
+    echo -e "Done .....\n"
 
     #Process the pre-fetched webpage to obtain latest patch number
     #==============================================================
     echo "Fetching latest patch number ...."
     upgrade=`grep -o -m 1 "hg pull -u .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
-    echo "Done ...."
-    echo ""
-    echo "Wait till the upgade is completed then update your database ...."
+    echo -e "Done ....\n"
     echo "Current version before update:"
     get_version
     print_version
-    echo "Upgrade has been initiated  ...."
-    sudo -u galaxy $upgrade || exit 1
-    rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
-
-    #Check galaxy and db version again after upgrade
-    #================================================
-    sh manage_db.sh upgrade
-    Restart
-    get_version
-
-    if [[ "$version" -eq "db_version" ]]; 
+    if [[ "$version" -eq 107 ]];
     then
-        echo "Upgrade has completed ...."
-        echo "Current version after update:"
-        print_version
+        echo "Upgrade has been initiated  ...."
+        sudo -u galaxy $upgrade || exit 1
+        rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
+
+        #Check galaxy and db version again after upgrade
+        #================================================
+        sh manage_db.sh upgrade
+        Restart
+        get_version
+
+        if [[ "$version" -eq "db_version" ]]; 
+        then
+            echo "Upgrade has completed ...."
+            echo "Current version after update:"
+            print_version
+        else
+            print_version 1>&2
+            echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
+            exit 1
+        fi
     else
-        print_version 1>&2
-        echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
-        exit 1
+        echo "Current version is up-to-date ... skip the update ..."
+        print_version
     fi
+    
 
 }
 
@@ -136,8 +140,7 @@ echo "  - updates /mnt/galaxyTools/galaxy-central/universe_wsgi.ini configuratio
 echo "  - makes a backup of /mnt/galaxyTools/galaxy-central/tool_conf.xml"
 echo "  - updates /mnt/galaxyTools/galaxy-central/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc."  
 echo "  - copies modENCODE DCC tools to /mnt/galaxyTools/galaxy-central/tools/"
-echo "  - restarts Galaxy"  
-echo ""
+echo -e "  - restarts Galaxy\n"  
 bin/modENCODE_galaxy_config.pl modENCODE_DCC_tools
 echo "bin/enable.sh downloads and install all dependencies for modENCODE DCC tools."
 echo "This process takes a few minutes to complete.  Wait until this process complete before going to the next step (Demo)."

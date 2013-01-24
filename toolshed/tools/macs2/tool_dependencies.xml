@@ -4,7 +4,20 @@
         <environment_variable name="SCRIPT_PATH" action="set_to">$REPOSITORY_INSTALL_DIR</environment_variable>
     </set_environment>-->
     <package name="macs2" version="2.0.10.2">
-        <install version="1.0">
+        <install version="1.0">           
+            <!-- <actions>
+                <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/Python-2.7.3.tar.bz2</action>
+                <action type="shell_command">./configure</action>
+                <action type="shell_command">make -j</action>
+                <action type="shell_command">sudo -n make install</action>
+                <action type="shell_command">sudo -n chmod ag+w /usr/local/lib/python2.7/site-packages</action>
+                <action type="shell_command">sudo -n chmod ag+wx /usr/local/bin</action>
+            </actions>-->
+            <actions>
+                <action type="download_by_url"></action>
+                <action type="shell_command">sudo -n python setup.py build</action>
+                <action type="shell_command">sudo -n python setup.py install</action>
+            </actions>
             <actions>
                 <action type="download_by_url">https://github.com/modENCODE-DCC/Galaxy/blob/master/toolshed/dependencies/macs2/macs2pkg.tar?raw=true</action>
                 <action type="move_directory_files">

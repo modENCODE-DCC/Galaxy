@@ -48,15 +48,19 @@ Galaxy Tools
 Scripts
 -------
 
-**bin/macs2_enable.pl** - uses Sun Grid Engine's qrsh to install python 2.7 across the cluster nodes 
-
-  >**bin/macs2_deploy.sh** - subscript used by bin/macs2_enable.pl to deploy python 2.7
-
-**bin/spp_enable.pl** - uses Sun Grid Engine's qrsh to install several R libraries and spp library across cluster nodes
+**setup.py** - a wrapper script to call bin/auto_install.sh to install dependencies across cluster nodes automatically.
   
-  >**bin/spp_deploy.R** - subscript used by bin/spp_enable.pl to deploy R libraries
+> **bin/auto_install.sh** - subscript used by setup.py to check version for both Galaxy and database, and update modENODE-DCC:Galaxy from GitHub   
+
+> **bin/enable.sh** - uses Linux's ssh to install python 2.7, python packge - numpy, and spp across the cluster nodes 
+
+> **bin/all_dependencies.sh** - lists out all the dependencies scripts and executes them one by one
+
+> **bin/macs2_deploy.sh** - subscript used by bin/all_dependencies.sh to deploy python 2.7 and numpy
   
-  >**spp_1.10.1.tar.gz** - package containing spp phantom peaks library
+> **bin/spp_deploy.R** - subscript used by bin/all_dependencies.sh to deploy R libraries
+  
+> **spp_1.10.1.tar.gz** - package containing spp phantom peaks library
 
 **bin/modENCODE_galaxy_config.pl** - used to copy the modENCODE tools into galaxy and set up dependencies
   
@@ -69,3 +73,10 @@ Scripts
 **bin/modENCODE_galaxy_create.pl** - used in conjunction with config.txt to launch a customizable galaxy instance
   
   >**bin/modENCODE_galaxy_namevolumes.pl** - subscript used to name volumes attached to an amazon galaxy instance
+
+Reference
+----------
+
+**Getting Started with Galaxy CloudMan**
+
+  http://wiki.galaxyproject.org/CloudMan/AWS/GettingStarted
