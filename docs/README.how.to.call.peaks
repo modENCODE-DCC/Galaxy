@@ -39,8 +39,10 @@ Step 6. On your Galaxy instance, get a copy of the modENCODE DCC tools from gith
 depedencies: 
 
   > sudo su -
-  > cd ; git clone https://github.com/modENCODE-DCC/Galaxy.git 
-  > cd Galaxy ; ./setup.sh 
+  > cd 
+  > git clone https://github.com/modENCODE-DCC/Galaxy.git 
+  > cd Galaxy
+  > . setup.sh 
 
   'setup.sh' does the following:
   - get the latest updates from Galaxy repository 
