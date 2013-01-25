@@ -49,7 +49,10 @@ depedencies:
 
   This process will take about 5 to 10 mins!
 
-  **In case you were to add more cluster node(s) after Step 6, you can simply follow Step 4, and run the ./setup.sh again. It will install all the required dependencies on the new node(s).**  
+** Note:
+     In case you were to add more cluster node(s) after Step 6, you can simply follow Step 4, and run the ./setup.sh again. 
+     It will install all the required dependencies on the new node(s). 
+
 
 Step 7. Upload your bam files by clicking on 'Get Data' and 'Upload File'.  For the demo purpose of how to 
 call peaks using Galaxy, we have provided sample bam files below.  Cut and paste the following URLs to 
