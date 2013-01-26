@@ -1,0 +1,296 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "A 2-replicate workflow for calling peak from bam files using macs2 and IDR.", 
+    "format-version": "0.1", 
+    "name": "2-rep-peak-call-macs2-idr", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 190, 
+                "top": 367
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 190, 
+                "top": 445
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 196, 
+                "top": 543
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 198, 
+                "top": 618
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "major_command|input_chipseq_file1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "major_command|input_control_file1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "MACS2", 
+            "outputs": [
+                {
+                    "name": "output_bed_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_peaks_file", 
+                    "type": "xls"
+                }, 
+                {
+                    "name": "output_narrowpeaks_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_xls_to_interval_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_xls_to_interval_negative_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_bdgcmp_file", 
+                    "type": "bdg"
+                }
+            ], 
+            "position": {
+                "left": 437, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "modencode_peakcalling_macs2", 
+            "tool_state": "{\"major_command\": \"{\\\"gsize\\\": \\\"2700000000.0\\\", \\\"bdg\\\": \\\"False\\\", \\\"__current_case__\\\": 0, \\\"advanced_options\\\": {\\\"advanced_options_selector\\\": \\\"off\\\", \\\"__current_case__\\\": 1}, \\\"input_chipseq_file1\\\": null, \\\"xls_to_interval\\\": \\\"False\\\", \\\"major_command_selector\\\": \\\"callpeak\\\", \\\"input_control_file1\\\": null, \\\"pq_options\\\": {\\\"pq_options_selector\\\": \\\"qvalue\\\", \\\"qvalue\\\": \\\"0.05\\\", \\\"__current_case__\\\": 1}, \\\"bw\\\": \\\"300\\\", \\\"nomodel_type\\\": {\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 1}}\", \"__page__\": 0, \"experiment_name\": \"\\\"MACS2 in Galaxy\\\"\"}", 
+            "tool_version": "2.0.10.2", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "major_command|input_chipseq_file1": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "major_command|input_control_file1": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "MACS2", 
+            "outputs": [
+                {
+                    "name": "output_bed_file", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_extra_files", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "output_peaks_file", 
+                    "type": "xls"
+                }, 
+                {
+                    "name": "output_narrowpeaks_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_xls_to_interval_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_xls_to_interval_negative_peaks_file", 
+                    "type": "interval"
+                }, 
+                {
+                    "name": "output_bdgcmp_file", 
+                    "type": "bdg"
+                }
+            ], 
+            "position": {
+                "left": 431, 
+                "top": 518
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "modencode_peakcalling_macs2", 
+            "tool_state": "{\"major_command\": \"{\\\"gsize\\\": \\\"2700000000.0\\\", \\\"bdg\\\": \\\"False\\\", \\\"__current_case__\\\": 0, \\\"advanced_options\\\": {\\\"advanced_options_selector\\\": \\\"off\\\", \\\"__current_case__\\\": 1}, \\\"input_chipseq_file1\\\": null, \\\"xls_to_interval\\\": \\\"False\\\", \\\"major_command_selector\\\": \\\"callpeak\\\", \\\"input_control_file1\\\": null, \\\"pq_options\\\": {\\\"pq_options_selector\\\": \\\"qvalue\\\", \\\"qvalue\\\": \\\"0.05\\\", \\\"__current_case__\\\": 1}, \\\"bw\\\": \\\"300\\\", \\\"nomodel_type\\\": {\\\"nomodel_type_selector\\\": \\\"create_model\\\", \\\"__current_case__\\\": 1}}\", \"__page__\": 0, \"experiment_name\": \"\\\"MACS2 in Galaxy\\\"\"}", 
+            "tool_version": "2.0.10.2", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "output_narrowpeaks_file"
+                }, 
+                "input2": {
+                    "id": 5, 
+                    "output_name": "output_narrowpeaks_file"
+                }
+            }, 
+            "inputs": [], 
+            "name": "IDR", 
+            "outputs": [
+                {
+                    "name": "rout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "aboveIDR", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "ratio", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "emSav", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "uriSav", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 821, 
+                "top": 233
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "batch_consistency_analysis_2", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"gtable\": \"\\\"/mnt/galaxyTools/galaxy-central/tools/modENCODE_DCC_tools/idr/genome_tables/genome_table.human.hg19.txt\\\"\", \"option\": \"\\\"F\\\"\", \"sigvalue\": \"\\\"p.value\\\"\", \"overlap\": \"\\\"0.0\\\"\", \"input1\": \"null\", \"halfwidth\": \"\\\"1000\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "em": {
+                    "id": 6, 
+                    "output_name": "emSav"
+                }, 
+                "uri": {
+                    "id": 6, 
+                    "output_name": "uriSav"
+                }
+            }, 
+            "inputs": [], 
+            "name": "IDR-Plot", 
+            "outputs": [
+                {
+                    "name": "outputfile", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1083, 
+                "top": 351
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "batch_consistency_plot", 
+            "tool_state": "{\"em\": \"null\", \"__page__\": 0, \"uri\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
