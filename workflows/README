@@ -1,6 +1,9 @@
 
-
 Galaxy-Workflow-2-rep-peak-call-macs2-idr.ga
-  A 2-replicate workflow of peak call and consistency analysis using macs2 and IDR.
+  A 2-replicate workflow of peak calls and consistency analysis using macs2, IDR, and IDR plot.  The workflows takes 4 bam input files
+  
+  Workflow Inputs:  4 bam files ( 2 ChIP bam files for replicates 1 and 2 ; and 2 Input/Control bam files for replicates 1 and 2 )
+  
+  Workflow Outputs: macs2 output files and IDR output files. 
 
  
