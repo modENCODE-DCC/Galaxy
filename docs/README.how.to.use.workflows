@@ -1,0 +1,45 @@
+
+This file describes how to use workflows created by modENCODE DCC.  Please send your questions/comments to 
+modENCODE DCC at help@modencode.org.
+
+
+Step 1. See instructions in docs/README.how.to.launch.Galaxy.on.Amazon on how to launch Galaxy on Amazon.  
+Ensure your Galaxy is up and running before continue on to the next step ( see Step 6 in 
+docs/README.how.to.launch.Galaxy.on.Amazon on how to ensure your Galaxy is up and running ).
+
+
+Step 2. Do Steps 1 to 7 as indicated in docs/README.how.to.call.peaks. 
+
+
+Step 3. Import the 2-replicate peak call and consistency analysis workflow created by the modENCODE DCC.
+Click on Workflow ( top center of your Galaxy menu ), then click on 'Upload or import workflow' ( top-right
+corner ) and enter the following URL in the 'Galaxy workflow URL' textbox:
+
+http://data.modencode.org/modENCODE_Galaxy/workflows/Galaxy-Workflow-2-rep-peak-call-macs2-idr.ga
+
+  Click on 'Import' to import the workflow.  
+
+  Click on the drop-down menu of the workflow and select 'Run'.  Select your input data files for the workflow:
+
+Step 1: Input dataset ( replicate-1 ChIP bam file ): select your replicate 1 ChIP bam file 
+Step 2: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 1 Input/Control bam file 
+Step 3: Input dataset ( replicate-1 ChIP bam file ): select your replicate 2 ChIP bam file
+Step 4: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 2 Input/Control bam file
+
+
+Step 4.  Click on 'Run workflow' to run the workflow with your selected data.  This workflow should
+take about 30 mins to complete. 
+
+  When the workflow complete, you should see 14 more entries your Galaxy history:  
+
+  - data file entries 5 to 8 are macs2 outputs from replicate 1
+  - data file entries 9 to 12 are macs2 outputs from replicate 2
+  - data file entries 13 to 17 are IDR outputs from consistency analysis of replicates 1 and 2
+  - data file entry 18 is the final IDR plot output 
+
+
+NOTE:  These workflows are generic so users are encouraged to experiment with various combinations of the 
+parameters for macs2, spp, and IDR as they see fit.  As always, send your questions/comments to modENCODE DCC 
+at help@modencode.org.
+
+

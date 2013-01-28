@@ -1,17 +1,17 @@
 {
     "a_galaxy_workflow": "true", 
-    "annotation": "A 2-replicate workflow for calling peak from bam files using macs2 and IDR.", 
+    "annotation": "", 
     "format-version": "0.1", 
     "name": "2-rep-peak-call-macs2-idr", 
     "steps": {
         "0": {
-            "annotation": "", 
+            "annotation": "replicate-1 ChIP bam file", 
             "id": 0, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": "Input Dataset"
+                    "description": "replicate-1 ChIP bam file", 
+                    "name": "replicate-1 ChIP bam file"
                 }
             ], 
             "name": "Input dataset", 
@@ -22,19 +22,19 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"replicate-1 ChIP bam file\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": []
         }, 
         "1": {
-            "annotation": "", 
+            "annotation": "replicate-1 Input/Control bam file", 
             "id": 1, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": "Input Dataset"
+                    "description": "replicate-1 Input/Control bam file", 
+                    "name": "replicate-1 Input/Control bam file"
                 }
             ], 
             "name": "Input dataset", 
@@ -45,42 +45,42 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"replicate-1 Input/Control bam file\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": []
         }, 
         "2": {
-            "annotation": "", 
+            "annotation": "replicate-2 ChIP bam file", 
             "id": 2, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": "Input Dataset"
+                    "description": "replicate-2 ChIP bam file", 
+                    "name": "replicate-2 ChIP bam file"
                 }
             ], 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 196, 
-                "top": 543
+                "left": 202, 
+                "top": 548
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"replicate-2 ChIP bam file\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": []
         }, 
         "3": {
-            "annotation": "", 
+            "annotation": "replicate-2 Input/Control bam file", 
             "id": 3, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": "Input Dataset"
+                    "description": "replicate-2 Input/Control bam file", 
+                    "name": "replicate-2 Input/Control bam file"
                 }
             ], 
             "name": "Input dataset", 
@@ -91,7 +91,7 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"replicate-2 Input/Control bam file\"}", 
             "tool_version": null, 
             "type": "data_input", 
             "user_outputs": []
