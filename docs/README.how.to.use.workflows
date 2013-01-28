@@ -1,4 +1,3 @@
-
 This file describes how to use workflows created by modENCODE DCC.  Please send your questions/comments to 
 modENCODE DCC at help@modencode.org.
 
@@ -21,10 +20,10 @@ http://data.modencode.org/modENCODE_Galaxy/workflows/Galaxy-Workflow-2-rep-peak-
 
   Click on the drop-down menu of the workflow and select 'Run'.  Select your input data files for the workflow:
 
-Step 1: Input dataset ( replicate-1 ChIP bam file ): select your replicate 1 ChIP bam file 
-Step 2: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 1 Input/Control bam file 
-Step 3: Input dataset ( replicate-1 ChIP bam file ): select your replicate 2 ChIP bam file
-Step 4: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 2 Input/Control bam file
+    Step 1: Input dataset ( replicate-1 ChIP bam file ): select your replicate 1 ChIP bam file 
+    Step 2: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 1 Input/Control bam file 
+    Step 3: Input dataset ( replicate-1 ChIP bam file ): select your replicate 2 ChIP bam file
+    Step 4: Input dataset ( replicate-1 Input/Control bam file ): select your replicate 2 Input/Control bam file
 
 
 Step 4.  Click on 'Run workflow' to run the workflow with your selected data.  This workflow should
