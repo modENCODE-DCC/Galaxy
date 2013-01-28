@@ -34,6 +34,7 @@ Galaxy Tools
 **modENCODE_DCC_tools/idr** - consistency analysis on a pair of Peak files
 
   * **idr-plot** - plot consistency analysis on idr output files
+  * **IDR mailing list** - https://groups.google.com/group/idr-discuss 
 
 **modENCODE_DCC_tools/macs** - model-based analysis of ChIP-Seq with peak.xls (1.4.1)
   
