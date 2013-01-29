@@ -22,7 +22,10 @@ Documentations
 -------------------
 **docs/README.how.to.launch.Galaxy** - README file on how to launch an instance of Galaxy on Amazon
 
-**docs/README.how.to.call.peaks** - README file on how to use the ENCODE/modENCODE uniform peak calling pipeline on Amazon Cloud
+**docs/README.how.to.call.peaks** - README file on how to use the ENCODE/modENCODE uniform peak calling pipeline ( macs2, IDR, and IDR-plot ) on Amazon Cloud
+
+**docs/README.how.to.use.workflows** - README file on how to use the ENCODE/modENCODE uniform peak calling workflow ( macs2, IDR, and IDR-plot ) on Amazon Cloud
+
 
 Galaxy Tools
 ------------
