@@ -1,5 +1,4 @@
-
-This directory contains peak call workflows created using macs2, spp, PeakRanger, and IDR.  Please send your questions/comments to modENCODE DCC at help@modencode.org.
+This directory contains peak call workflows using macs2, spp, PeakRanger, and IDR.  Please send your questions/comments to modENCODE DCC at help@modencode.org.
 
 
 Galaxy-Workflow-2-rep-peak-call-macs2-idr.ga
