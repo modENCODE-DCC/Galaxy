@@ -1,8 +1,7 @@
-
 modENCODE DCC Scripts
 ------------------------
 
-**setup.py** - a wrapper script to call bin/auto_install.sh to install dependencies across cluster nodes automatically.
+**../setup.py** - a wrapper script to call bin/auto_install.sh to install dependencies across cluster nodes automatically.
   
 * **bin/auto_install.sh** - subscript used by setup.py to check version for both Galaxy and database, and update modENODE-DCC:Galaxy from GitHub   
 
