@@ -22,33 +22,31 @@ Documentations
 -------------------
 **docs/README.how.to.launch.Galaxy** - README file on how to launch an instance of Galaxy on Amazon
 
-**docs/README.how.to.call.peaks** - README file on how to call peaks using tools put together by modENCODE DCC
+**docs/README.how.to.call.peaks** - README file on how to use the ENCODE/modENCODE uniform peak calling pipeline on Amazon Cloud
 
 Galaxy Tools
 ------------
 
 **modENCODE_DCC_tools/bamedit** - merging, splitting, filtering, and QC of BAM files
 
-**modENCODE_DCC_tools/faceted_browser** - retrieve fastq files from the modENCODE ftp website
+**modENCODE_DCC_tools/idr** - Reproducibility and automatic thresholding of ChIP-seq data, written by Anshul Kundaje ( https://sites.google.com/site/anshulkundaje/projects/idr )
 
-**modENCODE_DCC_tools/idr** - consistency analysis on a pair of Peak files
-
-  * **idr-plot** - plot consistency analysis on idr output files
+  * **mac2npk** - converts macs output peak file to ENCODE narrowPeak format
+  * **idr** - consistency analysis of peak files
+  * **idr-plot** - plot consistency analysis on IDR output files
   * **IDR mailing list** - https://groups.google.com/group/idr-discuss 
 
-**modENCODE_DCC_tools/macs** - model-based analysis of ChIP-Seq with peak.xls (1.4.1)
+**modENCODE_DCC_tools/macs** - model-based analysis of ChIP-Seq (1.4.1), written by Tao Liu
   
-  * **mac2npk** - converts macs output peak file to ENCODE narrowPeak format
+**modENCODE_DCC_tools/macs2** - model-based analysis of ChIP-Seq (2.0.10.2), written by Tao Liu ( https://github.com/taoliu/MACS )
 
-**modENCODE_DCC_tools/macs2** - model-based analysis of ChIP-Seq (2.0.10.2)
+**modENCODE_DCC_tools/peakranger** - multi-purpose, ultrafast ChIP-Seq peak caller, written by Xin Feng ( http://ranger.sourceforge.net/ )
 
-**modENCODE_DCC_tools/peakranger** - multi-purpose, ultrafast ChIP-Seq peak caller
-
-**modENCODE_DCC_tools/spp** - cross-correlation analysis package
+**modENCODE_DCC_tools/spp** - cross-correlation analysis package ( http://code.google.com/p/phantompeakqualtools/ )
 
 
-Scripts
--------
+Other Scripts
+-------------
 
 **setup.py** - a wrapper script to call bin/auto_install.sh to install dependencies across cluster nodes automatically.
   
@@ -79,6 +77,4 @@ Scripts
 Reference
 ----------
 
-**Getting Started with Galaxy CloudMan**
-
-    http://wiki.galaxyproject.org/CloudMan/AWS/GettingStarted
+**Getting Started with Galaxy CloudMan** - see http://wiki.galaxyproject.org/CloudMan/AWS/GettingStarted
