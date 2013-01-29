@@ -34,7 +34,7 @@ Galaxy Tools
   * **mac2npk** - converts macs output peak file to ENCODE narrowPeak format
   * **idr** - consistency analysis of peak files
   * **idr-plot** - plot consistency analysis on IDR output files
-  * **IDR mailing list** - https://groups.google.com/group/idr-discuss 
+  * **IDR Google discussion group** - https://groups.google.com/group/idr-discuss 
 
 **modENCODE_DCC_tools/macs** - model-based analysis of ChIP-Seq (1.4.1), written by Tao Liu
   
