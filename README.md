@@ -31,8 +31,11 @@ README file on how to use the ENCODE/modENCODE uniform peak calling workflow ( m
 * **https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.use.workflows** 
 
 
-Galaxy Tools
+Galaxy Tools 
 ------------
+
+The tools listed below are also on Galaxy Toolshed http://toolshed.g2.bx.psu.edu/
+
 
 **modENCODE_DCC_tools/bamedit** - merging, splitting, filtering, and QC of BAM files
 
