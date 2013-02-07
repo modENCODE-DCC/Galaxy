@@ -72,11 +72,11 @@ def main():
 
     chip_name = os.path.basename(options['chip_file'])
     input_name = os.path.basename(options['input_file'])
-    created_narrow_peak =  os.path.join( "/mnt/galaxyData/files/000", "%s_VS_%s.narrowPeak.gz" % (chip_name, input_name) )
+    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak.gz" % (chip_name, input_name) )
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
  
-    created_region_peak =  os.path.join( "/mnt/galaxyData/files/000", "%s_VS_%s.regionPeak.gz" % (chip_name, input_name) )
+    created_region_peak =  os.path.join( tmp_dir, "%s_VS_%s.regionPeak.gz" % (chip_name, input_name) )
     if os.path.exists( created_region_peak ):
         shutil.move( created_region_peak, output_region_peak )
 
