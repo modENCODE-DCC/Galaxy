@@ -47,7 +47,8 @@ def main():
 
     #run cmdline
     #========================================================================================
-    tmp_dir = tempfile.mkdtemp()
+    #tmp_dir = tempfile.mkdtemp()
+    tmp_dir = os.path.dirname(options['chip_file'])
     stderr_name = tempfile.NamedTemporaryFile().name
     proc = subprocess.Popen( args=cmdline, shell=True, cwd=tmp_dir, stderr=open( stderr_name, 'wb' ) )
     proc.wait()
@@ -66,12 +67,13 @@ def main():
 
     #determine if the outputs are there, copy them to the appropriate dir and filename
     #========================================================================================
+    chip_name = os.path.basename(options['chip_file'])
+    input_name = os.path.basename(options['input_file'])
+
     created_default_file =  os.path.join( tmp_dir, "default_output.txt" )
     if os.path.exists( created_default_file ):
         shutil.move( created_default_file, output_default_file )
 
-    chip_name = os.path.basename(options['chip_file'])
-    input_name = os.path.basename(options['input_file'])
     created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak.gz" % (chip_name, input_name) )
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
@@ -84,11 +86,11 @@ def main():
     if os.path.exists( created_peakshift_file ):
         shutil.move( created_peakshift_file, output_peakshift_file )
 
-    created_rdata_file =  os.path.join( tmp_dir, "%s.Rdata" % options['chip_file'] )
+    created_rdata_file =  os.path.join( tmp_dir, "%s.Rdata" % chip_name )
     if os.path.exists( created_rdata_file ):
         shutil.move( created_rdata_file, output_rdata_file )
 
-    created_plot_file =  os.path.join( tmp_dir, "%s.pdf" % options['chip_file'] )
+    created_plot_file =  os.path.join( tmp_dir, "%s.pdf" % chip_name )
     if os.path.exists( created_plot_file ):
         shutil.move( created_plot_file, output_plot_file )
 
