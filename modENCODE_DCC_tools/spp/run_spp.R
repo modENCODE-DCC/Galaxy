@@ -860,14 +860,14 @@ if ( !is.na(iparams$output.npeak.file) || !is.na(iparams$output.rpeak.file) ) {
 	# Write to narrowPeak file
 	if (!is.na(iparams$output.npeak.file)) {
 		write.narrowpeak.binding(narrow.peaks,iparams$output.npeak.file,margin=round(crosscorr$whs/2),npeaks=iparams$npeak)
-		system(paste('gzip -f ',iparams$output.npeak.file))
+		#system(paste('gzip -f ',iparams$output.npeak.file))
 	}
 	
 	# Compute and write regionPeak file
 	if (!is.na(iparams$output.rpeak.file)) {
 		region.peaks <- add.broad.peak.regions(chip.data,control.data,narrow.peaks,window.size=max(50,round(crosscorr$whs/4)),z.thr=10)
 		write.narrowpeak.binding(region.peaks,iparams$output.rpeak.file,margin=round(crosscorr$whs/2),npeaks=iparams$npeak)
-		system(paste('gzip -f ',iparams$output.rpeak.file))
+		#system(paste('gzip -f ',iparams$output.rpeak.file))
 	}
 	
 	# Save Rdata file    
