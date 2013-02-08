@@ -1,6 +1,7 @@
 #purpose: python wrapper to run spp
 #author: Ziru Zhou
 #Date: November 2012
+#####################
 
 import sys, subprocess, tempfile, shutil, glob, os, os.path, gzip
 from galaxy import eggs
@@ -21,7 +22,7 @@ def main():
     script_path = sys.argv[8]
 
     #set file extensions and set mandatory options
-    #========================================================================================    
+    #======================================================================================    
     experiment_name = '_'.join( options['experiment_name'].split() ) #save experiment name
 
     chip_file = "%s.bam" % (options['chip_file'])
