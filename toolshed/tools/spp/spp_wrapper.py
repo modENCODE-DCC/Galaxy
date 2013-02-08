@@ -74,11 +74,11 @@ def main():
     if os.path.exists( created_default_file ):
         shutil.move( created_default_file, output_default_file )
 
-    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak.gz" % (chip_name, input_name) )
+    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
  
-    created_region_peak =  os.path.join( tmp_dir, "%s_VS_%s.regionPeak.gz" % (chip_name, input_name) )
+    created_region_peak =  os.path.join( tmp_dir, "%s_VS_%s.regionPeak" % (chip_name, input_name) )
     if os.path.exists( created_region_peak ):
         shutil.move( created_region_peak, output_region_peak )
 
