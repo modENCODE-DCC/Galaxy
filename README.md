@@ -30,7 +30,7 @@ README file on how to use the ENCODE/modENCODE uniform processing/peak calling w
 Galaxy Tools 
 ------------
 
-The tools listed below are also on Galaxy Toolshed http://toolshed.g2.bx.psu.edu/
+The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.edu/)
 
 
 **modENCODE_DCC_tools/bamedit** - merging, splitting, filtering, and QC of BAM files
