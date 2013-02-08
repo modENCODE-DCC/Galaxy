@@ -76,7 +76,7 @@ def main():
         shutil.move( created_default_file, output_default_file )
 
 <<<<<<< HEAD
-    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak.gz" % (chip_name, input_name) )
+    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
 =======
     created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
 >>>>>>> update spp
