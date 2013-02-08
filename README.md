@@ -20,15 +20,11 @@ Please send your comments/questions to modENCODE DCC at help@modencode.org.
 
 Documentations
 -------------------
-README file on how to launch an instance of Galaxy on Amazon
-* **https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy** 
+README file on how to launch an instance of Galaxy on Amazon - see [README.how.to.launch.Galaxy](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy)
 
-README file on how to use the ENCODE/modENCODE uniform peak calling pipeline ( macs2, IDR, and IDR-plot ) on Amazon Cloud
+README file on how to use the ENCODE/modENCODE uniform processing/peak calling pipeline ( macs2, IDR, and IDR-plot ) on Amazon Cloud - see [README.how.to.call.peaks](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/)
 
-* **https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.call.peaks** 
-
-README file on how to use the ENCODE/modENCODE uniform peak calling workflow ( macs2, IDR, and IDR-plot ) on Amazon Cloud
-* **https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.use.workflows** 
+README file on how to use the ENCODE/modENCODE uniform processing/peak calling workflow ( macs2, IDR, and IDR-plot ) on Amazon Cloud - see [README.how.to.use.workflows](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/)
 
 
 Galaxy Tools 
