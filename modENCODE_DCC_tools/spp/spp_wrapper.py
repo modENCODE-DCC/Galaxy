@@ -75,11 +75,7 @@ def main():
     if os.path.exists( created_default_file ):
         shutil.move( created_default_file, output_default_file )
 
-<<<<<<< HEAD
     created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
-=======
-    created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
->>>>>>> update spp
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
  
