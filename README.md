@@ -3,7 +3,7 @@ modENCODE-DCC: Galaxy
 
 This GitHub repository contains tools and scripts put together by members of the modENCODE DCC team:
 
- * Fei-Yang ( Arthur ) Jen ( team lead )
+ * Fei-Yang ( Arthur ) Jen
  * Quang Trinh
  * Marc Perry
  * Ellen Kephart
