@@ -12,7 +12,7 @@ Creating keypair:
 
 Creating Security Group: (port 22 for ssh)
 
->  ec2-create-group group --region us-east-1
+>  ec2-create-group group --region us-east-1 -d "modENCOOD AMI."
 >  ec2-authorize group -P tcp -p 22
    (ex: group is the name of the security group. It is "qtrinhGalaxyGroup" in Setp 2.)
 
