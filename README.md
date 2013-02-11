@@ -57,4 +57,4 @@ The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.e
 Reference
 ----------
 
-**Getting Started with Galaxy CloudMan** - see http://wiki.galaxyproject.org/CloudMan/AWS/GettingStarted
+[Getting Started with Galaxy CloudMan](http://wiki.galaxyproject.org/CloudMan/AWS/GettingStarted)
