@@ -36,7 +36,7 @@ function print_version ( )
 #========================================
 function Restart ( )
 {
-    ~/Galaxy/bin/modENCODE_galaxy_restart.pl
+    bin/modENCODE_galaxy_restart.pl
     echo -e "\n"
 }
 
