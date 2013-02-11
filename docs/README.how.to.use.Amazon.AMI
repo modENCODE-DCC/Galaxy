@@ -7,13 +7,14 @@ Step 1.  Do Step 1 to Step 3 as described in the [README file on how to launch G
 
 Creating keypair:
   
-  ec2-create-keypair keypair --region us-east-1 > keypair.pem 
-  (ex: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
+>  ec2-create-keypair keypair --region us-east-1 > keypair.pem 
+   (ex: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
 
 Creating Security Group: (port 22 for ssh)
 
-  ec2-authorize group -P tcp -p 22
-  (ex: group is the name of the security group. It is "qtrinhGalaxyGroup" in Setp 2.)
+>  ec2-create-group group --region us-east-1
+>  ec2-authorize group -P tcp -p 22
+   (ex: group is the name of the security group. It is "qtrinhGalaxyGroup" in Setp 2.)
 
 NOTE: Creating keypair and security group steps need only to be done once.  Afterward, you can just set your environments as shown below 
 and go to the next Step.
@@ -22,12 +23,12 @@ and go to the next Step.
 
 Step 2.  
 
-ec2-run-instances ami-c65dcbaf -k qtrinhGalaxyKey -g qtrinhGalaxyGroup -t m1.medium --region us-east-1 --availability-zone us-east-1a 
+> ec2-run-instances ami-c65dcbaf -k qtrinhGalaxyKey -g qtrinhGalaxyGroup -t m1.medium --region us-east-1 --availability-zone us-east-1a 
 
-ssh -i keypair ubuntu@IP
+> ssh -i keypair ubuntu@IP
 
-cd /modencode/softwares
-. env.sh
+> cd /modencode/softwares
+> . env.sh
 
 
 ANALYSIS_DIR="/mnt/data"
@@ -44,26 +45,26 @@ wget http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11
 ##########################################################
 running MACS2 
 
-cd $ANALYSIS_DIR
-mkdir ${ANALYSIS_DIR}/macs2_output
+> cd $ANALYSIS_DIR
+> mkdir ${ANALYSIS_DIR}/macs2_output
 
 # rep1
-macs2 callpeak -t 3066_Snyder_GEI-11_GFP_L3_rep1.fastq.gz#Cele_WS220#gei-11#rep_all#ChIP.bam -c 3066_Snyder_GEI-11_Input_L3_rep1.fastq.gz#Cele_WS220#gei-11#rep_all#input.bam -f BAM -g ce -n macs2_output/3066_Snyder_GEI-11_GFP_L3_rep1  -B -q 0.01
+> macs2 callpeak -t 3066_Snyder_GEI-11_GFP_L3_rep1.fastq.gz#Cele_WS220#gei-11#rep_all#ChIP.bam -c 3066_Snyder_GEI-11_Input_L3_rep1.fastq.gz#Cele_WS220#gei-11#rep_all#input.bam -f BAM -g ce -n macs2_output/3066_Snyder_GEI-11_GFP_L3_rep1  -B -q 0.01
 
 # rep2 
-macs2 callpeak -t 3066_Snyder_GEI-11_GFP_L3_rep2.fastq.gz#Cele_WS220#gei-11#rep_all#ChIP.bam -c 3066_Snyder_GEI-11_Input_L3_rep2.fastq.gz#Cele_WS220#gei-11#rep_all#input.bam -f BAM -g ce -n macs2_output/3066_Snyder_GEI-11_GFP_L3_rep2  -B -q 0.01
+> macs2 callpeak -t 3066_Snyder_GEI-11_GFP_L3_rep2.fastq.gz#Cele_WS220#gei-11#rep_all#ChIP.bam -c 3066_Snyder_GEI-11_Input_L3_rep2.fastq.gz#Cele_WS220#gei-11#rep_all#input.bam -f BAM -g ce -n macs2_output/3066_Snyder_GEI-11_GFP_L3_rep2  -B -q 0.01
 
 
 ##########################################################
 running IDR
 
-mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-analysis.r ${ANALYSIS_DIR}/macs2_output/3066_Snyder_GEI-11_GFP_L3_rep1_peaks.encodePeak ${ANALYSIS_DIR}/macs2_output/3066_Snyder_GEI-11_GFP_L3_rep2_peaks.encodePeak 1000 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 0 F  p.value
+> mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-analysis.r ${ANALYSIS_DIR}/macs2_output/3066_Snyder_GEI-11_GFP_L3_rep1_peaks.encodePeak ${ANALYSIS_DIR}/macs2_output/3066_Snyder_GEI-11_GFP_L3_rep2_peaks.encodePeak 1000 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 0 F  p.value
 
 
 ##########################################################
 running IDR-plot 
 
-mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
+> mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
 
 
 ##########################################################
