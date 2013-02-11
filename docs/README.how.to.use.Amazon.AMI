@@ -1,4 +1,3 @@
-
 This file describes how to use Amazon Cloud machine image created by modENCODE DCC to run the
 uniform processing/peak calling pipeline from the command line.  If you have any questions about 
 this, please email help@modencode.org.
@@ -6,7 +5,17 @@ this, please email help@modencode.org.
 
 Step 1.  Do Step 1 to Step 3 as described in the [README file on how to launch Galaxy](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy).  
 
-NOTE: This step needs only to be done once.  Afterward, you can just set your environments as shown below 
+Creating keypair:
+  
+  ec2-create-keypair keypair --region us-east-1 > keypair.pem 
+  (ex: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
+
+Creating Security Group: (port 22 for ssh)
+
+  ec2-authorize group -P tcp -p 22
+  (ex: group is the name of the security group. It is "qtrinhGalaxyGroup" in Setp 2.)
+
+NOTE: Creating keypair and security group steps need only to be done once.  Afterward, you can just set your environments as shown below 
 and go to the next Step.
 
 > . env.sh
