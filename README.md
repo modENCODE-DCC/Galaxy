@@ -54,6 +54,10 @@ The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.e
 
 **modENCODE_DCC_tools/spp** - cross-correlation analysis package ( http://code.google.com/p/phantompeakqualtools/ )
 
+ToolShed
+----------
+
+[modENCODE DCC toolshed](http://toolshed.g2.bx.psu.edu/view/modencode-dcc) 
 
 Reference
 ----------
