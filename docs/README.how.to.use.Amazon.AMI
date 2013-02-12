@@ -39,8 +39,11 @@ cd $ANALYSIS_DIR
 sudo chown ubuntu:ubuntu $ANALYSIS_DIR
 
 wget http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_GFP_L3_rep1.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23ChIP.bam
+
 wget http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_Input_L3_rep1.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23input.bam
+
 wget http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_GFP_L3_rep2.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23ChIP.bam
+
 wget http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_Input_L3_rep2.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23input.bam
 
 
