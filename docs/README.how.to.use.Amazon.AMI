@@ -7,10 +7,11 @@ Step 1.  Do Step 1 to Step 3 as described in the https://github.com/modENCODE-DC
 
   ** Modify "keypair", "group", or "region" according to your setup. **
 
-Creating keypair:
+Step 2.  Creating your keypair to be used with Amazon instance if you don't already have one.  This step needs to be done once only.
   
->  ec2-create-keypair keypair --region us-east-1 > keypair.pem 
-   (ex: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
+>  ec2-create-keypair KEY_PAIR_NAME --region us-east-1 > KEY_PAIR_NAME.pem 
+
+   (: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
 
 Creating Security Group: (port 22 for ssh)
 
