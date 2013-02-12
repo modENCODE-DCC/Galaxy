@@ -3,7 +3,7 @@ uniform processing/peak calling pipeline from the command line.  If you have any
 this, please email help@modencode.org.
 
 
-Step 1.  Do Step 1 to Step 3 as described in the [README file on how to launch Galaxy](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy).  
+Step 1.  Do Step 1 to Step 3 as described in the https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy.  
 
   ** Modify "keypair", "group", or "region" according to your setup. **
 
