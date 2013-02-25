@@ -69,7 +69,7 @@ function Update_DB ( )
     echo "Current version before update:"
     get_version
     print_version
-    if [[ "$version" -eq "db_version"]];
+    if [[ "$version" -eq "db_version" ]];
     then
         echo "Upgrade has been initiated  ...."
         sudo -u galaxy hg pull;
