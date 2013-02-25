@@ -69,32 +69,43 @@ function Update_DB ( )
     echo "Current version before update:"
     get_version
     print_version
-    if [[ "$version" -eq 107 ]];
+    if [[ "$version" -eq "db_version"]];
     then
         echo "Upgrade has been initiated  ...."
         sudo -u galaxy hg pull;
         sudo -u galaxy $upgrade || exit 1
         rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
-        #Check galaxy and db version again after upgrade
-        #================================================
-        sh manage_db.sh upgrade
-        Restart
-        get_version
-
-        if [[ "$version" -eq "db_version" ]]; 
-        then
-            echo "Upgrade has completed ...."
+        if [[ "version" -gt "db_version" ]]; then
+            #Check galaxy and db version again after upgrade
+            #================================================
+            sh manage_db.sh upgrade
+            Restart
+            get_version
+            cho "Upgrade has completed ...."
             echo "Current version after update:"
             print_version
+        elif [[ "version" -eq "db_version" ]]; then
+            echo "Current version is up-to-date ... skip the update ..."
+            print_version
         else
+            get_version
             print_version 1>&2
             echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
             exit 1
         fi
-    else
-        echo "Current version is up-to-date ... skip the update ..."
+    elif [[ "version" -gt "db_version" ]]; then
+        sh manage_db.sh upgrade
+        Restart
+        get_version
+        cho "Upgrade has completed ...."
+        echo "Current version after update:"
         print_version
+    else
+        get_version
+        print_version 1>&2
+        echo -e "ERROR: Failed to upgrade galaxy to latest version.\n    - Please contact: modENCODE DCC at help@modencode.org"
+        exit 1
     fi
     
 
