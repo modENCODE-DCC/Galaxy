@@ -98,7 +98,7 @@ function Update_DB ( )
         sh manage_db.sh upgrade
         Restart
         get_version
-        cho "Upgrade has completed ...."
+        echo "Upgrade has completed ...."
         echo "Current version after update:"
         print_version
     else
