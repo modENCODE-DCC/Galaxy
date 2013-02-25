@@ -64,7 +64,7 @@ function Update_DB ( )
     #Process the pre-fetched webpage to obtain latest patch number
     #==============================================================
     echo "Fetching latest patch number ...."
-    upgrade=`grep -o -m 1 "hg pull -u .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
+    upgrade=`grep -o -m 1 "hg update .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
     echo -e "Done ....\n"
     echo "Current version before update:"
     get_version
@@ -72,6 +72,7 @@ function Update_DB ( )
     if [[ "$version" -eq 107 ]];
     then
         echo "Upgrade has been initiated  ...."
+        sudo -u galaxy hg pull;
         sudo -u galaxy $upgrade || exit 1
         rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
