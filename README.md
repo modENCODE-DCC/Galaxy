@@ -34,7 +34,7 @@ file on how to use the ENCODE/modENCODE uniform processing/peak calling **workfl
 Galaxy Tools 
 ------------
 
-The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.edu/)
+The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.edu/view/modencode-dcc)
 
 
 **modENCODE_DCC_tools/bamedit** - merging, splitting, filtering, and QC of BAM files
@@ -54,10 +54,6 @@ The tools listed below are also on [Galaxy Toolshed](http://toolshed.g2.bx.psu.e
 
 **modENCODE_DCC_tools/spp** - cross-correlation analysis package ( http://code.google.com/p/phantompeakqualtools/ )
 
-ToolShed
-----------
-
-[modENCODE DCC toolshed](http://toolshed.g2.bx.psu.edu/view/modencode-dcc) 
 
 Reference
 ----------
