@@ -1,15 +1,18 @@
-This directory contains uniform peak call workflows using macs2, spp, PeakRanger, and IDR.  Please send your questions/comments to modENCODE DCC at help@modencode.org.
+This directory contains uniform peak call workflows using macs2, spp, PeakRanger, and IDR.  
+Please send your questions/comments to modENCODE DCC at help@modencode.org.
 
 
 Galaxy-Workflow-2-rep-peak-call-macs2-idr.ga
-  A 2-replicate workflow of peak calls and consistency analysis using macs2, IDR, and IDR plot.  The workflows takes 4 bam input files and produces 14 output files:
+  A 2-replicate workflow of peak calls and consistency analysis using macs2, IDR, and IDR plot.  The workflows 
+takes 4 bam input files and produces 14 output files:
   - 8 output files produced by macs2 ( 4 files for replicate-1 and 4 files for replicate-2 )
   - 5 output files produced by IDR from comparing between replicates 1 and 2
   - 1 output file produced by IDR-plot 
   
 
  Galaxy-Workflow-3-rep-peak-call-macs2-idr.ga
-  A 3-replicate workflow of peak calls and consistency analysis using macs2, IDR, and IDR plot.  The workflows takes 6 bam input files and produces 30 output files:
+  A 3-replicate workflow of peak calls and consistency analysis using macs2, IDR, and IDR plot.  The workflows 
+takes 6 bam input files and produces 30 output files:
   - 12 output files produced by macs2 ( 4 files for each of the replicates )
   - 15 output files produced by IDR from comparing between replicates 1 and 2, 2 and 3, and 1 and 3
   - 3 output file produced by IDR-plot 
