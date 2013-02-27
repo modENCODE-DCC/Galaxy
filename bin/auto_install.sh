@@ -77,16 +77,15 @@ function Update_DB ( )
         sudo -u galaxy hg pull
         sudo -u galaxy hg checkout stable
         sudo -u galaxy hg update stable
+        get_version
         #sudo -u galaxy $upgrade || exit 1
         #rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
         if [[ "version" -gt "db_version" ]]; then
-            #Check galaxy and db version again after upgrade
-            #================================================
             sh manage_db.sh upgrade
             Restart
             get_version
-            cho "Upgrade has completed ...."
+            echo "Upgrade has completed ...."
             echo "Current version after update:"
             print_version
         elif [[ "version" -eq "db_version" ]]; then
