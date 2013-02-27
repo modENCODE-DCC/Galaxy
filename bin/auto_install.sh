@@ -57,15 +57,22 @@ function Update_DB ( )
 
     #Pre-fetch the new dev release webpage from galaxyproject
     #========================================================
-    echo "Fetching files ....."
-    wget -nv http://wiki.galaxyproject.org/DevNewsBriefs || { echo "Error: The DevNewsBriefs link might need to be updated in the script and make sure you are connected to Internet"; exit 1;}
-    echo -e "Done .....\n"
+    #echo "Fetching files ....."
+    #wget -nv http://wiki.galaxyproject.org/DevNewsBriefs || { echo "Error: The DevNewsBriefs link might need to be updated in the script and make sure you are connected to Internet"; exit 1;}
+    #echo -e "Done .....\n"
 
     #Process the pre-fetched webpage to obtain latest patch number
     #==============================================================
-    echo "Fetching latest patch number ...."
-    upgrade=`grep -o -m 1 "hg update .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
-    echo -e "Done ....\n"
+    
+    #echo "Fetching latest patch number ...."
+    #upgrade=`grep -o -m 1 "hg update .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
+    #echo -e "Done ....\n"
+    echo "Fetching the latest version of Galaxy"
+    hg pull
+    hg checkout stable
+    hg update stable
+    echo "Done ..."
+
     echo "Current version before update:"
     get_version
     print_version
