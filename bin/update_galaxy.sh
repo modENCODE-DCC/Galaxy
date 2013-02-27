@@ -2,7 +2,7 @@
 
 # default Galaxy version on Amazon 8140:8afb981f46c1
 
-sudo su galaxy 
+# sudo su galaxy 
 
 cd /mnt/galaxyTools/galaxy-central
 
