@@ -67,11 +67,6 @@ function Update_DB ( )
     #echo "Fetching latest patch number ...."
     #upgrade=`grep -o -m 1 "hg update .*</pre>" $filename | sed 's/.\{6\}$//'` || exit 1
     #echo -e "Done ....\n"
-    echo "Fetching the latest version of Galaxy"
-    hg pull
-    hg checkout stable
-    hg update stable
-    echo "Done ..."
 
     echo "Current version before update:"
     get_version
@@ -79,9 +74,11 @@ function Update_DB ( )
     if [[ "$version" -eq "db_version" ]];
     then
         echo "Upgrade has been initiated  ...."
-        sudo -u galaxy hg pull;
-        sudo -u galaxy $upgrade || exit 1
-        rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
+        sudo -u galaxy hg pull
+        sudo -u galaxy hg checkout stable
+        sudo -u galaxy hg update stable
+        #sudo -u galaxy $upgrade || exit 1
+        #rm -f $filename || { echo "Error: Cannot remove the file: $filename"; exit 1;}
 
         if [[ "version" -gt "db_version" ]]; then
             #Check galaxy and db version again after upgrade
