@@ -16,6 +16,9 @@ print "\n\n===========================================";
 print "\nupdate Galaxy database to latest version ...";
 system("cd /mnt/galaxyTools/galaxy-central; sudo sh manage_db.sh upgrade");
 
+print "\n\n===========================================";
+print "\nNow, restart Galaxy ...";
+
 print "\n\n";
 
 
