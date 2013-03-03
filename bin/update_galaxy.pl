@@ -11,7 +11,7 @@ system("cd /mnt/galaxyTools/galaxy-central; sudo -u galaxy hg pull; sudo -u gala
 
 # hg update release_2013.02.08 
 
-print "\n\nupdate Galaxy database to latest version ...");
+print "\n\nupdate Galaxy database to latest version ...";
 system("cd /mnt/galaxyTools/galaxy-central; sudo -u galaxy sh manage_db.sh upgrade");
 
 print "\n\n";
