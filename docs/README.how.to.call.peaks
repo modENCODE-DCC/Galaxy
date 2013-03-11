@@ -29,8 +29,8 @@ click on "Start Additional Nodes".
 and running when their icons are in green and black colors.
 
   
-Step 5. Use the ssh command output from Step 5 as described in docs/README.how.to.launch.Galaxy.on.Amazon 
-to login to your Galaxy instance.  Your ssh command should look similar to:
+Step 5. Use the ssh command output as described in Step 5 of docs/README.how.to.launch.Galaxy.on.Amazon to login 
+to your Galaxy instance.  Your ssh command should look similar to:
 
   > ssh -i KEY_FILE ubuntu@HOST_NAME 
 
