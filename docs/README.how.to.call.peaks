@@ -42,9 +42,9 @@ depedencies:
   > cd 
   > git clone https://github.com/modENCODE-DCC/Galaxy.git 
   > cd Galaxy
-  > . setup.sh 
+  > . bin/auto_install.sh 
 
-  'setup.sh' does the following:
+  'bin/auto_install.sh' does the following:
   - get the latest updates from Galaxy repository 
   - install and configure modENCODE DCC tools and their dependencies on Galaxy instance and all compute nodes
   - restart Galaxy so all changes are updated 
