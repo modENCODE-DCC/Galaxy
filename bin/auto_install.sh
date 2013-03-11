@@ -6,6 +6,13 @@
 # Date    : January, 2013                                       
 # Author  : Fei-Yang Jen                                           
 
+# copy itself to user home dir and run it from there 
+base=`basename $0`;
+if [ ! -f "$HOME/$base" ];
+then
+	cp $0 $HOME
+	. $HOME/$base
+fi
 
 #Global
 #==========================================================
