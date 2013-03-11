@@ -30,6 +30,9 @@ file on how to use the ENCODE/modENCODE uniform processing/peak calling **pipeli
 [README](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.use.workflows) 
 file on how to use the ENCODE/modENCODE uniform processing/peak calling **workflows** ( macs2, IDR, and IDR-plot ) in Galaxy on Amazon Cloud.
 
+README files on how to use [Amazon Cloud AMI](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.use.Amazon.AMI) or 
+[Bionimbus Cloud](https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.use.Bionimbus.AMI) to run the uniform processing/peak calling pipeline from the command line
+
 
 Galaxy Tools 
 ------------
