@@ -52,13 +52,13 @@ depedencies:
   This process will take about 5 to 10 mins!
 
 ** Note:
-     In case you were to add more cluster node(s) after Step 6, you can simply follow Step 4, and run the ./setup.sh again. 
-     It will install all the required dependencies on the new node(s). 
+     In case you were to add more cluster node(s) after Step 6, you can simply follow Step 4, and run the ./auto_install.sh 
+     again (on the master node). It will install all the required dependencies on the new node(s). 
 
 
-Step 7. Upload your bam files by clicking on 'Get Data' and 'Upload File'.  For the demo purpose of how to 
-call peaks using Galaxy, we have provided sample bam files below.  Cut and paste the following URLs to 
-the URL/Text box and click on 'Execute':  
+Step 7. Launch the Galaxy GUI by clicking "Access Galaxy" on Cloudman's main page. Upload your bam files by clicking on 
+'Get Data' and 'Upload File'.  For the demo purpose of how to call peaks using Galaxy, we have provided sample bam files 
+below.  Cut and paste the following URLs to the URL/Text box and click on 'Execute':  
 
 http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_GFP_L3_rep1.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23ChIP.bam
 http://data.modencode.org/modENCODE_Galaxy/Test_Data/bam/3066_Snyder_GEI-11_Input_L3_rep1.fastq.gz%23Cele_WS220%23gei-11%23rep_all%23input.bam
@@ -98,7 +98,7 @@ Step 9. Repeat Step 8 for replicate 2 ChIP and Input.  MACS2 should produce the 
 
 
 
-Step 10. Run IDR on MACS2 outputs from Steps 9 and 10.  Expand modENCODE tools and click on IDR.  Select 
+Step 10. Run IDR on MACS2 outputs from Steps 8 and 9.  Expand modENCODE tools and click on IDR.  Select 
 your input data for IDR:
 
 First NarrowPeak File: ( select your data entry 8, which is the encodePeak produced by MACS2 from replicate 1 )
