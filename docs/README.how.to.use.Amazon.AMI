@@ -86,12 +86,12 @@ running IDR
 ##########################################################
 running IDR-plot 
 
-> mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
+> cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
 
 
 ##########################################################
 sudo apt-get install ghostscript
-ps2pdf 3066-plot.ps 
+sudo ps2pdf /mnt/data/macs2_output/IDR_out/3066-plot.ps 
 view 3066-plot.pdf 
 
 
