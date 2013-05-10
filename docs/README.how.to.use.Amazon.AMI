@@ -46,7 +46,7 @@ Now, we need to get the Public DNS of the instance.
 
 Look at the output for the DNS address, it should be something like ec2-*.amazonaws.com. Suppose this value is $PUBLIC_DNS.
 
-We are now ready to ssh into the instance. 
+We are now ready to ssh into the instance. If the following command reports connection refusal, wait before trying again. 
 > ssh -i $KEYPAIR.pem ubuntu@$PUBLIC_DNS
 
 > cd /modencode/softwares
