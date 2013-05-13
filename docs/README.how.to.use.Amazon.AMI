@@ -91,7 +91,8 @@ running IDR-plot
 
 ##########################################################
 sudo apt-get install ghostscript
-sudo ps2pdf /mnt/data/macs2_output/IDR_out/3066-plot.ps 
-view 3066-plot.pdf 
+sudo ps2pdf /mnt/data/macs2_output/IDR_out/3066-plot.ps
+sudo apt-get install evince
+evince 3066-plot.pdf 
 
 
