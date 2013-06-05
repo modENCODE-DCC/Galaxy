@@ -1,0 +1,166 @@
+This document was reproduced from 
+https://docs.google.com/document/pub?id=1KbTiBHtvHLfPRZ39AY3uriazrINA8TJzgjjwn1zPP7Y
+with some variation 
+
+This file describes how to perform read alignment to a refernce genome with Tophat. 
+Then, cuffdiff is used to determine genes with significant differential expression 
+across two experimental conditions using three replicates per condition. 
+
+
+Step 1. 
+
+Follow README.how.to.launch.Galaxy up to step 7, creating at least 1 compute node 
+
+Step 2. 
+
+Click on "Access Galaxy" 
+
+Step 3. 
+
+Under the Tools menu on the left, go to Get Data > Upload File 
+
+Paste the following URLs into URL/Text box. The former three are for condition 1, while 
+the latter three are fro condition 2: 
+ 
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C1_R1_1.chr4.fq
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C1_R2_1.chr4.fq
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C1_R3_1.chr4.fq
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C2_R1_1.chr4.fq
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C2_R2_1.chr4.fq
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/C2_R3_1.chr4.fq
+
+Ensure that fastqsanger is specifed in the File Format field ! 
+
+
+Step 4. 
+
+Similary, upload the following file from this URL: 
+
+https://s3.amazonaws.com/LSCC/RNAseq_workshop/ensembl_dm3.chr4.gtf
+
+Do not specify a file format, Galaxy can figure it out on its own. 
+
+Step 5. 
+
+Once all files have been uploaded, select NGS: RNA Analysis > Tophat for Illumina
+and use the following parameters to run Tophat on all six of the fastq files. This will produce four files each run.  
+	RNA-Seq FASTQ file: eg. C1_R1_1.chr4.fq
+	Use built in index
+	Reference genome: D. melanogaster (dm3)
+	Single-end
+	Use defaults for other fields
+	Execute
+
+By the end of this step you should have 24 new files produced by Tophat, four for each input fastq file. 
+
+
+Step 6 (optional). 
+
+You may view the alignment produced by tophat using IGV, if it is installed on your local machine, 
+by simply clicking on one of your accepted_hits files in the history panel, and then selecting 'display with IGV' (either 
+web,current, or local). 
+
+
+Step 7. 
+
+Identify differentially expressed genes and transcripts using the Cuffdiff tool
+	
+	From the Galaxy tool panel on the left, click on  NGS: RNA Analysis > Cuffdiff
+	Transcripts: ensembl_dm3.chr4.gtf
+	Perform replicate analysis: ‘Yes’
+	Add new Group
+		Group name: C1
+			Add new replicate-> Add File: ‘Tophat for Illumina data 1.accepted_hits’
+			Add new replicate-> Add File: ‘Tophat for Illumina data 2.accepted_hits’
+			Add new replicate-> Add File: ‘Tophat for Illumina data 3.accepted_hits’
+	Add new Group
+		Group name: C2
+			Add new replicate-> Add File: ‘Tophat for Illumina data 4.accepted_hits’
+			Add new replicate-> Add File: ‘Tophat for Illumina data 5.accepted_hits’
+			Add new replicate-> Add File: ‘Tophat for Illumina data 6.accepted_hits’
+	Keep other defaults
+	Execute
+
+
+Step 9.
+
+Examine the tables of normalised gene counts: 
+	Open the output files ‘Cuffdiff on data....: gene FPKM tracking’ by clicking on the eye icon
+
+The file consists of one row for each gene in the reference transcriptome, with columns containing the 
+normalised read counts for each of the two groups of three replicates each
+
+Note that cufflinks gives each gene it’s own ‘tracking_id’, which equates to a gene. Multiple transcription start 
+sites are aggregated under a single tracking_id
+
+A gene encompasses a chromosomal locus which covers all the features that make up that gene (exons, introns, 5’ UTR etc)
+Each experimental group has a normalised value of 'FPKM'. This mean ‘Fragments per kilobase of transcript per million mapped reads’ 
+and is a method of normalising read counts to account for:
+	variation in sequencing yield between samples
+	the different lengths of genes (as longer transcripts generate more reads)
+
+
+Step 10. 
+
+Inspect the gene differential expression testing file
+	Click on the eye next to ‘Cuffdiff on data xx, data x, and others: gene differential expression testing’ and view the content
+ 
+The interesting columns are: gene (c3), locus (c4), log2(fold_change) (c10), p_value (c12), q_value (c13) and significant (c14)
+
+Filter based on column 14 (‘significant’) - a binary assessment of q_value>0.05, where q_value is p_value adjusted for multiple testing
+	Go to Filter and Sort>Filter
+	Select the ‘Cuffdiff on data....: gene differential expression testing’ dataset
+	Filter the dataset with the following condition: c14=='yes'
+
+This will keep only those entries that Cufflinks has marked as significantly differentially expressed, and will produce a sorted 
+gene expression file based on q_value>0.05
+
+Note: You can rename this file by clicking on the pencil icon in front of the file name with ‘Edit Attribute’ caption 
+to Significant_DiffExpGenes (or something similar) to make the filename more meaningful.
+
+
+
+Step 11. 
+
+Examine the sorted list of differentially expressed genes, which is now a new item in your history panel. 
+	Click on Significant_DiffExpGenes and the eye icon next to it with caption ‘Display in data browser’’
+
+As you can see, two genes have been identified:
+	‘Ank’ gene from chr4:137014-150378
+	‘CG2177’ from chr4:331557-334534
+
+They are significantly differentially expressed, with p-values 4.49313e-091 and 1.0052e-12 respectively.
+
+‘CG2177’ from chr4:331557-334534 was the gene that we intuitively saw to be differentially expressed in
+the previous section, in the broader region of chr4:325197-341887
+
+
+Step 12.
+
+ We will repeat cuffdiff, but not use replicates 
+
+Repeat the differential gene expression testing from section 2, but this time only use one replicate from each condition group (C1 and C2).
+	From the Galaxy tool panel, click on NGS > RNA Analysis > Cuffdiff
+	Transcripts: ensembl_dm3.chr4.gtf
+	Perform replicate analysis: ‘No’
+	Add new replicate-> Add File: ‘Tophat for Illumina data 1.accepted_hits’
+	Add new replicate-> Add File: ‘Tophat for Illumina data 4.accepted_hits’
+	Keep defaults
+	Execute.
+
+Then filter the generated geneset for significantly differentially expressed genes (Filter with c14=’yes’ as for previous section)
+
+
+Step 13.
+
+Click on Significant_DiffExpGenes and the eye icon next to it with caption ‘Display in data browser’’
+
+The contents of the file should be empty, indicatiing that no items match the critera of c14='yes'
+
+Since, we do not have any replicates in this experiments, genes have been falsely identified as being non-differentially 
+expressed between the two conditions. This demonstrates how important it is to have biological replicates in differential 
+gene expression experiments
+
+
+
+
