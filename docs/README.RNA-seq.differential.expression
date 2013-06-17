@@ -53,6 +53,7 @@ and use the following parameters to run Tophat on all six of the fastq files. Th
 
 By the end of this step you should have 24 new files produced by Tophat, four for each input fastq file. 
 
+Note that junctions.bed is a UCSC BED track of defining splice junctions.  
 
 Step 6 (optional). 
 
