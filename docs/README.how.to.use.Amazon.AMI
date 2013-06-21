@@ -5,19 +5,27 @@ this, please email help@modencode.org.
 
 Step 1.  Do Step 1 to Step 3 as described in the https://github.com/modENCODE-DCC/Galaxy/blob/master/docs/README.how.to.launch.Galaxy.  
 
-  ** Modify "keypair", "group", or "region" according to your setup. **
+  ** Modify "KEYPAIR", "GROUP", "REGION", or "AVAILABILITY_ZONE" according to your setup. **
+
+ For example, the following values could be used for each of the aforementioned variables, where <name> is your name: 
+
+  KEYPAIR = myKeyPair
+  GROUP = <name>Group
+  REGION = us-east-1
+  AVAILABILITY_ZONE = us-east-1a 
 
 Step 2.  If you don't have one, creating your keypair to be used with an Amazon instance.  This step needs to be done once only.
   
->  ec2-create-keypair KEY_PAIR_NAME --region us-east-1 > KEY_PAIR_NAME.pem 
+>  ec2-create-keypair $KEYPAIR --region $REGION > $KEYPAIR.pem 
 
-   (: keypair is the name of the key. It is "qtrinhGalaxyKey" in Setp 2.)
+We need to modify the permissions for our newly created keypair file. 
+
+> chmod 600 $KEYPAIR.pem 
 
 Creating Security Group: (port 22 for ssh)
 
->  ec2-create-group group --region us-east-1 -d "modENCODE AMI."
->  ec2-authorize group -P tcp -p 22
-   (ex: group is the name of the security group. It is "qtrinhGalaxyGroup" in Setp 2.)
+>  ec2-create-group $GROUP --region $REGION -d "modENCODE AMI."
+>  ec2-authorize $GROUP -P tcp -p 22
 
 NOTE: Creating keypair and security group steps need only to be done once.  Afterward, you can just set your environments as shown below 
 and go to the next Step.
@@ -25,10 +33,21 @@ and go to the next Step.
 > . env.sh
 
 Step 2.  
+Now we will run an instance using the ami-c65dcbaf AMI along with our credentials. 
 
-> ec2-run-instances ami-c65dcbaf -k qtrinhGalaxyKey -g qtrinhGalaxyGroup -t m1.medium --region us-east-1 --availability-zone us-east-1a 
+> ec2-run-instances ami-c65dcbaf -k $KEYPAIR -g $GROUP -t m1.medium --region $REGION --availability-zone $AVAILABILITY_ZONE 
 
-> ssh -i keypair ubuntu@IP
+Look at the output for the name of your instance, it should be something like i-(alpha-numeric characters). Suppose this 
+value is $INSTANCE_NAME 
+
+Now, we need to get the Public DNS of the instance. 
+
+> ec2-describe-instances $INSTANCE_NAME
+
+Look at the output for the DNS address, it should be something like ec2-*.amazonaws.com. Suppose this value is $PUBLIC_DNS.
+
+We are now ready to ssh into the instance. If the following command reports connection refusal, wait before trying again. 
+> ssh -i $KEYPAIR.pem ubuntu@$PUBLIC_DNS
 
 > cd /modencode/softwares
 > . env.sh
@@ -67,12 +86,13 @@ running IDR
 ##########################################################
 running IDR-plot 
 
-> mkdir ${ANALYSIS_DIR}/macs2_output/IDR_out ; cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
+> cd /modencode/softwares/peakcallers/IDR/idrCode ; Rscript batch-consistency-plot.r 2 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066 ${ANALYSIS_DIR}/macs2_output/IDR_out/3066
 
 
 ##########################################################
 sudo apt-get install ghostscript
-ps2pdf 3066-plot.ps 
-view 3066-plot.pdf 
+sudo ps2pdf /mnt/data/macs2_output/IDR_out/3066-plot.ps
+sudo apt-get install evince
+evince 3066-plot.pdf 
 
 

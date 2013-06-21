@@ -7,7 +7,8 @@ your Galaxy.
 
 Step 1.  Create your Amazon EC2 account if you don't already have one.  Go to http://aws.amazon.com, click 
 on 'Sign Up Now' and follow the instructions.  Keep your Amazon access and secret keys handy because 
-you will need them in Step 3.  
+you will need them in Step 3. Also, ensure that you have admin access under the AWS account you are using,
+otherwise Cloudman will fail to initialize Galaxy. 
 
 Step 2. Use git to clone or check out the latest copy of the modENCODE DCC Galaxy source code and tools.
 
