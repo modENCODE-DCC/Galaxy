@@ -1,0 +1,680 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Tophat", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 231
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 191, 
+                "top": 381
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 178, 
+                "top": 553
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 676, 
+                "top": 304
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 178, 
+                "top": 734
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 177, 
+                "top": 924
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 176, 
+                "top": 1118
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 422, 
+                "top": 200
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input1": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 428, 
+                "top": 381
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionaccepted_hits": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "accepted_hits"
+                }, 
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 423, 
+                "top": 554
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 425, 
+                "top": 738
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionaccepted_hits": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "accepted_hits"
+                }, 
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input1": {
+                    "id": 5, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 432, 
+                "top": 919
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionaccepted_hits": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "accepted_hits"
+                }, 
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "input1": {
+                    "id": 6, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Tophat for Illumina", 
+            "outputs": [
+                {
+                    "name": "insertions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "deletions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "junctions", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "accepted_hits", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 435, 
+                "top": 1096
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionaccepted_hits": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "accepted_hits"
+                }, 
+                "HideDatasetActiondeletions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "deletions"
+                }, 
+                "HideDatasetActioninsertions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "insertions"
+                }, 
+                "HideDatasetActionjunctions": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "junctions"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "tophat", 
+            "tool_state": "{\"__page__\": 0, \"input1\": \"null\", \"refGenomeSource\": \"{\\\"genomeSource\\\": \\\"indexed\\\", \\\"index\\\": \\\"dm3\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"sParams\\\": {\\\"sSettingsType\\\": \\\"preSet\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.5.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "group_analysis|groups_0|files_0|file": {
+                    "id": 7, 
+                    "output_name": "accepted_hits"
+                }, 
+                "group_analysis|groups_0|files_1|file": {
+                    "id": 8, 
+                    "output_name": "accepted_hits"
+                }, 
+                "group_analysis|groups_0|files_2|file": {
+                    "id": 9, 
+                    "output_name": "accepted_hits"
+                }, 
+                "group_analysis|groups_1|files_0|file": {
+                    "id": 10, 
+                    "output_name": "accepted_hits"
+                }, 
+                "group_analysis|groups_1|files_1|file": {
+                    "id": 11, 
+                    "output_name": "accepted_hits"
+                }, 
+                "group_analysis|groups_1|files_2|file": {
+                    "id": 12, 
+                    "output_name": "accepted_hits"
+                }, 
+                "gtf_input": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Cuffdiff", 
+            "outputs": [
+                {
+                    "name": "splicing_diff", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "promoters_diff", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "cds_diff", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "cds_exp_fpkm_tracking", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "cds_fpkm_tracking", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "tss_groups_exp", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "tss_groups_fpkm_tracking", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "genes_exp", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "genes_fpkm_tracking", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "isoforms_exp", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "isoforms_fpkm_tracking", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 891, 
+                "top": 514
+            }, 
+            "post_job_actions": {
+                "HideDatasetActioncds_diff": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "cds_diff"
+                }, 
+                "HideDatasetActioncds_exp_fpkm_tracking": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "cds_exp_fpkm_tracking"
+                }, 
+                "HideDatasetActioncds_fpkm_tracking": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "cds_fpkm_tracking"
+                }, 
+                "HideDatasetActiongenes_exp": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "genes_exp"
+                }, 
+                "HideDatasetActiongenes_fpkm_tracking": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "genes_fpkm_tracking"
+                }, 
+                "HideDatasetActionisoforms_exp": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "isoforms_exp"
+                }, 
+                "HideDatasetActionisoforms_fpkm_tracking": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "isoforms_fpkm_tracking"
+                }, 
+                "HideDatasetActionpromoters_diff": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "promoters_diff"
+                }, 
+                "HideDatasetActionsplicing_diff": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "splicing_diff"
+                }, 
+                "HideDatasetActiontss_groups_exp": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tss_groups_exp"
+                }, 
+                "HideDatasetActiontss_groups_fpkm_tracking": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tss_groups_fpkm_tracking"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "cuffdiff", 
+            "tool_state": "{\"__page__\": 0, \"gtf_input\": \"null\", \"multiread_correct\": \"\\\"No\\\"\", \"bias_correction\": \"{\\\"do_bias_correction\\\": \\\"No\\\", \\\"__current_case__\\\": 1}\", \"fdr\": \"\\\"0.05\\\"\", \"min_alignment_count\": \"\\\"10\\\"\", \"group_analysis\": \"{\\\"groups\\\": [{\\\"files\\\": [{\\\"__index__\\\": 0, \\\"file\\\": null}, {\\\"__index__\\\": 1, \\\"file\\\": null}, {\\\"__index__\\\": 2, \\\"file\\\": null}], \\\"__index__\\\": 0, \\\"group\\\": \\\"C1\\\"}, {\\\"files\\\": [{\\\"__index__\\\": 0, \\\"file\\\": null}, {\\\"__index__\\\": 1, \\\"file\\\": null}, {\\\"__index__\\\": 2, \\\"file\\\": null}], \\\"__index__\\\": 1, \\\"group\\\": \\\"C2\\\"}], \\\"__current_case__\\\": 0, \\\"do_groups\\\": \\\"Yes\\\"}\", \"do_normalization\": \"\\\"No\\\"\", \"additional\": \"{\\\"sAdditional\\\": \\\"No\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "0.0.5", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
