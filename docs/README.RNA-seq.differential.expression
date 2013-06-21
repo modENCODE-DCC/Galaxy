@@ -163,5 +163,11 @@ expressed between the two conditions. This demonstrates how important it is to h
 gene expression experiments
 
 
+Step 14 (optional). 
 
+This process has been described in a  workflow that can be copied onto your local machine and then imported into 
+your Galaxy instance. Perform the following command in your terminal from your local machine: 
 
+	wget --no-check-certificate https://raw.github.com/modENCODE-DCC/Galaxy/master/workflows/Galaxy-Workflow-Tophat.ga
+
+Then, import the workflow into Galaxy. 
