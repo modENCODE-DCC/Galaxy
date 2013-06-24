@@ -120,7 +120,7 @@ done
 wait
 
 echo -e "\n"
-echo "Done: All the dependencies have been installed on computing nodes. You can start analizing your data ..."
+echo "Done: All the dependencies have been installed on computing nodes. You can start analyzing your data ..."
 
 Cleanup
 
