@@ -8,8 +8,7 @@
 CLOUDMAN_PASSWORD: galaxy_123
 
 #
-# Galaxy instance 
-#
+# key pair, security group, instance name, cluster name for Galaxy instance 
 KEY_PAIR: YOUR_NAME_modENCODE_Galaxy_Key
 SECURITY_GROUP: YOUR_NAME_modENCODE_Galaxy_Group
 INSTANCE_NAME: YOUR_NAME_modENCODE_Galaxy_Instance
@@ -18,9 +17,10 @@ CLUSTER_NAME: YOUR_NAME_modENCODE_Galaxy_Cluster
 #
 # Galaxy Amazon Machine Image (AMI) ID
 # Also, see http://wiki.g2.bx.psu.edu/CloudMan/AWS/GettingStarted
-# No changes are needed below this line
 AMI: ami-da58aab3
 
+# 
+# Galaxy instance type and where to launch Galaxy 
 INSTANCE_TYPE: m1.medium
 REGION: us-east-1
 AVAILABILITY_ZONE: us-east-1a
