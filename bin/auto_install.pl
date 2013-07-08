@@ -18,7 +18,7 @@ if (! -f "$ENV{'HOME'}/$base" ) {
 # ==========================================================
 my $gitrepo="/root/Galaxy/.git";
 my $galaxy="/root/Galaxy";
-my $dir="/mnt/galaxyTools/galaxy-central";
+my $dir="/mnt/galaxy/galaxy-app";
 my $filename="DevNewsBriefs";
 my $db_version="";
 my $version="";
@@ -51,7 +51,7 @@ sub Restart ( )
 #============================================================
 sub Update_DB ( )
 {
-    #Change directory to directory /mnt/galaxyTools/galaxy-central
+    #Change directory to directory /mnt/galaxy/galaxy-app
     #==============================================================
     if (-d $dir ) { 
         print "Changing to dir: $dir ....\n";
@@ -154,16 +154,16 @@ sub Check_Git ( )
 
 #Function Calls
 #===============================
-&Update_DB;
-&Check_Git;
+#&Update_DB;
+#&Check_Git;
 
 chdir("$ENV{'HOME'}/Galaxy"); 
 print "\n"; 
 print "bin/modENCODE_galaxy_config.pl does the following:\n";
-print "  - updates /mnt/galaxyTools/galaxy-central/universe_wsgi.ini configurations\n";
-print "  - makes a backup of /mnt/galaxyTools/galaxy-central/tool_conf.xml\n";
-print "  - updates /mnt/galaxyTools/galaxy-central/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc.\n"; 
-print "  - copies modENCODE DCC tools to /mnt/galaxyTools/galaxy-central/tools/\n";
+print "  - updates /mnt/galaxy/galaxy-app/universe_wsgi.ini configurations\n";
+print "  - makes a backup of /mnt/galaxy/galaxy-app/tool_conf.xml\n";
+print "  - updates /mnt/galaxy/galaxy-app/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc.\n"; 
+print "  - copies modENCODE DCC tools to /mnt/galaxy/galaxy-app/tools/\n";
 print -e "  - restarts Galaxy\n"  ;
 system("bin/modENCODE_galaxy_config.pl modENCODE_DCC_tools\n");
 print "bin/enable.sh downloads and install all dependencies for modENCODE DCC tools.\n";

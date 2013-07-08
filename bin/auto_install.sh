@@ -18,7 +18,7 @@ fi
 #==========================================================
 gitrepo="/root/Galaxy/.git"
 galaxy="/root/Galaxy"
-dir="/mnt/galaxyTools/galaxy-central"
+dir="/mnt/galaxy/galaxy-app"
 filename="DevNewsBriefs"
 db_version=""
 version=""
@@ -51,7 +51,7 @@ function Restart ( )
 #============================================================
 function Update_DB ( )
 {
-    #Change directory to directory /mnt/galaxyTools/galaxy-central
+    #Change directory to directory /mnt/galaxy/galaxy-app
     #==============================================================
     if [ -d "$dir" ];
     then
@@ -158,10 +158,10 @@ Check_Git
 cd ~/Galaxy
 echo ""
 echo "bin/modENCODE_galaxy_config.pl does the following:"
-echo "  - updates /mnt/galaxyTools/galaxy-central/universe_wsgi.ini configurations"
-echo "  - makes a backup of /mnt/galaxyTools/galaxy-central/tool_conf.xml"
-echo "  - updates /mnt/galaxyTools/galaxy-central/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc."  
-echo "  - copies modENCODE DCC tools to /mnt/galaxyTools/galaxy-central/tools/"
+echo "  - updates /mnt/galaxy/galaxy-app/universe_wsgi.ini configurations"
+echo "  - makes a backup of /mnt/galaxy/galaxy-app/tool_conf.xml"
+echo "  - updates /mnt/galaxy/galaxy-app/tool_conf.xml to include modENCODE DCC tools.  i.e., macs2, SPP, PeakRanger, IDR, etc."  
+echo "  - copies modENCODE DCC tools to /mnt/galaxy/galaxy-app/tools/"
 echo -e "  - restarts Galaxy\n"  
 bin/modENCODE_galaxy_config.pl modENCODE_DCC_tools
 echo "bin/enable.sh downloads and install all dependencies for modENCODE DCC tools."

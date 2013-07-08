@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-my $GALAXY_HOME = "/mnt/galaxyTools/galaxy-central";
+my $GALAXY_HOME = "/mnt/galaxy/galaxy-app";
 
 print "\n\nstarting Galaxy ... \n";
 system ("sudo chmod 755 $GALAXY_HOME/run.sh");

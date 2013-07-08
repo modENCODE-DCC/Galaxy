@@ -20,7 +20,7 @@ if ( @ARGV != 1 ) {
 
 my $INPUT_DIR = $ARGV[0];
 
-# update /mnt/galaxyTools/galaxy-central/universe_wsgi.ini to include toolshed 
+# update /mnt/galaxy/galaxy-app/universe_wsgi.ini to include toolshed 
 system "bin/modENCODE_update_universe_wsgi.pl";
 
 system "bin/modENCODE_update_tool_config_xml.pl";
@@ -30,7 +30,7 @@ system "bin/modENCODE_update_tool_config_xml.pl";
 #print "\n\nreplacing $GALAXY_CENTRAL/tool_conf.xml with one from modENCODE DCC ...";
 #system ("sudo cp -f $INPUT_DIR/tool_conf.xml  $GALAXY_CENTRAL");
 
-my $GALAXY_CENTRAL = "/mnt/galaxyTools/galaxy-central";
+my $GALAXY_CENTRAL = "/mnt/galaxy/galaxy-app";
 
 print "\n\nreplacing Galaxy logo with one from modENCODE DCC ...";
 system ("sudo cp -f $INPUT_DIR/modencode_logo.png $GALAXY_CENTRAL/static/images/cloud_text.png");
@@ -50,7 +50,7 @@ if (! -e $DEST_DIR) {
 system ("sudo cp -R $INPUT_DIR/bamedit $DEST_DIR");
 # extract bamedit dependencies and move it to appropriate directory
 # see http://wiki.g2.bx.psu.edu/Admin/Config/Tool%20Dependencies
-my $BAMEDIT_DIR="/mnt/galaxyTools/tools/samtools";
+my $BAMEDIT_DIR="/mnt/galaxy/galaxy-app/tools/samtools";
 # if BAMEDIT_DIR not exists, create it 
 if (! -e $BAMEDIT_DIR) {
         system ("sudo mkdir $BAMEDIT_DIR");
@@ -68,7 +68,7 @@ if (! -e "$BAMEDIT_DIR/default") {
 system ("sudo cp -R $INPUT_DIR/peakranger $DEST_DIR");
 # extract peakranger dependencies and move it to appropriate directory
 # see http://wiki.g2.bx.psu.edu/Admin/Config/Tool%20Dependencies
-my $PEAKRANGER_DIR="/mnt/galaxyTools/tools/peakranger";
+my $PEAKRANGER_DIR="/mnt/galaxy/galaxy-app/tools/peakranger";
 # if PEAKRANGER_DIR not exists, create it 
 if (! -e $PEAKRANGER_DIR) {
         system ("sudo mkdir $PEAKRANGER_DIR");
@@ -86,7 +86,7 @@ if (! -e "$PEAKRANGER_DIR/default") {
 system ("sudo cp -R $INPUT_DIR/macs $DEST_DIR");
 # extract macs dependencies and move it to appropriate directory
 # see http://wiki.g2.bx.psu.edu/Admin/Config/Tool%20Dependencies
-my $MACS_DIR="/mnt/galaxyTools/tools/macs";
+my $MACS_DIR="/mnt/galaxy/galaxy-app/tools/macs";
 # if MACS_DIR not exists, create it 
 if (! -e $MACS_DIR) {
 	system ("sudo mkdir $MACS_DIR");
@@ -104,7 +104,7 @@ if (! -e "$MACS_DIR/default") {
 system ("sudo cp -R $INPUT_DIR/macs2 $DEST_DIR");
 # extract macs2 dependencies and move it to appropriate directory
 # see http://wiki.g2.bx.psu.edu/Admin/Config/Tool%20Dependencies
-my $MACS2_DIR="/mnt/galaxyTools/tools/macs2";
+my $MACS2_DIR="/mnt/galaxy/galaxy-app/tools/macs2";
 # if MAC2_DIR not exists, create it 
 if (! -e $MACS2_DIR) {
 	system ("sudo mkdir $MACS2_DIR");

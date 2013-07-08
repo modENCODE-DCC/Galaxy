@@ -4,7 +4,7 @@
 # written by modENCODE DCC group
 # please send your questions/comments to help@modencode.org 
 #
-# update /mnt/galaxyTools/galaxy-central/universe_wsgi.ini to include tools from toolshed 
+# update /mnt/galaxy/galaxy-app/universe_wsgi.ini to include tools from toolshed 
 #
 
 use strict;
@@ -12,7 +12,7 @@ use warnings;
 use File::Basename;
 
 # Galaxy tool config xml file 
-my $universeWSGIFile = "/mnt/galaxyTools/galaxy-central/universe_wsgi.ini";
+my $universeWSGIFile = "/mnt/galaxy/galaxy-app/universe_wsgi.ini";
 
 # backup 
 my $universeWSGIFileBackup = $universeWSGIFile. ".bak";

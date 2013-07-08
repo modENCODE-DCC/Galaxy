@@ -10,7 +10,7 @@ use warnings;
 use File::Basename;
 
 # Galaxy tool config xml file 
-my $toolConfigFile = "/mnt/galaxyTools/galaxy-central/tool_conf.xml";
+my $toolConfigFile = "/mnt/galaxy/galaxy-app/tool_conf.xml";
 # Galaxy tool config xml backup file 
 my $toolConfigFileBackup = $toolConfigFile . ".bak";
 

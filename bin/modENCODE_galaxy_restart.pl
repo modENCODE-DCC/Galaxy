@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-my $GALAXY_HOME = "/mnt/galaxyTools/galaxy-central";
+my $GALAXY_HOME = "/mnt/galaxy/galaxy-app";
 
 print "\nrestarting Galaxy ... ";
 my $cmdOutput =`sudo sh $GALAXY_HOME/run.sh --stop`;
