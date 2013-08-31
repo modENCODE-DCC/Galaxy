@@ -1,15 +1,10 @@
 <?xml version="1.0"?>
 <tool_dependency>
+    <package name="numpy" version="1.7.1">
+       <repository name="package_numpy_1_7" owner="iuc"/>
+    </package>
     <package name="macs2" version="2.0.10.2">
-        <install version="1.0">           
-            <!--<actions>
-                <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/Python-2.7.3.tar.bz2</action>
-                <action type="shell_command">./configure</action>
-                <action type="shell_command">make -j</action>
-                <action type="shell_command">sudo -n make install</action>
-                <action type="shell_command">sudo -n chmod ag+w /usr/local/lib/python2.7/site-packages</action>
-                <action type="shell_command">sudo -n chmod ag+wx /usr/local/bin</action>
-            </actions>-->
+        <install version="1.0">
             <actions>
                 <action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/macs2pkg.tar</action>
                 <action type="move_directory_files">
@@ -29,8 +24,3 @@
         <readme>Macs2 depends on having python2.7 installed on all nodes of the work cluster</readme>
     </package>
 </tool_dependency>
-
-<!--<action type="download_by_url">http://data.modencode.org/modENCODE_Galaxy/tarballs/numpy.tar</action>
-                <action type="shell_command">sudo -n python setup.py build</action>
-                <action type="shell_command">sudo -n python setup.py install</action>-->
-
