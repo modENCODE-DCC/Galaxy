@@ -33,28 +33,28 @@ def main():
 
     #set additional options
     #========================================================================================
-    if (options['action'] == "nr"):
+    if options['action'] == "nr":
         output_ranger_file = outputs['output_ranger_file']
         cmdline = "%s --format bam -l %s --verbose > default_output.txt" % ( cmdline, options['extension'] ) 
-    elif (options['action'] == "lc"):
+    elif options['action'] == "lc":
         output_ranger_file = outputs['output_ranger_file']
         cmdline = "%s --verbose > default_output.txt" % ( cmdline )
-    elif (options['action'] == "wig"):
+    elif options['action'] == "wig":
         output_wigzip_file = outputs['output_wigzip_file']
         cmdline = "%s --format bam -l %s %s %s %s -o ranger_wig" % ( cmdline, options['extension'], options['split'], options['strand'], options['gzip'] ) 
-    elif (options['action'] == "wigpe"):
+    elif options['action'] == "wigpe":
         output_wigzip_file = outputs['output_wigzip_file']
         cmdline = "%s -l %s %s %s %s -o ranger_wig" % ( cmdline, options['extension'], options['split'], options['strand'], options['gzip'] ) 
-    elif (options['action'] == "ranger"):
+    elif options['action'] == "ranger":
         output_summit_file = outputs['output_summit_file']
         output_region_file = outputs['output_region_file']
         output_details_file = outputs['output_details_file']
         output_report_file = outputs['output_report_file']
 
-        if (options['gene_annotate_file'] != "None"):
+        if options['gene_annotate_file'] != "None":
             gene_annotate_file = "--gene_annot_file %s/gene_annotation_files/%s" % ( script_path, options['gene_annotate_file'] )
             report = "--report"
-        elif (options['gene_annotate_file'] == "Upload"):
+        elif options['gene_annotate_file'] == "Upload":
             gene_annotate_file = options['usr_annot_file']
             report = "--report"
         else:
@@ -62,17 +62,17 @@ def main():
             report = ""
 
         cmdline = "%s -t %s --format bam %s --plot_region %s -l %s -p %s -q %s -r %s -b %s %s %s -o ranger_peak" % ( cmdline, options['threads'], gene_annotate_file, options['plot_region'], options['extension'], options['pvalue'], options['fdr'], options['delta'], options['bandwith'], options['pad'], report )
-    elif (options['action'] == "ccat"):
+    elif options['action'] == "ccat":
         output_summit_file = outputs['output_summit_file']
         output_region_file = outputs['output_region_file']
         output_details_file = outputs['output_details_file']
         output_report_file = outputs['output_report_file']
         output_ranger_file = outputs['output_ranger_file']
 
-        if (options['gene_annotate_file'] != "None"):
+        if options['gene_annotate_file'] != "None":
             gene_annotate_file = "--gene_annot_file %s/gene_annotation_files/%s" % ( script_path, options['gene_annotate_file'] )
             report = "--report"
-        elif (options['gene_annotate_file'] == "Upload"):
+        elif options['gene_annotate_file'] == "Upload":
             gene_annotate_file = options['usr_annot_file']
             report = "--report"
         else:
@@ -102,14 +102,14 @@ def main():
 
     #determine if the outputs are there, copy them to the appropriate dir and filename
     #========================================================================================
-    if(options['action'] == "nr" or options['action'] == "lc" or options['action'] == "ccat"):
+    if options['action'] == "nr" or options['action'] == "lc" or options['action'] == "ccat":
         created_ranger_file =  os.path.join( tmp_dir, "default_output.txt" )
         if os.path.exists( created_ranger_file ):
             shutil.move( created_ranger_file, output_ranger_file )
 
-    if(options['action'] == "wig" or options['action'] == "wigpe"):
-        if(options['split'] == "-s" or options['strand'] == "-x"):
-            if(options['gzip'] == "-z"):
+    if options['action'] == "wig" or options['action'] == "wigpe":
+        if options['split'] == "-s" or options['strand'] == "-x":
+            if options['gzip'] == "-z":
                 files = str( glob.glob('%s/*.wig.gz' % tmp_dir) )
                 files = files.replace("[", "")
                 files = files.replace("]", "")
@@ -130,7 +130,7 @@ def main():
                 os.system(cmd)
                 created_wigzip_file =  os.path.join( tmp_dir, "ranger_wig.zip" )
         else:
-            if(options['gzip'] == "-z"):
+            if options['gzip'] == "-z":
                 created_wigzip_file =  os.path.join( tmp_dir, "ranger_wig.wig.gz" )
             else:
                 created_wigzip_file =  os.path.join( tmp_dir, "ranger_wig.wig" )
@@ -138,7 +138,7 @@ def main():
         if os.path.exists( created_wigzip_file ):
             shutil.move( created_wigzip_file, output_wigzip_file )
 
-    if(options['action'] == "ranger" or options['action'] == "ccat"):
+    if options['action'] == "ranger" or options['action'] == "ccat":
         created_summit_file =  os.path.join( tmp_dir, "ranger_peak_summit.bed"  )
         if os.path.exists( created_summit_file ):
             shutil.move( created_summit_file, output_summit_file )
