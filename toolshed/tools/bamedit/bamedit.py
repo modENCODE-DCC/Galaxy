@@ -1,8 +1,12 @@
+#!/usr/bin/env python
 #purpose: python wrapper for bamedit tool
 #author: Ziru Zhou
 #date: October, 2012
 
-import sys, subprocess, tempfile, shutil, glob, os, os.path, gzip
+import os
+import sys
+import subprocess
+import tempfile
 from galaxy import eggs
 import pkg_resources
 pkg_resources.require( "simplejson" )
@@ -17,15 +21,15 @@ def main():
     #experiment_name = '_'.join( options['bamout'] ) 
    
     if(options['action'] == "merge"):
-	cmdline = "samtools merge  %s %s %s" % ( options['bamout'], options['input1'], options['input2'] )
-	if('input3' in options):
-		cmdline = "samtools merge  %s %s %s %s" % ( options['bamout'], options['input1'], options['input2'], options['input3'] )
+        cmdline = "samtools merge  %s %s %s" % ( options['bamout'], options['input1'], options['input2'] )
+    if('input3' in options):
+        cmdline = "samtools merge  %s %s %s %s" % ( options['bamout'], options['input1'], options['input2'], options['input3'] )
     elif (options['action'] == "split"):
-	cmdline = "bash %s/split.sh %s %s %s" % ( script_path, options['bamout'], options['bamout2'], options['input1'] )
+        cmdline = "bash %s/split.sh %s %s %s" % ( script_path, options['bamout'], options['bamout2'], options['input1'] )
     elif (options['action'] == "pileup"):
-	cmdline = "perl %s/pileup.pl %s %s %s %s %s" % ( script_path, options['input1'], options['input2'], options['bamout'], options['bamname'], options['refname'] )
+        cmdline = "perl %s/pileup.pl %s %s %s %s %s" % ( script_path, options['input1'], options['input2'], options['bamout'], options['bamname'], options['refname'] )
     elif (options['action'] == "filter"):
-	cmdline = "samtools view -q %s %s -bo %s" % ( options['quality'], options['input1'], options['bamout'] )
+        cmdline = "samtools view -q %s %s -bo %s" % ( options['quality'], options['input1'], options['bamout'] )
 
     #create tempdir for output files and stderr reports
     tmp_dir = tempfile.mkdtemp() 

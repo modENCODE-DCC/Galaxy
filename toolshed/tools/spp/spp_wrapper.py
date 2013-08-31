@@ -3,7 +3,11 @@
 #Date: November 2012
 #####################
 
-import sys, subprocess, tempfile, shutil, glob, os, os.path, gzip
+import os
+import sys
+import subprocess
+import tempfile
+import shutil
 from galaxy import eggs
 import pkg_resources
 pkg_resources.require( "simplejson" )
@@ -48,7 +52,6 @@ def main():
 
     #run cmdline
     #========================================================================================
-    #tmp_dir = tempfile.mkdtemp()
     tmp_dir = os.path.dirname(options['chip_file'])
     stderr_name = tempfile.NamedTemporaryFile().name
     proc = subprocess.Popen( args=cmdline, shell=True, cwd=tmp_dir, stderr=open( stderr_name, 'wb' ) )
@@ -78,7 +81,7 @@ def main():
     created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
- 
+
     created_region_peak =  os.path.join( tmp_dir, "%s_VS_%s.regionPeak" % (chip_name, input_name) )
     if os.path.exists( created_region_peak ):
         shutil.move( created_region_peak, output_region_peak )
@@ -95,8 +98,7 @@ def main():
     if os.path.exists( created_plot_file ):
         shutil.move( created_plot_file, output_plot_file )
 
-    
     os.unlink( stderr_name )
-    #os.rmdir( tmp_dir )
+    shutil.rmtree( tmp_dir )
 
 if __name__ == "__main__": main()
