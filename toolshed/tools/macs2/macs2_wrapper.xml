@@ -1,8 +1,9 @@
 <tool id="modencode_peakcalling_macs2" name="MACS2" version="2.0.10.2">
   <requirements>
     <requirement type="python-module">macs2</requirement>
+    <requirement type="python-module">numpy</requirement>
     <requirement type="package" version="2.0.10.2">macs2</requirement>
-    <!--<requirement type="set_environment">SCRIPT_PATH</requirement>-->
+    <requirement type="package" version="1.7.1">numpy</requirement>
   </requirements>
   <description>Model-based Analysis of ChIP-Seq</description>
   <command interpreter="python">macs2_wrapper.py $options_file $outputs_file</command>

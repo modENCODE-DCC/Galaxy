@@ -1,4 +1,12 @@
-import sys, subprocess, tempfile, shutil, glob, os, os.path, gzip
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+import tempfile
+import shutil
+import glob
+import gzip
 from galaxy import eggs
 import pkg_resources
 pkg_resources.require( "simplejson" )
@@ -47,7 +55,7 @@ def main():
     output_extra_html = sys.argv[3]
     output_extra_path = sys.argv[4]
     # Added peaks output argument
-    output_peaks =  sys.argv[5]    
+    output_peaks =  sys.argv[5]
     
     experiment_name = '_'.join( options['experiment_name'].split() ) #save experiment name here, it will be used by macs for filenames (gzip of wig files will fail with spaces - macs doesn't properly escape them)..need to replace all whitespace, split makes this easier
     cmdline = "macs14 -t %s" % ",".join( options['input_chipseq'] )
@@ -87,7 +95,6 @@ def main():
         proc = subprocess.Popen( args=cmdline, shell=True, cwd=tmp_dir )
         proc.wait()
     
-    
     #move bed out to proper output file
     created_bed_name =  os.path.join( tmp_dir, "%s_peaks.bed" % experiment_name )
     if os.path.exists( created_bed_name ):
@@ -97,8 +104,8 @@ def main():
     created_peak_xls_file =  os.path.join( tmp_dir, "%s_peaks.xls" % experiment_name )
     if os.path.exists( created_peak_xls_file ):
         # shutil.copy( created_peak_xls_file, os.path.join ( "/mnt/galaxyData/tmp/", "%s_peaks.xls" % ( os.path.basename(output_extra_path) )))
-	shutil.copyfile( created_peak_xls_file, output_peaks )   
- 
+        shutil.copyfile( created_peak_xls_file, output_peaks )
+
     #parse xls files to interval files as needed
     if options['xls_to_interval']:
         create_peak_xls_file = os.path.join( tmp_dir, '%s_peaks.xls' % experiment_name )
@@ -132,7 +139,7 @@ def main():
     for filename in sorted( os.listdir( tmp_dir ) ):
         shutil.move( os.path.join( tmp_dir, filename ), os.path.join( output_extra_path, filename ) )
         out_html.write( '<li><a href="%s">%s</a></li>\n' % ( filename, filename ) )
-	#out_html.write( '<li><a href="%s">%s</a>peakxls %s SomethingDifferent tmp_dir %s path %s exp_name %s</li>\n' % ( created_peak_xls_file, filename, filename, tmp_dir, output_extra_path, experiment_name ) )
+        #out_html.write( '<li><a href="%s">%s</a>peakxls %s SomethingDifferent tmp_dir %s path %s exp_name %s</li>\n' % ( created_peak_xls_file, filename, filename, tmp_dir, output_extra_path, experiment_name ) )
     out_html.write( '</ul></p>\n' )
     out_html.write( '<h3>Messages from MACS:</h3>\n<p><pre>%s</pre></p>\n' % open( stderr_name, 'rb' ).read() )
     out_html.write( '</body></html>\n' )

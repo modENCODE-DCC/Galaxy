@@ -3,7 +3,11 @@
 #Date: November 2012
 #####################
 
-import sys, subprocess, tempfile, shutil, glob, os, os.path, gzip
+import os
+import sys
+import subprocess
+import tempfile
+import shutil
 from galaxy import eggs
 import pkg_resources
 pkg_resources.require( "simplejson" )
@@ -36,19 +40,18 @@ def main():
 
     #set additional options
     #========================================================================================
-    if (options['action'] == "cross_correlation"):
+    if options['action'] == "cross_correlation":
         cmdline = "%s %s %s %s > default_output.txt" % ( cmdline, options['savp'], options['out'], options['rf'] ) 
-    elif (options['action'] == "peak_calling"):
+    elif options['action'] == "peak_calling":
         cmdline = "%s -fdr=%s -npeak=%s %s %s %s %s %s > default_output.txt" % ( cmdline, options['fdr'], options['npeak'], options['savr'], options['savd'], options['savn'], options['savp'], options['rf'] ) 
-    elif (options['action'] == "idr"):
+    elif options['action'] == "idr":
         cmdline = "%s -npeak=%s %s %s %s %s > default_output.txt" % ( cmdline, options['npeak'], options['savr'], options['savp'], options['out'], options['rf'] ) 
-    elif (options['action'] == "custom"):
+    elif options['action'] == "custom":
         cmdline = "%s -s=%s %s -x=%s -fdr=%s -npeak=%s %s %s" % ( cmdline, options['s'], options['speak'], options['x'], options['fdr'], options['npeak'], options['filtchr'], options['rf'] )
         cmdline = "%s %s  %s %s %s %s > default_output.txt" % ( cmdline, options['out'], options['savn'], options['savr'], options['savp'], options['savd'] )
 
     #run cmdline
     #========================================================================================
-    #tmp_dir = tempfile.mkdtemp()
     tmp_dir = os.path.dirname(options['chip_file'])
     stderr_name = tempfile.NamedTemporaryFile().name
     proc = subprocess.Popen( args=cmdline, shell=True, cwd=tmp_dir, stderr=open( stderr_name, 'wb' ) )
@@ -78,7 +81,7 @@ def main():
     created_narrow_peak =  os.path.join( tmp_dir, "%s_VS_%s.narrowPeak" % (chip_name, input_name) )
     if os.path.exists( created_narrow_peak ):
         shutil.move( created_narrow_peak, output_narrow_peak )
- 
+
     created_region_peak =  os.path.join( tmp_dir, "%s_VS_%s.regionPeak" % (chip_name, input_name) )
     if os.path.exists( created_region_peak ):
         shutil.move( created_region_peak, output_region_peak )
@@ -95,8 +98,7 @@ def main():
     if os.path.exists( created_plot_file ):
         shutil.move( created_plot_file, output_plot_file )
 
-    
     os.unlink( stderr_name )
-    #os.rmdir( tmp_dir )
+    shutil.rmtree( tmp_dir )
 
 if __name__ == "__main__": main()
