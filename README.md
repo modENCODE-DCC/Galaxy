@@ -3,14 +3,14 @@ modENCODE-DCC: Galaxy
 
 This GitHub repository contains tools and scripts put together by members of the modENCODE DCC team:
 
- * Ravpreet Setia
  * Quang Trinh
  * Marc Perry
- * Ellen Kephart
  * Sergio Contrino
  * Lincoln Stein
  
 Alumini:
+ * Ellen Kephart
+ * Ravpreet Setia 
  * Fei-Yang ( Arthur ) Jen
  * Ziru Zhou 
  * KarMing Chu
