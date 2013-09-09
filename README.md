@@ -15,8 +15,8 @@ Alumini:
  * Ziru Zhou 
  * KarMing Chu
  
-
-Please send your comments/questions to modENCODE DCC at help@modencode.org.
+We would like to thank Bjoern Gruening (<bjoern.gruening@gmail.com>) for updating some of our scripts 
+to take advantages of the newer Tool Shed features.  Please send your comments/questions to modENCODE DCC at help@modencode.org.
 
 
 Documentations
