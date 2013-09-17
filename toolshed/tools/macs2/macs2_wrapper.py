@@ -85,10 +85,17 @@ def main():
     output_xls_to_interval_peaks_file = outputs['output_xls_to_interval_peaks_file']
     output_xls_to_interval_negative_peaks_file = outputs['output_xls_to_interval_negative_peaks_file']
 
+
+    cmdline = "%s --format='%s' --name='%s' --gsize='%s' --bw='%s' --mfold %s %s %s %s" % ( cmdline, options['format'], experiment_name, options['gsize'], options['bw'], options['mfoldlo'], options['mfoldhi'], options['nolambda'], options['bdg'] )
+
+
     if 'pvalue' in options:
-        cmdline = "%s --format='%s' --name='%s' --gsize='%s' --bw='%s' --pvalue='%s' --mfold %s %s %s %s" % ( cmdline, options['format'], experiment_name, options['gsize'], options['bw'], options['pvalue'], options['mfoldlo'], options['mfoldhi'], options['nolambda'], options['bdg'] )
+        cmdline = "%s --pvalue='%s'" % ( cmdline, options['pvalue'] )
     elif 'qvalue' in options:
-        cmdline = "%s --format='%s' --name='%s' --gsize='%s' --bw='%s' --qvalue='%s' --mfold %s %s %s %s" % ( cmdline, options['format'], experiment_name, options['gsize'], options['bw'], options['qvalue'], options['mfoldlo'], options['mfoldhi'], options['nolambda'], options['bdg'] )
+        cmdline = "%s --qvalue='%s'" % ( cmdline, options['qvalue'] )
+
+    if 'broad' in options:
+        cmdline = "%s --broad --broad-cutoff='%s'" % ( cmdline, options['broad_cutoff'] )
 
     if 'nomodel' in options:
         cmdline = "%s --nomodel --shiftsize='%s'" % ( cmdline, options['nomodel'] )
