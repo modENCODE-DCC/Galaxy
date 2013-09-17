@@ -54,9 +54,7 @@
 	    <param name="mfoldhi" type="integer" label="Select the regions with MFOLD high-confidence enrichment ratio against background to build model (upper-limit)" value="30" help="(--mfold)"/>
 	    <param name="nolambda" label="Use fixed background lambda as local lambda for every peak region" type="boolean" truevalue="--nolambda" falsevalue="" checked="False" help="up to 9X more time consuming (--nolambda)"/>
 	  </when>
-	  <when value="off">
-	    <!--display nothing-->
-	  </when>
+	  <when value="off" />
 	</conditional>
     	<conditional name="nomodel_type">
           <param name="nomodel_type_selector" type="select" label="Build Model">
