@@ -179,7 +179,7 @@ import simplejson
         #set $__options['nolambda'] = str( $major_command.advanced_options.nolambda )
         #if str($major_command.advanced_options.broad_options.broad_options_selector) == '--broad':
             #set $__options['broad'] = str( $major_command.advanced_options.broad_options.broad_options_selector )
-            #set $__options['broad_cutoff'] = float( $major_command.advanced_options.broad_options.broad_cutoff )
+            #set $__options['broad_cutoff'] = float( str( $major_command.advanced_options.broad_options.broad_cutoff ) )
         #end if
     #else:
         #set $__options['mfoldlo'] = int( "10" )

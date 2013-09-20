@@ -81,9 +81,9 @@ def main():
         output_extra_html = outputs['output_extra_file']
         output_extra_path = outputs['output_extra_file_path']
         output_peaks =  outputs['output_peaks_file']
-    output_narrowpeaks = outputs['output_narrowpeaks_file']
-    output_xls_to_interval_peaks_file = outputs['output_xls_to_interval_peaks_file']
-    output_xls_to_interval_negative_peaks_file = outputs['output_xls_to_interval_negative_peaks_file']
+        output_narrowpeaks = outputs['output_narrowpeaks_file']
+        output_xls_to_interval_peaks_file = outputs['output_xls_to_interval_peaks_file']
+        output_xls_to_interval_negative_peaks_file = outputs['output_xls_to_interval_negative_peaks_file']
 
 
     cmdline = "%s --format='%s' --name='%s' --gsize='%s' --bw='%s' --mfold %s %s %s %s" % ( cmdline, options['format'], experiment_name, options['gsize'], options['bw'], options['mfoldlo'], options['mfoldhi'], options['nolambda'], options['bdg'] )
@@ -103,7 +103,7 @@ def main():
     if options['command'] == "bdgcmp":
         output_bdgcmp = outputs['output_bdgcmp_file']
 
-    cmdline = "%s -m %s -p %s -o bdgcmp_out.bdg" % ( cmdline, options['m'], options['pseudocount'] )
+        cmdline = "%s -m %s -p %s -o bdgcmp_out.bdg" % ( cmdline, options['m'], options['pseudocount'] )
     #=================================================================================
 
     tmp_dir = tempfile.mkdtemp() #macs makes very messy output, need to contain it into a temp dir, then provide to user
@@ -178,7 +178,7 @@ def main():
     if options['command'] == "bdgcmp":
         created_bdgcmp_file = os.path.join (tmp_dir, "bdgcmp_out.bdg" )
         if os.path.exists( created_bdgcmp_file ):
-        shutil.move (created_bdgcmp_file, output_bdgcmp )
+            shutil.move (created_bdgcmp_file, output_bdgcmp )
 
     #=================================================================================    
     #cleanup
